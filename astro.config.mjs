@@ -5,7 +5,8 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-	outDir: './docs',
+	site: 'https://Josue-Ramos1.github.io',
+  	base: 'Notas',
 	integrations: [
 		starlight({
 			title: 'Mis Notas',
