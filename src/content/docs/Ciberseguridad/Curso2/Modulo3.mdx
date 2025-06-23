@@ -1,0 +1,81 @@
+---
+title: Herramientas SIEM
+description: Introducción a las herramientas SIEM, registros, código abierto y Splunk/Chronicle
+---
+
+# Herramientas SIEM
+
+Como analista de seguridad, una de mis responsabilidades es analizar los datos de registro para gestionar amenazas, riesgos y vulnerabilidades. Un **registro** es un historial de eventos en los sistemas y redes de una organización, y existen tres fuentes principales:
+
+- **Registros de firewall**: Registran las conexiones entrantes desde Internet y las solicitudes salientes desde la red interna.  
+- **Registros de red**: Contienen información sobre los dispositivos que entran y salen de la red, así como las conexiones entre dispositivos y servicios.  
+- **Registros de servidor**: Registran eventos relacionados con servicios como sitios web, correos electrónicos o archivos compartidos, incluyendo inicios de sesión y cambios de credenciales.
+
+El monitoreo de estos registros permite identificar vulnerabilidades y posibles violaciones de seguridad. Las herramientas **SIEM** (Administración de Información y Eventos de Seguridad) recopilan y analizan estos datos en tiempo real, proporcionando monitoreo, alertas automatizadas y almacenamiento centralizado.
+
+Las herramientas **SIEM** mejoran la eficiencia al reducir la cantidad de registros que deben analizarse manualmente, pero requieren configuración y personalización constante para adaptarse a nuevas amenazas. Más adelante en el programa de certificación, tendré la oportunidad de practicar con herramientas SIEM para identificar incidentes de seguridad y aprender cómo los paneles de SIEM ayudan a supervisar amenazas, riesgos y vulnerabilidades.
+
+Las herramientas **SIEM** no solo recopilan y analizan datos de registro, sino que también permiten la creación de **paneles** para visualizar información de seguridad en un formato fácil de entender.
+
+Al igual que una aplicación meteorológica muestra datos como temperatura y precipitaciones en gráficos y tablas, los paneles de **SIEM** presentan información sobre la seguridad de la organización mediante visualizaciones que facilitan la identificación de patrones y tendencias.
+
+Por ejemplo, si un analista de seguridad recibe una alerta sobre un intento de inicio de sesión sospechoso, puede acceder al **panel de SIEM** y descubrir que hubo **500 intentos en cinco minutos**, desde ubicaciones inusuales y fuera del horario laboral del usuario. Gracias a la visualización en el panel, el analista puede evaluar rápidamente si la actividad es maliciosa.
+
+Además de los datos de seguridad, los paneles de **SIEM** también muestran **métricas clave**, como el tiempo de respuesta, la disponibilidad y la tasa de fallos, que ayudan a evaluar el rendimiento de una aplicación. Se pueden **personalizar** para mostrar información relevante según las necesidades de la organización, como el volumen de tráfico de red.
+
+Estos paneles permiten a los analistas de seguridad **supervisar y fortalecer la postura de seguridad** de la organización. En la siguiente parte del programa, exploraremos algunas herramientas **SIEM** comunes utilizadas en la industria.
+
+---
+
+# Código abierto y diversas herramientas SIEM
+
+Las herramientas **SIEM** ayudan a los analistas de seguridad a **monitorear sistemas y detectar amenazas**, y las organizaciones pueden elegir entre diferentes tipos según sus necesidades.
+
+Las herramientas **SIEM autoalojadas** requieren que la organización **instale, opere y mantenga** la herramienta en su propia infraestructura física. Esto les da control total sobre los datos, lo que es ideal para empresas con información altamente confidencial. En cambio, las herramientas **SIEM alojadas en la nube** son gestionadas por proveedores externos y accesibles a través de Internet, lo que evita la inversión en infraestructura propia. También existe una opción **híbrida**, que combina ambas soluciones, permitiendo aprovechar los beneficios de la nube sin perder control sobre ciertos datos críticos.
+
+Entre las herramientas **SIEM más utilizadas** están **Splunk Enterprise, Splunk Cloud y Chronicle**:
+
+- **Splunk Enterprise** es una **solución autoalojada** que permite almacenar, analizar y buscar datos de registro en tiempo real.  
+- **Splunk Cloud**, en cambio, es una versión **alojada en la nube**, ideal para empresas que operan en entornos híbridos o completamente en la nube.  
+- **Chronicle de Google** es una herramienta **nativa de la nube**, diseñada para maximizar las capacidades de la computación en la nube, como **escalabilidad, flexibilidad y disponibilidad**.
+
+Las organizaciones deben elegir herramientas SIEM en función de sus necesidades. Mientras que las **soluciones autoalojadas** ofrecen **mayor control y seguridad sobre los datos**, las **soluciones en la nube** brindan **mayor accesibilidad, menor costo de infraestructura y escalabilidad**.
+
+---
+
+## Código abierto
+
+Las **herramientas de código abierto** son software desarrollado de manera colaborativa y suelen ser gratuitas, permitiendo a los usuarios personalizarlas según sus necesidades. Al tener su código fuente disponible públicamente, pueden ser más seguras, ya que la comunidad puede identificar y corregir vulnerabilidades rápidamente. Además, esto facilita su mejora continua y adaptación a distintos entornos.
+
+Por otro lado, las **herramientas propietarias** son desarrolladas y gestionadas por empresas o individuos, quienes restringen el acceso al código fuente. Suelen requerir el pago de licencias y actualizaciones, y aunque ofrecen soporte y mantenimiento oficial, los usuarios tienen menos flexibilidad para modificar su funcionalidad. Ejemplos de herramientas propietarias en ciberseguridad incluyen **Splunk® y Chronicle SIEM**.
+
+A menudo se cree que las herramientas de código abierto son menos seguras o eficientes, pero esto no es cierto. Muchas de ellas han sido adoptadas como **estándares en la industria** debido a su transparencia y la rápida detección de vulnerabilidades por parte de la comunidad.
+
+Ejemplos de herramientas de código abierto en seguridad incluyen **Linux y Suricata**:
+
+- **Linux** es un sistema operativo ampliamente utilizado, que permite la personalización a través de su línea de comandos y sirve como base para muchas infraestructuras de seguridad.  
+- **Suricata**, por su parte, es un software de análisis de redes y detección de amenazas que identifica tráfico sospechoso y ayuda a detectar vulnerabilidades. Su desarrollo es respaldado por la **Fundación Abierta para la Seguridad de la Información (OISF)**, asegurando que se mantenga gratuito y accesible para todos.
+
+---
+
+## Splunk y Google
+
+**Splunk** es una herramienta SIEM que permite analizar, monitorear y visualizar datos de registro en cuadros de mando, lo que ayuda a gestionar la seguridad de una organización. Existen dos versiones principales: **Splunk Enterprise y Splunk Cloud**, ambas diseñadas para ofrecer visibilidad completa de las operaciones mediante la recopilación y análisis de datos.
+
+Los principales paneles de **Splunk** incluyen:
+
+- **Panel de postura de seguridad**, usado en SOCs para monitorear eventos de seguridad en tiempo real y evaluar la efectividad de las políticas de seguridad.  
+- **Panel de resumen ejecutivo**, que proporciona estadísticas de seguridad de alto nivel para ayudar a la toma de decisiones estratégicas.  
+- **Panel de revisión de incidentes**, que resalta patrones sospechosos y ofrece una cronología visual de incidentes.  
+- **Panel de análisis de riesgos**, utilizado para evaluar amenazas y priorizar la mitigación de vulnerabilidades en usuarios, equipos o direcciones IP.
+
+Por otro lado, **Chronicle**, la herramienta SIEM de Google, se enfoca en la **retención, análisis y búsqueda de registros** para identificar amenazas. Ofrece tableros como:
+
+- **Panel de estadísticas empresariales**, que identifica indicadores de compromiso (IOC) y asigna niveles de gravedad a las amenazas.  
+- **Panel de ingestión de datos y salud**, que garantiza que los registros se procesan sin errores.  
+- **Cuadro de mando de coincidencias COI**, que rastrea amenazas relacionadas con nombres de dominio y direcciones IP sospechosas.  
+- **Panel principal**, que ofrece un resumen general de eventos y tendencias de amenazas en la organización.  
+- **Panel de detecciones de reglas**, que analiza incidentes recurrentes para optimizar estrategias de mitigación.  
+- **Panel de inicio de sesión de usuario**, que detecta accesos inusuales o sospechosos en la organización.
+
+Ambas herramientas son fundamentales para la **detección, análisis y respuesta a incidentes de seguridad**, proporcionando información clave para fortalecer la postura de seguridad de una empresa.
