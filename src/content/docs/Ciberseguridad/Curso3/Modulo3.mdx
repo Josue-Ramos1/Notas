@@ -1,0 +1,41 @@
+---
+title: Modulo 3 - Seguridad contra intrusiones en la red
+description: Análisis de los dominios CISSP, amenazas, riesgos, vulnerabilidades y su impacto en la organización.
+---
+
+# Redes seguras contra DoS
+Los **ataques de denegación de servicio (DoS)** buscan interrumpir el funcionamiento normal de una red o servidor sobrecargándolo con tráfico excesivo, impidiendo el acceso a usuarios legítimos y afectando las operaciones comerciales. Un tipo más avanzado es el **ataque de denegación de servicio distribuido (DDoS)**, que utiliza múltiples dispositivos para maximizar el impacto y colapsar la red objetivo.  
+
+Existen varios tipos de ataques DoS a nivel de red. Uno de los más comunes es el **ataque SYN flood**, que explota el protocolo de enlace TCP enviando múltiples solicitudes SYN sin completar la conexión, lo que satura los puertos disponibles del servidor y lo deja inoperante. Otro método es la **inundación ICMP**, en la que se envían repetidamente paquetes ICMP a un servidor, obligándolo a responder hasta que su ancho de banda y recursos se agoten.  
+
+Un ataque más agresivo es el **ping of death**, que envía paquetes ICMP de un tamaño superior al permitido (más de 64 KB), lo que provoca fallos en los sistemas vulnerables, dejándolos inoperativos.  
+
+Estos ataques pueden causar interrupciones significativas y exponer a las organizaciones a otras amenazas de seguridad. En futuras secciones, se explorarán más ataques comunes a redes.
+
+---
+
+# Tacticas de ataque y defensa de redes 
+El **sniffing de paquetes** es una técnica utilizada para capturar y analizar datos que viajan por una red. Puede ser una herramienta útil para los analistas de seguridad al investigar incidentes o depurar problemas, pero también puede ser explotada por atacantes para obtener acceso no autorizado a información sensible como nombres, datos financieros y credenciales.  
+
+Los atacantes pueden interceptar el tráfico entre dispositivos y usar herramientas de software o hardware para espiar y modificar los paquetes de datos. Existen dos tipos de sniffing: **pasivo**, donde los atacantes solo leen los paquetes en tránsito sin alterar nada, y **activo**, donde manipulan los paquetes, por ejemplo, redirigiéndolos o modificando su contenido antes de que lleguen a su destino.  
+
+Para prevenir estos ataques, se recomienda usar **VPNs** para cifrar la información y evitar que los atacantes puedan leerla, asegurarse de que los sitios web usen **HTTPS** para proteger los datos transmitidos y evitar conectarse a **redes WiFi públicas no protegidas**, a menos que se utilice una VPN. Con estas medidas, se puede reducir significativamente el riesgo de sniffing malintencionado.
+## Suplantacion de ip
+La **suplantación de IP** es un ataque en el que un atacante falsifica la dirección IP de origen de un paquete de datos para hacerse pasar por un sistema autorizado y evadir las reglas del firewall. Esto le permite comunicarse con la red objetivo y obtener acceso no autorizado.  
+
+Entre los ataques más comunes se encuentran:  
+- **Ataque en ruta (Man-in-the-Middle):** El atacante se interpone entre dos dispositivos en comunicación y puede interceptar o modificar los datos en tránsito.  
+- **Ataque de repetición:** Un actor malintencionado captura un paquete legítimo y lo retransmite en otro momento para engañar al sistema.  
+- **Ataque de pitufos (Smurf attack):** El atacante usa una IP suplantada para inundar a la víctima con tráfico, combinando suplantación de IP y un ataque DDoS.  
+
+Para prevenir la suplantación de IP, se recomienda el uso de **encriptación** para proteger los datos en tránsito y configurar **firewalls** para rechazar tráfico sospechoso. Una regla efectiva es bloquear paquetes entrantes que aparenten provenir de la misma dirección IP de la red local, ya que los dispositivos legítimos ya deberían estar dentro de la red.
+
+---
+# Protegerse 
+Para proteger una red contra ataques DoS y otras amenazas mencionadas, es fundamental combinar varias estrategias de defensa. Para mitigar ataques **DoS/DDoS**, se recomienda implementar firewalls con filtrado de tráfico, sistemas de detección y prevención de intrusos (IDS/IPS) y servicios de mitigación en la nube como Cloudflare o AWS Shield. También es clave configurar límites en la cantidad de solicitudes permitidas por IP y habilitar el **rate limiting** en servidores y APIs.  
+
+Contra el **sniffing de paquetes**, el uso de VPNs y el cifrado de extremo a extremo (TLS/SSL) protege la información sensible. Además, las redes segmentadas y el uso de switches en lugar de hubs dificultan la captura de tráfico.  
+
+Para prevenir la **suplantación de IP**, se deben aplicar reglas estrictas en firewalls, como el filtrado de paquetes con listas de acceso (ACLs) y la inspección de tráfico con herramientas como Snort o Suricata. Además, se recomienda activar mecanismos como el **Reverse Path Forwarding (RPF)** en routers para evitar el tráfico con IPs falsas y monitorear los registros de red para detectar patrones anómalos.  
+
+El enfoque ideal es una defensa en capas que combine hardware, software y buenas prácticas de seguridad. ¿Tienes un caso específico en mente o buscas recomendaciones más detalladas para una implementación concreta?

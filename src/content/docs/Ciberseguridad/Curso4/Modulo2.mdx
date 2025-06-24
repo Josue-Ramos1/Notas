@@ -1,0 +1,133 @@
+---
+title: Módulo 2 – El Sistema Operativo Linux
+description: Fundamentos, amenazas y habilidades esenciales para comenzar una carrera en ciberseguridad.
+---
+
+# Todo sobre linux
+Linux es el sistema operativo más utilizado en el área de seguridad hoy en día. Es un sistema de **código abierto**, lo que significa que cualquiera puede usar, compartir y modificar su código. Su historia comienza en los años 90, cuando **Linus Torvalds** creó el **kernel de Linux** para mejorar UNIX, mientras que **Richard Stallman** desarrollaba el proyecto **GNU** con una filosofía similar. Al combinar el kernel de Torvalds con el sistema GNU de Stallman, nació lo que hoy conocemos como Linux.
+
+Una característica clave de Linux es su apertura: gracias a su licencia pública GNU, existe una gran comunidad de desarrolladores que continuamente mejora el sistema. Además, hay **más de 600 distribuciones** diferentes de Linux, adaptadas a diversas necesidades.
+
+En un trabajo de **seguridad de nivel básico**, Linux es fundamental para tareas como revisar registros de errores, verificar accesos y autorizaciones en sistemas de gestión de identidad, o utilizar herramientas forenses digitales y de pruebas de penetración. Cada distribución puede estar especializada para diferentes funciones, lo que convierte a Linux en una herramienta muy versátil y esencial para cualquier analista de seguridad.
+## La arquitectura de Linux: una visión general
+
+Así como los edificios tienen estructuras complejas y bien diseñadas, los sistemas operativos también están formados por componentes que trabajan juntos. En el caso de Linux, estos componentes son:
+1. El usuario: Es quien interactúa con el sistema y ejecuta tareas o comandos. Linux permite múltiples usuarios al mismo tiempo (es un sistema multiusuario).
+2. Aplicaciones: Son los programas que realizan tareas específicas (como editores de texto, navegadores, etc.). En Linux, se instalan normalmente mediante gestores de paquetes. Un ejemplo es Nano, un editor de texto básico.
+3. Shell: Es la interfaz de línea de comandos (CLI) que permite al usuario comunicarse con el sistema. El shell interpreta los comandos que escribes y devuelve resultados.
+4. FHS (File Hierarchy Standard): Es la forma en que Linux organiza los archivos. Funciona como un archivador, facilitando que el sistema encuentre y acceda a la información.
+5. Kernel: Es el núcleo del sistema operativo. Administra los recursos (como la memoria y los procesos) y se comunica con el hardware a través de controladores. Es clave para el rendimiento del sistema.
+6. Hardware: Son los componentes físicos del sistema, como el teclado, la CPU y el mouse. El kernel interactúa con ellos para ejecutar las instrucciones del usuario.
+# Distribuciones de linux
+## Distribuciones de Linux y su importancia en ciberseguridad
+Linux es un sistema operativo altamente personalizable, y una de sus características principales es que no existe una única versión: hay muchas **distribuciones** o *sabores*, cada una adaptada a distintas necesidades. Comprender qué distribución estás usando es fundamental, ya que cada una viene con herramientas, interfaces y aplicaciones distintas. Por ejemplo, **Debian** y **Ubuntu** son distribuciones diferentes con paquetes y configuraciones únicas.
+
+Una forma útil de entender esto es con la analogía del vehículo. El **kernel de Linux** sería el motor: es el núcleo del sistema. Así como se puede usar un motor para fabricar distintos tipos de vehículos (como camiones, autos o aviones), el kernel puede usarse para crear distintas distribuciones, cada una con un propósito específico. Algunas están diseñadas para tareas pesadas, otras para velocidad o personalización.
+
+Cada distribución puede incluir distintos programas preinstalados, entornos gráficos y formas de manejo. Esto varía según la **necesidad del usuario**, igual que uno elige entre un auto familiar o un deportivo, según el uso que le dará.
+
+Otra ventaja es que, al ser **código abierto**, cualquiera puede tomar el kernel, agregar sus propias herramientas y crear una nueva distribución. De hecho, muchas distribuciones conocidas derivan de otras:
+
+* **Ubuntu** y **Kali Linux** vienen de **Debian**
+* **CentOS** viene de **Red Hat**
+* **SUSE** viene de **Slackware**
+
+Para un analista de seguridad, conocer bien las distribuciones más usadas facilitará el trabajo y mejorará su eficiencia al usar herramientas específicas de seguridad.
+
+## Distribuciones de Linux para ciberseguridad
+
+Existen varias distribuciones de Linux especialmente útiles en el campo de la ciberseguridad. Cada una tiene características únicas que la hacen adecuada para diferentes tareas como pruebas de penetración, análisis forense, o administración de servidores.
+
+**Kali Linux**
+Es una distribución de código abierto basada en Debian, ampliamente utilizada en la industria de la seguridad. Viene preinstalada con herramientas para **pruebas de penetración** (ataques simulados para encontrar vulnerabilidades) y **análisis forense digital** (recolección y análisis de datos tras un ataque). Es ideal para investigadores y profesionales del hacking ético.
+
+**Ubuntu**
+También basada en Debian, es conocida por ser muy **fácil de usar**. Tiene tanto **interfaz gráfica (GUI)** como de **línea de comandos (CLI)**. Aunque no viene enfocada exclusivamente a la seguridad, es ampliamente usada en este campo por su compatibilidad con herramientas de seguridad que se pueden instalar fácilmente. Además, es muy común en **entornos de computación en la nube**, lo que la hace relevante en la protección de servidores remotos.
+
+**Parrot OS**
+Otra distribución basada en Debian, similar a Kali, pero enfocada tanto en **seguridad** como en **uso general**. Incluye herramientas para pruebas de penetración y análisis forense, y también tiene GUI y CLI. Es muy recomendada por su equilibrio entre potencia y facilidad de uso.
+
+**Red Hat Enterprise Linux (RHEL)**
+Distribución empresarial **de pago**, muy usada en entornos corporativos por su **soporte profesional**. Aunque no está orientada directamente a la ciberseguridad, muchas empresas la utilizan para servidores, por lo que es común verla en entornos donde la seguridad es crítica.
+
+**AlmaLinux**
+Distribución **gratuita** y **comunitaria**, diseñada como reemplazo directo de **CentOS**, que era una alternativa libre a Red Hat. AlmaLinux mantiene compatibilidad con configuraciones y aplicaciones de CentOS, por lo que es una opción estable y confiable para sistemas empresariales.
+
+## **Administradores de paquetes en Linux**
+
+Un **paquete** es una unidad de software que puede ser una aplicación completa o una parte de ella. Contiene los archivos necesarios para instalar y ejecutar la aplicación, incluyendo sus **dependencias**, que son otros archivos o programas que necesita para funcionar correctamente.
+
+Para facilitar el manejo de paquetes, Linux utiliza herramientas llamadas **administradores de paquetes**, que permiten **instalar, actualizar, gestionar o eliminar software** de forma sencilla. Estos ayudan a resolver automáticamente las dependencias, evitando errores comunes.
+
+
+## **Distribuciones y tipos de administradores de paquetes**
+
+Las distribuciones de Linux suelen compartir "familias" o sistemas base. Por ejemplo:
+
+* **Kali Linux, Ubuntu y Parrot** provienen de **Debian**
+* **CentOS** proviene de **Red Hat**
+
+Cada una usa su propio administrador de paquetes:
+
+| Distribución base | Administrador de paquetes | Extensión de archivo |
+| ----------------- | ------------------------- | -------------------- |
+| Debian            | `dpkg`                    | `.deb`               |
+| Red Hat           | `rpm`                     | `.rpm`               |
+
+Ejemplos de nombres de archivos de paquete:
+
+* Debian: `nombre_versión-arquitectura.deb`
+* Red Hat: `nombre-versión-release_arquitectura.rpm`
+
+### **Herramientas de gestión de paquetes (desde terminal)**
+
+Además de los administradores base, existen herramientas más prácticas para gestionar paquetes desde la línea de comandos:
+
+* **APT (Advanced Package Tool):**
+  Usado en distribuciones basadas en **Debian**. Permite instalar, buscar y actualizar paquetes fácilmente. Ejemplo de uso: `sudo apt install nombre_paquete`
+
+* **YUM (Yellowdog Updater, Modified):**
+  Usado en distribuciones basadas en **Red Hat**. También facilita la instalación y actualización desde la terminal. Ejemplo de uso: `sudo yum install nombre_paquete`
+
+# Shell 
+## Shell de Linux
+
+El **shell** es una parte esencial del sistema operativo Linux y actúa como **intérprete de la línea de comandos (CLI)**. Es el componente que permite al usuario comunicarse con el sistema escribiendo comandos, y es una herramienta clave para los analistas de seguridad.
+
+### ¿Qué hace el shell?
+
+Permite al usuario:
+
+* Ejecutar comandos para interactuar con el sistema operativo.
+* Realizar operaciones como cálculos, pruebas o ejecución de programas.
+* Automatizar tareas complejas conectando diferentes aplicaciones y comandos.
+* Comunicarse con el kernel, que es el núcleo del sistema, para ejecutar instrucciones.
+
+### ¿Por qué es importante?
+
+Aunque el sistema operativo puede funcionar sin el shell para muchas tareas, **el shell es fundamental para que el usuario humano interactúe directamente con el sistema**. Funciona como un traductor entre el lenguaje humano y el lenguaje del sistema.
+
+### Tipos de shell
+
+Existen distintos tipos de shell, pero el más común en ciberseguridad y el que se usa en este curso es **Bash** (Bourne Again Shell). También existen otros como `sh`, `zsh` o `fish`, pero Bash es el más ampliamente adoptado.
+
+## Comunicación con el Shell en Linux
+
+Comunicarse con el shell en Linux es como tener una conversación: tú haces una pregunta (escribes un comando), y el sistema te responde. Esta interacción se da mediante tres canales principales: **entrada estándar**, **salida estándar** y **error estándar**.
+
+### Entrada estándar (stdin)
+
+Es la información que tú introduces al sistema, usualmente desde el teclado, a través de la línea de comandos. Por ejemplo, al escribir `echo hola`, esa línea es la entrada que el shell recibe para procesar.
+
+### Salida estándar (stdout)
+
+Es la respuesta del sistema al comando que diste. En el ejemplo anterior, cuando presionas Enter después de escribir `echo hola`, el shell responde con la salida: `hola`. Esto indica que el comando se ejecutó correctamente.
+
+#### Error estándar (stderr)
+
+Cuando el sistema no puede interpretar un comando, devuelve un mensaje de error. Esto puede suceder por escribir mal el comando, como en `eco hola` (en vez de `echo hola`), o por no tener los permisos necesarios para ejecutarlo. El shell informa del error para que puedas corregirlo.
+
+### Conclusión
+
+Toda interacción con el shell sigue este patrón: entrada, salida o error. A medida que avances en ciberseguridad, aprenderás a usar comandos más complejos y a interpretar correctamente la respuesta del sistema. Dominar esta comunicación es clave para trabajar de forma efectiva con Linux.
+

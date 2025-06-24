@@ -1,0 +1,174 @@
+---
+title: Módulo 4 – Bases de datos y SQL
+description: Fundamentos, amenazas y habilidades esenciales para comenzar una carrera en ciberseguridad.
+---
+
+# Introducción a las bases de datos relacionales
+
+## ¿Qué es una base de datos?
+
+Una base de datos es una **colección organizada de información o datos**. Aunque muchas personas usan hojas de cálculo como Google Sheets para almacenar información, estas están pensadas para un solo usuario o equipos pequeños y no pueden manejar grandes volúmenes de datos de forma eficiente.
+En cambio, **las bases de datos permiten que múltiples usuarios accedan a grandes cantidades de datos de manera simultánea**, e incluso realicen tareas complejas al mismo tiempo.
+
+### Ejemplos de uso
+
+Como analista de seguridad, es común trabajar con bases de datos que contengan:
+
+* Intentos de inicio de sesión
+* Información de software y actualizaciones
+* Datos sobre máquinas y sus propietarios
+
+---
+
+## Bases de datos relacionales
+
+Existen varios tipos de estructuras para bases de datos, pero en este curso se utilizan **bases de datos relacionales**, que organizan los datos en **tablas relacionadas entre sí**.
+
+---
+
+## Estructura de una tabla
+
+Una **tabla** es una parte fundamental de una base de datos relacional.
+Cada tabla tiene:
+
+* **Columnas**: También llamadas *campos* (por ejemplo: `employee_id`, `device_id`, `username`)
+* **Filas**: También llamadas *registros*, que contienen los datos específicos para cada entrada (por ejemplo, un empleado con ID 1000 del departamento de marketing)
+
+---
+
+## Relación entre tablas
+
+Una base de datos relacional puede contener **múltiples tablas**.
+Para conectar dos tablas, se utiliza una columna común, que se conoce como una **clave**.
+
+### Tipos de claves
+
+1. **Clave primaria (Primary Key)**
+
+   * Es una columna en la que **cada fila tiene un valor único**
+   * No puede tener valores duplicados ni vacíos
+   * Permite identificar de forma única cada registro
+   * Ejemplo: `employee_id` en la tabla de empleados
+
+2. **Clave foránea (Foreign Key)**
+
+   * Es una columna que aparece como clave primaria en otra tabla
+   * **Puede tener valores duplicados o vacíos**
+   * Permite **relacionar dos tablas**
+   * Ejemplo: `employee_id` en la tabla de máquinas, que se relaciona con la tabla de empleados
+
+💡 *Una tabla sólo puede tener una clave primaria, pero puede tener múltiples claves foráneas.*
+
+---
+
+## Próximo paso: Introducción a SQL
+
+Con esta base teórica, el siguiente paso es aprender **SQL** (Structured Query Language), el lenguaje que permite interactuar con las bases de datos: consultarlas, modificarlas, organizarlas y analizarlas.
+
+---
+
+## Introducción a SQL para analistas de seguridad
+
+### ¿Qué es SQL?
+
+**SQL** (Structured Query Language o Lenguaje de Consulta Estructurado) es un **lenguaje de programación utilizado para interactuar con bases de datos**. Permite:
+
+* Crear y modificar bases de datos
+* Consultar datos
+* Recuperar información específica
+
+Se pronuncia como “S-Q-L” o “sequel”, y es una herramienta fundamental para cualquier **analista de seguridad**.
+
+---
+
+### ¿Qué es una consulta?
+
+Una **consulta** es una **solicitud de datos** a una tabla (o conjunto de tablas) de una base de datos.
+Casi todas las bases de datos relacionales usan alguna versión de SQL para hacer consultas, y aunque hay pequeñas diferencias entre versiones, la estructura general es muy similar.
+
+---
+
+### Uso de SQL para trabajar con registros
+
+Un **registro** es un conjunto de datos que describe un evento ocurrido en los sistemas de una organización.
+Como analista de seguridad, puedes utilizar SQL para:
+
+* Buscar máquinas mal configuradas
+* Analizar visitantes de un sitio web y sus acciones
+* Detectar **patrones inusuales** que podrían indicar actividad maliciosa
+
+💡 *Los registros de seguridad pueden contener millones de puntos de datos, y SQL permite filtrar exactamente lo que necesitas en segundos.*
+
+---
+
+### SQL para análisis de datos
+
+SQL también es útil para el **análisis básico de datos**, una habilidad clave para analistas de seguridad.
+Por ejemplo, puedes usar SQL para:
+
+* Encontrar máquinas sin el parche de seguridad más reciente
+* Determinar el mejor momento para realizar actualizaciones, según los periodos de menor uso
+
+---
+# Consultas SQL
+## Introducción a SQL
+
+SQL (**Structured Query Language** o Lenguaje de Consulta Estructurado) es una herramienta clave para los analistas de seguridad. Permite consultar y analizar grandes volúmenes de datos con rapidez, lo cual es esencial para tareas como el monitoreo de registros y la identificación de incidentes.
+
+### **¿Qué es una consulta en SQL?**
+
+Una **consulta** es una instrucción que se envía a una base de datos para recuperar información específica. Puede realizarse sobre una o varias tablas al mismo tiempo.
+
+---
+
+## Primeros pasos con SQL
+
+### **Caso práctico**
+
+Se desea saber **qué computadora está asignada a un empleado específico**. Para ello se utilizará una tabla llamada `empleados`, que contiene cinco columnas:
+
+* `employee_id`
+* `device_id`
+* `username`
+* `department`
+* `office`
+
+La información necesaria está en las columnas `employee_id` y `device_id`.
+
+---
+
+### **Palabras clave básicas: SELECT y FROM**
+
+* **SELECT**: especifica qué columnas se desean consultar
+* **FROM**: indica de qué tabla provienen esos datos
+
+📌 *Ejemplo de consulta:*
+
+```sql
+SELECT employee_id, device_id FROM empleados;
+```
+
+Esta consulta solicita únicamente las columnas `employee_id` y `device_id` de la tabla `empleados`.
+
+---
+
+### **Aspectos importantes de la sintaxis**
+
+* SQL **no distingue mayúsculas y minúsculas** en las palabras clave (se pueden escribir como `select` o `SELECT`)
+* Se recomienda usar **mayúsculas** para las palabras clave para facilitar la lectura
+* Las columnas deben separarse con **comas**
+* Se debe colocar un **punto y coma (;)** al final de la instrucción para indicar que ha terminado
+
+---
+
+## Cómo mostrar toda la información de una tabla
+
+Si se desea obtener **todas las columnas** de una tabla, se puede usar el símbolo de asterisco (`*`) después de `SELECT`:
+
+```sql
+SELECT * FROM empleados;
+```
+
+Esta forma de consulta es conocida como **select all** y devuelve todas las columnas de la tabla `empleados`.
+
+---

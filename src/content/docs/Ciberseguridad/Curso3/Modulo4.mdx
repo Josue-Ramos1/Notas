@@ -1,0 +1,113 @@
+---
+title: Modulo 4 - Endurecimineto de seguridad
+description: Análisis de los dominios CISSP, amenazas, riesgos, vulnerabilidades y su impacto en la organización.
+---
+
+El **Endurecimiento de seguridad** es el proceso de reforzar sistemas y redes para minimizar vulnerabilidades y reducir la superficie de ataque. Se compara con asegurar una casa: cerrar puertas y ventanas equivale a aplicar medidas de seguridad en una red.  
+
+Este proceso incluye **mantenimiento regular**, como actualizaciones de software (parches), ajustes en la configuración de dispositivos y exigencias de seguridad más estrictas, como contraseñas fuertes y encriptación actualizada. También implica **eliminar servicios y puertos innecesarios**, restringir permisos y mejorar la seguridad física.  
+
+Otra estrategia clave es la **prueba de penetración (pen test)**, que simula ataques para identificar vulnerabilidades. Con estos hallazgos, los equipos de seguridad pueden tomar medidas para reforzar la red y reducir el riesgo de ataques exitosos.
+
+---
+
+# Endurecimiento del OS
+El **endurecimiento del sistema operativo (OS)** es clave para la seguridad de la red, ya que un OS vulnerable puede comprometer todo el sistema. Esto implica realizar tareas regulares como **actualizaciones de parches**, copias de seguridad y mantenimiento de una lista de dispositivos y usuarios autorizados.  
+
+Las **actualizaciones de parches** corrigen vulnerabilidades, por lo que deben aplicarse de inmediato para evitar que atacantes exploten sistemas desactualizados. Estas actualizaciones deben añadirse a la **configuración de línea base**, que sirve como referencia para detectar cambios no autorizados en el sistema.  
+
+Otras prácticas incluyen la **eliminación de software y hardware no utilizados**, ya que programas antiguos pueden contener vulnerabilidades conocidas. También es fundamental implementar **políticas de contraseñas seguras**, como exigir combinaciones de caracteres y bloquear accesos tras intentos fallidos. Además, la **autenticación multifactor (MFA)** añade una capa extra de seguridad verificando la identidad del usuario mediante diferentes métodos.  
+
+Un **ataque de fuerza bruta** es una técnica de prueba y error utilizada para descifrar credenciales. Existen varias formas, como los **ataques simples**, donde los atacantes prueban combinaciones aleatorias de usuario y contraseña, y los **ataques de diccionario**, que usan listas de contraseñas comunes o filtradas en violaciones previas. Para automatizar estos ataques, los atacantes emplean herramientas especializadas.  
+
+Las empresas pueden evaluar vulnerabilidades antes de un ataque mediante **máquinas virtuales (VM)** y **entornos aislados (sandboxing)**. Las VM permiten ejecutar código en un entorno seguro sin afectar el sistema principal, mientras que los espacios aislados se usan para probar software sospechoso. Sin embargo, algunos programas maliciosos detectan si están en un entorno de prueba y alteran su comportamiento para evitar ser identificados.  
+
+Para prevenir ataques de fuerza bruta, se utilizan varias medidas. El **salting y hash** protegen contraseñas al convertirlas en valores cifrados difíciles de descifrar. La **autenticación multifactor (MFA) y de dos factores (2FA)** añaden capas de seguridad al exigir múltiples verificaciones. Los **CAPTCHA y reCAPTCHA** diferencian entre humanos y bots para bloquear accesos automáticos. Además, las **políticas de contraseñas** establecen requisitos de complejidad, cambios periódicos y bloqueos tras intentos fallidos, fortaleciendo la seguridad contra ataques.
+
+---
+
+# Endurecimiento de Red
+El **endurecimiento de la red** es el proceso de fortalecer la seguridad en la infraestructura de red, incluyendo el **filtrado de puertos, privilegios de acceso y encriptación**. Algunas tareas se realizan regularmente, como el **mantenimiento del firewall, análisis de registros de red, actualizaciones de parches y copias de seguridad**. Para el análisis de registros, se utilizan herramientas **SIEM (Gestión de Información y Eventos de Seguridad)**, que centralizan datos de seguridad y priorizan vulnerabilidades para su mitigación.  
+
+Otras tareas, como el **filtrado de puertos**, se configuran una vez y se actualizan cuando es necesario. El filtrado en firewalls permite o bloquea puertos para limitar la comunicación no deseada. Además, se recomienda **segmentar la red** para separar departamentos y evitar la propagación de amenazas. Las **zonas restringidas** con datos sensibles deben aislarse del resto de la red y utilizar **cifrado avanzado** para proteger la información.  
+
+El dominio de estas prácticas es clave para la certificación y el desempeño como **analista de seguridad**, asegurando redes más resistentes ante ataques.
+
+## Aplicaciones de red
+El **endurecimiento de la red** implica añadir capas de seguridad para reforzar la infraestructura contra ataques. Este enfoque, conocido como **defensa en profundidad**, se logra combinando diferentes dispositivos y herramientas que trabajan en conjunto para mejorar la seguridad.  
+
+Los **firewalls** permiten o bloquean el tráfico según reglas establecidas, analizando los paquetes que entran y salen de la red. Sin embargo, por sí solos no detectan ataques sofisticados. Para ello, se emplean los **IDS (Sistemas de Detección de Intrusos)**, que monitorean el tráfico en busca de amenazas conocidas y alertan a los administradores cuando detectan actividad sospechosa. A diferencia de los firewalls, los IDS no bloquean el tráfico por sí mismos, lo que puede ser una limitación en términos de respuesta inmediata a un ataque.  
+
+Los **IPS (Sistemas de Prevención de Intrusos)** son una evolución de los IDS, ya que además de detectar amenazas, pueden bloquearlas automáticamente. Esto evita que el tráfico malicioso alcance la red interna. Sin embargo, los IPS pueden generar **falsos positivos**, lo que podría afectar el tráfico legítimo y generar interrupciones en la red.  
+
+Las herramientas **SIEM (Administración de Información y Eventos de Seguridad)** recopilan y analizan registros de diversos dispositivos, como firewalls, IDS e IPS, para centralizar la supervisión de eventos sospechosos en un solo panel de control. Aunque no detienen ataques directamente, facilitan el análisis y respuesta por parte de los analistas de seguridad, lo que mejora la detección y mitigación de amenazas.  
+
+Cada herramienta tiene su lugar en la arquitectura de la red. Los **firewalls** están en el perímetro y filtran el tráfico inicial. Detrás de ellos, los **IDS/IPS** analizan el tráfico permitido por el firewall, detectando y bloqueando amenazas. Finalmente, el **SIEM** centraliza la información de estos dispositivos, permitiendo a los analistas monitorear y responder a incidentes de seguridad de manera más eficiente.  
+
+### Comparación de herramientas de seguridad  
+
+| Dispositivo / Herramienta | Ventajas | Desventajas |  
+|--------------------------|----------|-------------|  
+| **Firewall** | Filtra el tráfico según reglas predefinidas. | No detecta ataques sofisticados ni analiza tráfico en profundidad. |  
+| **Sistema de Detección de Intrusos (IDS)** | Detecta y alerta sobre posibles intrusiones. | No bloquea el tráfico malicioso; solo alerta al administrador. |  
+| **Sistema de Prevención de Intrusos (IPS)** | Bloquea amenazas automáticamente al detectarlas. | Puede generar falsos positivos e interrumpir el tráfico legítimo. |  
+| **Administración de Información y Eventos de Seguridad (SIEM)** | Centraliza y analiza registros de múltiples dispositivos para detectar patrones sospechosos. | No bloquea amenazas directamente, solo alerta sobre posibles problemas. |
+
+---- 
+
+# Endurecimiento en la nube
+## **Seguridad en la Nube**  
+
+Las organizaciones eligen la **computación en la nube** por su facilidad de implementación, velocidad de despliegue, ahorro de costos y escalabilidad. Sin embargo, este entorno introduce **desafíos únicos de seguridad** que los analistas deben abordar.  
+
+### **Gestión de Identidad y Acceso (IAM)**  
+La **gestión de identidad y acceso (IAM)** permite administrar identidades digitales y controlar qué usuarios pueden acceder a los recursos en la nube. Un problema común es la **configuración incorrecta de roles**, lo que puede dar acceso no autorizado a operaciones críticas.  
+
+#### **Configuración y Superficie de Ataque**  
+Cada servicio en la nube requiere **una configuración precisa** para garantizar la seguridad, especialmente durante las migraciones. Una configuración incorrecta puede exponer la red a vulnerabilidades. Además, al utilizar múltiples servicios en la nube, aumenta la **superficie de ataque**, lo que introduce más puntos de entrada que podrían ser explotados por atacantes.  
+
+### **Ataques de Día Cero**  
+Los **ataques de día cero** explotan vulnerabilidades desconocidas. Los **proveedores de servicios en la nube (CSP)** pueden detectar y mitigar estos ataques antes que una organización tradicional mediante la aplicación de parches en hipervisores y la migración de cargas de trabajo.  
+
+### **Visibilidad y Seguimiento**  
+En redes locales, los administradores pueden inspeccionar el tráfico. En la nube, los CSP ofrecen herramientas como **registros de flujo y duplicación de paquetes**, pero **no permiten acceso directo a los servidores**. Para compensarlo, contratan auditorías de terceros que validan la seguridad de su infraestructura.  
+
+### **Actualización y Adaptación**  
+Los CSP evolucionan rápidamente, lo que puede afectar la seguridad de las organizaciones. Los clientes deben **adaptar sus procesos de TI** para alinearse con los cambios y mantener una configuración segura.  
+
+### **Modelo de Responsabilidad Compartida**  
+El **modelo de responsabilidad compartida** define que el **CSP** protege la infraestructura física y el hipervisor, mientras que la **empresa usuaria** es responsable de la configuración de los servicios y la protección de sus propios datos. Un error común es asumir que el CSP se encarga de toda la seguridad, lo que puede generar brechas si las configuraciones no se manejan correctamente.
+
+##  **Endurecimiento de Seguridad en la Nube**  
+
+Para proteger la infraestructura y los recursos en la nube, existen diversas técnicas y herramientas de **endurecimiento de seguridad**. Entre ellas se incluyen la **gestión de acceso a la identidad (IAM)**, el uso de **hipervisores**, la creación de **líneas de base de seguridad**, la **criptografía** y el **borrado criptográfico**.  
+
+### **Gestión del Acceso a la Identidad (IAM)**  
+La **IAM** permite administrar las identidades digitales dentro de una organización, controlando quién puede acceder a los diferentes recursos en la nube y qué acciones pueden realizar.  
+
+### **Hipervisores**  
+Un **hipervisor** es un software que permite ejecutar varias máquinas virtuales (VM) en un mismo hardware físico, separando cada entorno de manera segura. Existen dos tipos:  
+
+- **Tipo 1**: Se ejecuta directamente sobre el hardware, sin necesidad de un sistema operativo. Es el más seguro y es el que usan los proveedores de servicios en la nube (CSP).  
+- **Tipo 2**: Se ejecuta sobre un sistema operativo ya instalado, como un programa más. Un ejemplo es VirtualBox.  
+
+Los **CSP manejan los hipervisores**, asegurándose de que funcionen correctamente y aplicando actualizaciones para evitar vulnerabilidades. Un problema de seguridad en estos sistemas es el **escape de máquina virtual (VM escape)**, donde un atacante podría salir de su VM y acceder al sistema principal o a otras máquinas virtuales.  
+
+### **Línea de Base**  
+Las líneas de base establecen **configuraciones seguras** para los entornos en la nube, sirviendo como referencia para detectar cambios o vulnerabilidades. Ejemplos incluyen restringir el acceso a la consola de administración, habilitar el cifrado y activar herramientas de detección de amenazas.  
+
+### **Criptografía en la Nube**  
+La **criptografía** protege los datos en la nube mediante el uso de **encriptación**, evitando accesos no autorizados. La encriptación convierte los datos en un formato ilegible sin una clave especial para descifrarlos. La seguridad depende de **mantener protegidas estas claves**.  
+
+### **Borrado Criptográfico**  
+El **borrado criptográfico** es una técnica para eliminar datos en la nube de manera segura. En lugar de borrar los archivos directamente (lo que podría ser reversible), se destruyen las claves de encriptación, haciendo que los datos sean imposibles de recuperar.  
+
+### **Gestión de Claves**  
+Las claves de encriptación deben almacenarse de forma segura. Algunas herramientas para esto son:  
+
+- **TPM (Módulo de Plataforma de Confianza)**: Un chip que protege contraseñas y claves de cifrado.  
+- **CloudHSM (Módulo de Seguridad de Hardware en la Nube)**: Un dispositivo que almacena claves de forma segura y realiza operaciones criptográficas.  
+
+Los **CSP pueden gestionar claves de cifrado**, pero en algunos casos los clientes pueden proporcionar sus propias claves. Sin embargo, si una clave se pierde o es comprometida, el **CSP no podrá recuperarla**.  
+
+El **modelo de responsabilidad compartida** ayuda a definir qué parte de la seguridad es responsabilidad del CSP y cuál recae en el cliente. Para verificar que un CSP cumple con buenas prácticas de seguridad, existen auditorías e informes como **FEDRAMP**, que certifica a los proveedores de servicios en la nube para contratos gubernamentales.

@@ -1,0 +1,162 @@
+---
+title: Modulo 1 - Arquitectura de red
+description: Análisis de los dominios CISSP, amenazas, riesgos, vulnerabilidades y su impacto en la organización.
+---
+
+# Introduccion a las redes
+Una **red** es un grupo de dispositivos conectados que pueden comunicarse entre sí mediante cables o conexiones inalámbricas. En el hogar, estos dispositivos pueden incluir **computadoras, teléfonos móviles y dispositivos inteligentes** como refrigeradores o aires acondicionados. En una oficina, pueden ser **estaciones de trabajo, impresoras y servidores**. Además, las redes locales pueden conectarse con otras redes en diferentes ubicaciones.  
+
+Para establecer comunicación, los dispositivos necesitan identificadores únicos, como **direcciones IP y MAC**, que aseguran que los datos lleguen al destino correcto. Existen dos tipos principales de redes:  
+
+- **Red de área local (LAN)**: Cubre un área pequeña, como una casa, una oficina o una escuela. Por ejemplo, cuando un teléfono o tableta se conecta a la WiFi del hogar, forma parte de una LAN.  
+- **Red de área extensa (WAN)**: Abarca grandes áreas geográficas, como ciudades o países. Internet es el mejor ejemplo de una WAN, ya que permite la comunicación entre personas y empresas en distintas partes del mundo.  
+
+Comprender la estructura y los tipos de redes es clave para profundizar en la seguridad y el funcionamiento de los dispositivos conectados a ellas.
+
+## Dispositivos de red
+Los dispositivos de red permiten la conexión y comunicación entre diferentes equipos, ya sea mediante conexiones cableadas o inalámbricas. Estos dispositivos envían paquetes de datos, los cuales contienen información sobre el origen y destino de la información. La infraestructura de red es la base que permite la interconexión de estos dispositivos, y dentro de ella, los routers y switches juegan un papel clave en la gestión del tráfico.  
+
+Los **dispositivos de escritorio y móviles**, como computadoras, laptops, teléfonos y tabletas, tienen direcciones MAC e IP únicas que los identifican en la red y les permiten comunicarse a través de interfaces de red, ya sea mediante un cable o una conexión inalámbrica.  
+
+El **firewall** actúa como un filtro de seguridad que supervisa y regula el tráfico de red. Su función principal es restringir accesos no autorizados, protegiendo la red interna de amenazas externas. Sin embargo, no es la única capa de defensa dentro de la ciberseguridad, ya que forma parte de un conjunto más amplio de medidas de protección.  
+
+Los **servidores** almacenan información y prestan servicios a otros dispositivos en la red, llamados clientes. Existen diferentes tipos de servidores según su función, como los servidores DNS, que resuelven nombres de dominio; los servidores de archivos, que almacenan y recuperan información; y los servidores de correo, que administran correos electrónicos en una organización.  
+
+Dentro de una red local, los **hubs** y **switches** son responsables de la distribución del tráfico. Los hubs simplemente reenvían toda la información a todos los dispositivos conectados, lo que los hace menos seguros, ya que cualquier dispositivo podría interceptar los datos. En cambio, los switches identifican el destino específico de cada paquete y lo envían solo al dispositivo correspondiente, lo que mejora tanto la seguridad como el rendimiento de la red.  
+
+Los **routers** conectan distintas redes y determinan la mejor ruta para que los datos lleguen a su destino, basándose en la dirección IP del paquete. Además, algunos routers incluyen funciones de firewall para bloquear tráfico no autorizado y proteger la red interna de accesos externos maliciosos.  
+
+Los **módems** sirven como intermediarios entre una red privada y el proveedor de Internet, traduciendo señales digitales en analógicas y viceversa para permitir la transmisión de datos a través de la infraestructura del proveedor. En redes empresariales, donde el volumen de tráfico es mayor, se suelen utilizar otras tecnologías en lugar de módems convencionales.  
+
+Los **puntos de acceso inalámbricos (APs)** permiten que los dispositivos se conecten a la red sin necesidad de cables. Estos APs transmiten y reciben señales mediante Wi-Fi, un conjunto de estándares que regulan la comunicación inalámbrica. A través de estos puntos de acceso, los dispositivos pueden conectarse con routers y switches para enviar datos a sus destinos finales.  
+
+En ciberseguridad, el **uso de diagramas de red** es fundamental, ya que permiten visualizar la arquitectura y el flujo de datos dentro de la red. Mediante estos diagramas, los analistas pueden identificar posibles vulnerabilidades y diseñar estrategias para fortalecer la seguridad y eficiencia del sistema.
+
+## Computo en la nube 
+Las redes tradicionales, conocidas como **redes on-premise**, requieren que todos los dispositivos y servidores estén alojados físicamente en las instalaciones de una empresa. En cambio, la **computación en la nube** permite que los servidores, aplicaciones y servicios de red se ejecuten de forma remota a través de Internet, sin necesidad de infraestructura propia. Esto es posible gracias a los **proveedores de servicios en la nube (CSP)**, que poseen grandes centros de datos en diferentes ubicaciones del mundo y ofrecen acceso a sus recursos tecnológicos a cambio de una tarifa.  
+
+Los servicios en la nube se dividen en tres categorías principales. El **Software como Servicio (SaaS)** permite a las empresas utilizar aplicaciones sin necesidad de instalarlas o mantenerlas en servidores propios, como ocurre con Google Workspace o Microsoft 365. El **Infraestructura como Servicio (IaaS)** proporciona recursos de cómputo y almacenamiento virtualizados, lo que permite ejecutar aplicaciones en entornos configurables sin depender de hardware físico. Finalmente, el **Plataforma como Servicio (PaaS)** ofrece herramientas específicas para que los desarrolladores creen y gestionen aplicaciones en la nube sin preocuparse por la infraestructura subyacente.  
+
+En algunos casos, las empresas combinan sus propios servidores y redes con los servicios en la nube, lo que se conoce como **nube híbrida**. Cuando una organización trabaja con varios CSP al mismo tiempo, se considera un **entorno de múltiples nubes**. Esta estrategia permite reducir costos y mantener un mayor control sobre los recursos.  
+
+Un concepto clave en la computación en la nube es el uso de **redes definidas por software (SDN)**, que reemplazan los dispositivos físicos tradicionales por soluciones virtuales. Los CSP pueden proporcionar conmutadores, routers y firewalls virtuales que funcionan en sus centros de datos, lo que facilita la administración y escalabilidad de las redes. Incluso los dispositivos físicos modernos han adoptado esta tecnología, permitiendo que el enrutamiento y la gestión del tráfico sean definidos por software en lugar de depender exclusivamente del hardware.  
+
+Los beneficios de la computación en la nube y las SDN son diversos. En términos de **confiabilidad**, los servicios en la nube ofrecen una alta disponibilidad con conexiones seguras y mínimo tiempo de inactividad. En cuanto a **costos**, el modelo de pago por uso reduce la necesidad de adquirir y mantener infraestructura propia, lo que representa un ahorro significativo para las empresas. Finalmente, la **escalabilidad** permite ajustar los recursos informáticos según la demanda, evitando inversiones innecesarias en hardware que podría quedar obsoleto.  
+
+La capacidad de realizar cambios rápidamente es otra ventaja clave. En caso de una amenaza de seguridad, una empresa puede configurar un **firewall de aplicaciones web (WAF)**, un **sistema de detección y prevención de intrusos (IDS/IPS)** o un **firewall de red (L3/L4)** en cuestión de minutos, sin necesidad de comprar e instalar equipos físicos. Esto no solo mejora la eficiencia operativa, sino que también refuerza la seguridad de la red de manera ágil y flexible.
+
+---
+# Comunicacion de Red
+Las redes juegan un papel fundamental en la comunicación y el intercambio de información dentro de las organizaciones. Sin embargo, esta interconexión también trae consigo ciertos riesgos, ya que los atacantes pueden aprovecharse de dispositivos vulnerables y redes desprotegidas para llevar a cabo sus ataques.  
+
+Cuando hablamos de comunicación en redes, nos referimos al proceso en el que los datos viajan de un punto a otro en forma de **paquetes de datos**. Estos paquetes son unidades de información que contienen datos esenciales sobre su origen, destino y el mensaje que transportan.  
+
+Para entenderlo mejor, imaginemos que queremos enviar una carta a un amigo. En el sobre escribimos la dirección del destinatario, nuestra dirección como remitente y, dentro del sobre, está la carta con el mensaje. De manera similar, un paquete de datos se compone de tres partes:  
+
+- **Encabezado:** Contiene información clave como la dirección IP y la dirección MAC del dispositivo de destino, así como un número de protocolo que indica cómo procesar el paquete.  
+- **Cuerpo:** Es el contenido del mensaje, es decir, la información que realmente se desea transmitir.  
+- **Pie de página:** Funciona como una especie de firma que señala el final del paquete, ayudando al dispositivo receptor a identificar que ha recibido toda la información.  
+
+Además del flujo de paquetes, el rendimiento de una red se mide mediante dos conceptos clave: el **ancho de banda** y la **velocidad**. Aunque pueden parecer sinónimos, en realidad tienen diferencias importantes.  
+
+- **Ancho de banda:** Se refiere a la capacidad máxima de transferencia de datos en la red en un tiempo determinado. Es como una autopista con múltiples carriles; mientras más ancha sea la autopista, más autos (datos) pueden circular al mismo tiempo.  
+- **Velocidad:** Indica qué tan rápido se reciben o descargan los paquetes de datos. Usando la misma analogía, la velocidad sería qué tan rápido viajan los autos en la autopista.  
+
+Ambos factores son cruciales en la seguridad informática. Si hay una disminución inesperada en el ancho de banda o una variación en la velocidad, podría ser una señal de que la red está bajo ataque. Una técnica utilizada para analizar estos datos es el **sniffing de paquetes**, que permite capturar e inspeccionar el tráfico de la red en busca de posibles amenazas.  
+
+En definitiva, las redes no solo facilitan la comunicación y la eficiencia dentro de una organización, sino que también requieren un monitoreo constante para detectar y prevenir ataques. Para ello, es fundamental comprender los protocolos y herramientas que permiten mantener la seguridad y el rendimiento óptimo de la red.
+
+## Modelo TCP/IP
+### **Modelo TCP/IP: La Base de la Comunicación en Internet**  
+
+Cuando navegamos por Internet o enviamos un correo electrónico, los datos no viajan de manera aleatoria; siguen un conjunto de reglas y protocolos que garantizan su correcta entrega. Aquí es donde entra en juego el **modelo TCP/IP**, el estándar utilizado para la comunicación en redes.  
+
+#### **¿Qué es TCP/IP?**  
+
+Las siglas **TCP/IP** significan *Protocolo de Control de Transmisión* (**TCP**) y *Protocolo de Internet* (**IP**). Estos dos protocolos trabajan en conjunto para permitir que los dispositivos se conecten entre sí y transmitan datos de manera confiable.  
+
+- **TCP** establece una conexión entre dos dispositivos, organiza los datos en paquetes y se asegura de que lleguen correctamente a su destino.  
+- **IP** se encarga de enrutar esos paquetes a través de la red, asignando direcciones IP a los dispositivos y asegurando que los datos lleguen al lugar correcto.  
+
+#### **Los Puertos y su Función en la Red**  
+
+Cuando los datos viajan por la red, se asignan a diferentes **puertos**. Un puerto no es un elemento físico, sino una especie de "puerta virtual" dentro del sistema operativo que ayuda a organizar la transmisión de datos.  
+
+Por ejemplo, si imaginamos un edificio de apartamentos, la dirección IP sería la ubicación del edificio, y el puerto sería el número del departamento específico donde debe llegar la información. Algunos puertos comunes incluyen:  
+
+- **Puerto 25:** Correo electrónico.  
+- **Puerto 443:** Comunicación segura en Internet (HTTPS).  
+- **Puerto 20:** Transferencia de archivos grandes (FTP).  
+
+#### **Las Cuatro Capas del Modelo TCP/IP**  
+
+El **modelo TCP/IP** se compone de **cuatro capas**, cada una con funciones específicas en la transmisión de datos:  
+
+1. **Capa de acceso a la red** (o capa de enlace de datos): Maneja la creación y transmisión de paquetes de datos. Incluye elementos físicos como cables, routers y direcciones MAC.  
+2. **Capa de Internet** (o capa de red): Se encarga del enrutamiento de los datos, asegurando que lleguen al destino correcto mediante direcciones IP. Aquí operan protocolos como **IP** e **ICMP**.  
+3. **Capa de transporte**: Garantiza la entrega eficiente de datos entre dispositivos. Utiliza dos protocolos principales:  
+   - **TCP** (conexión confiable, ideal para correos electrónicos y páginas web).  
+   - **UDP** (más rápido pero menos confiable, usado en videollamadas y streaming).  
+4. **Capa de aplicación**: Es la interfaz con la que interactuamos. Aquí trabajan protocolos como **HTTP**, **SMTP** (correo), **SSH** (conexión remota) y **DNS** (traducción de nombres de dominio a direcciones IP).  
+
+#### **Diferencia entre el Modelo TCP/IP y el Modelo OSI**  
+
+El modelo **OSI** es otra forma de organizar la comunicación en redes, pero es más teórico y divide el proceso en **siete capas**, mientras que TCP/IP lo simplifica en **cuatro**. Aun así, ambos modelos tienen muchas similitudes y sirven para entender mejor cómo funcionan las redes.  
+
+En conclusión, el modelo TCP/IP es la base del funcionamiento de Internet y permite que la información viaje de forma ordenada y segura entre dispositivos en una red. Entender sus capas y protocolos es esencial para cualquier persona interesada en redes y seguridad informática.
+
+## Modelo osi
+El modelo **TCP/IP** y el modelo **OSI** son fundamentales en el mundo de las redes y la ciberseguridad, ya que permiten entender cómo se organizan y transmiten los datos a través de una red. El modelo **TCP/IP**, con sus cuatro capas (accesibilidad a la red, Internet, transporte y aplicación), es una representación práctica de cómo funcionan las comunicaciones en internet. Su uso es común en el análisis de incidentes de seguridad, ya que permite identificar en qué parte del proceso ocurre un ataque o una interrupción.  
+
+Por otro lado, el modelo **OSI** es una referencia estandarizada con siete capas (física, enlace de datos, red, transporte, sesión, presentación y aplicación). Este modelo es utilizado para describir con mayor detalle los procesos de comunicación y facilitar la identificación de problemas en una red. Muchas organizaciones se apoyan en el **modelo TCP/IP** debido a su enfoque práctico, mientras que otras prefieren el **modelo OSI** por su nivel de detalle. Un analista de seguridad debe conocer ambos modelos, ya que brindan perspectivas diferentes pero complementarias sobre el tráfico y los posibles ataques en una red.  
+
+### Capas del modelo OSI y su función  
+
+La **capa de aplicación (7)** es la más cercana al usuario y se encarga de gestionar los protocolos que las aplicaciones utilizan para conectarse a internet. Aquí encontramos protocolos como **HTTP y HTTPS** para navegación web, **SMTP** para correos electrónicos y **DNS** para la resolución de nombres de dominio.  
+
+La **capa de presentación (6)** se encarga de la traducción, encriptación y compresión de datos. Su función es garantizar que la información pueda ser interpretada correctamente entre diferentes sistemas. Un ejemplo importante en esta capa es **SSL/TLS**, que cifra la comunicación entre navegadores y servidores en sitios web seguros.  
+
+La **capa de sesión (5)** administra la conexión entre dispositivos, estableciendo y manteniendo sesiones de comunicación. Aquí se gestionan aspectos como la autenticación y la reconexión en caso de interrupción. También se establecen puntos de control que permiten reanudar una transmisión desde el último estado válido en caso de fallo.  
+
+La **capa de transporte (4)** se encarga de la entrega confiable de los datos entre dispositivos. Aquí encontramos los protocolos **TCP y UDP**. **TCP** garantiza que los datos lleguen completos y en orden, mientras que **UDP** es más rápido pero no verifica la entrega. Además, en esta capa se realiza la **segmentación**, dividiendo grandes volúmenes de datos en fragmentos más pequeños para facilitar su transmisión y posterior ensamblado en el destino.  
+
+La **capa de red (3)** maneja la forma en que los datos viajan entre diferentes redes. Se encarga del encaminamiento de los paquetes mediante direcciones **IP** y determina la ruta más eficiente para la entrega. Aquí actúan dispositivos como los **routers**, que dirigen el tráfico en función de las direcciones de origen y destino.  
+
+La **capa de enlace de datos (2)** organiza la transmisión de datos dentro de una misma red. Aquí se controlan aspectos como la detección de errores y el acceso a los medios físicos de transmisión. En esta capa operan dispositivos como los **switches** y las tarjetas de red, que permiten la comunicación entre equipos dentro de una misma red local.  
+
+Finalmente, la **capa física (1)** abarca el hardware y los medios de transmisión. Esto incluye cables, módems, hubs y cualquier otro dispositivo físico necesario para transportar señales. Aquí, los datos se convierten en impulsos eléctricos, señales ópticas o ondas de radio, dependiendo del tipo de conexión utilizada.  
+
+Ambos modelos, **TCP/IP** y **OSI**, son esenciales para la administración y seguridad de redes. Mientras el modelo **TCP/IP** se enfoca en la implementación práctica de internet, el modelo **OSI** proporciona una visión más detallada y estructurada de cómo ocurre la comunicación. Entender cómo funcionan permite a los profesionales de la seguridad detectar vulnerabilidades, mitigar ataques y optimizar el tráfico en una red.
+
+---
+
+# Comunicacion en red 
+Las direcciones IP permiten la comunicación en una red y actúan como identificadores únicos para los dispositivos conectados a Internet, de manera similar a cómo una dirección postal identifica una casa. Existen dos versiones principales: **IPv4** e **IPv6**.  
+
+Las **direcciones IPv4** constan de cuatro grupos de números separados por puntos y fueron las primeras en utilizarse en Internet. Sin embargo, debido al crecimiento de la red, estas direcciones comenzaron a agotarse, lo que llevó al desarrollo de **IPv6**, que utiliza 32 caracteres y permite un número mucho mayor de dispositivos conectados.  
+
+Las direcciones IP pueden ser **públicas o privadas**. Las **públicas** son asignadas por el proveedor de servicios de Internet y están vinculadas a una ubicación geográfica, lo que significa que todos los dispositivos de una misma red comparten la misma dirección IP pública. Por otro lado, las **privadas** solo son visibles dentro de la red local y permiten que los dispositivos en un hogar o empresa se comuniquen entre sí sin ser accesibles desde el exterior.  
+
+Otro identificador clave en la comunicación de red es la **dirección MAC**, un código alfanumérico único asignado a cada dispositivo físico. Los switches utilizan estas direcciones para dirigir correctamente los datos dentro de una red local, almacenándolas en una tabla que funciona como una libreta de direcciones para optimizar la transmisión de paquetes.
+
+##  Capa de red
+La capa de red es responsable de dirigir y entregar paquetes de datos desde el dispositivo de origen hasta su destino. Cada paquete incluye una dirección IP que permite su enrutamiento a través de los routers en Internet. Dependiendo del tipo de conexión, un paquete puede llamarse "paquete IP" en TCP o "datagrama" en UDP. Además de la dirección IP de destino, el encabezado del paquete contiene información clave como la dirección de origen, el tamaño del paquete y el protocolo utilizado.
+
+El formato de un paquete IPv4 se divide en dos partes: la cabecera y los datos. La cabecera, de entre 20 y 60 bytes, contiene información esencial para el enrutamiento, como la dirección IP de origen y destino, la longitud total del paquete y otras opciones. La sección de datos transporta el contenido del mensaje, como una página web o un correo electrónico, con un tamaño máximo de 65,535 bytes.
+
+### Campos del encabezado IPv4:
+- **Versión (VER):** Indica qué protocolo se está utilizando, en este caso IPv4.
+- **Longitud del Encabezado IP (HLEN o IHL):** Define dónde termina la cabecera y comienza la sección de datos.
+- **Tipo de servicio (ToS):** Permite priorizar ciertos paquetes para mantener la calidad del servicio.
+- **Longitud total:** Especifica el tamaño completo del paquete, incluyendo la cabecera y los datos.
+- **Identificación:** Asigna un identificador único a los paquetes fragmentados para su correcta reensamblación.
+- **Banderas:** Indica si un paquete ha sido fragmentado y si hay más fragmentos en tránsito.
+- **Desplazamiento de fragmentación:** Especifica la posición de un fragmento dentro del paquete original.
+- **Tiempo de vida (TTL):** Evita que un paquete circule indefinidamente al reducir su contador en cada router que atraviesa.
+- **Protocolo:** Define el protocolo que se usará en la parte de datos del paquete.
+- **Suma de comprobación del encabezado:** Permite detectar errores en la cabecera del paquete.
+- **Dirección IP de origen:** Identifica el dispositivo que envía el paquete.
+- **Dirección IP de destino:** Identifica el dispositivo receptor del paquete.
+- **Opciones:** Permite añadir configuraciones de seguridad si el valor de HLEN es mayor a cinco.
+
+Ante el agotamiento de direcciones IPv4, se desarrolló IPv6, que ofrece una cantidad significativamente mayor de direcciones y un encabezado más simplificado. Mientras que IPv4 usa direcciones de 32 bits en formato decimal, IPv6 utiliza direcciones de 128 bits en formato hexadecimal, permitiendo hasta 340 undecillones de combinaciones. Además, IPv6 mejora la eficiencia del enrutamiento y la seguridad, eliminando problemas como las colisiones de direcciones privadas en redes locales.
