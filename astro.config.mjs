@@ -17,6 +17,10 @@ export default defineConfig({
 					autogenerate: { directory: 'Ciberseguridad' },
 				},
 				{
+					label: 'Redes Cisco Basico',
+					autogenerate: { directory: 'RedesCiscoBasico' },
+				},
+				{
 					label: 'Guides',
 					items: [
 						// Each item here is one entry in the navigation menu.
