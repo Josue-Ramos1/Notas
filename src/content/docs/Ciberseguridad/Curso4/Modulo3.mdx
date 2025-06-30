@@ -3,296 +3,152 @@ title: Módulo 3 – Comando Linux Shell Bash
 description: Fundamentos, amenazas y habilidades esenciales para comenzar una carrera en ciberseguridad.
 ---
 
-# Navegar por el sistema de archivos linux
-## **La línea de comandos en Linux: una herramienta esencial para la ciberseguridad**
+import { Card, CardGrid, Aside, Steps } from '@astrojs/starlight/components';
 
-Antes de aprender comandos específicos de Linux, es fundamental entender cómo funciona la comunicación con el sistema operativo a través del shell. Esta habilidad es esencial para cualquier profesional de seguridad, ya que permite analizar registros, gestionar archivos, configurar accesos y establecer permisos sin depender de una interfaz gráfica.
+# 🗂️ Navegar por el sistema de archivos Linux
 
-Como analista de seguridad, muchas de tus tareas se realizarán en entornos remotos, por lo que saber usar la terminal será clave en tu día a día. Por ejemplo, deberás revisar logs del sistema, verificar usuarios y grupos, o definir permisos en archivos sensibles.
+## 💬 La línea de comandos: esencial para la ciberseguridad
 
-Uno de los elementos centrales en esta interacción es el **shell**, y aunque existen varios, **Bash** es el más común en la mayoría de las distribuciones de Linux. La buena noticia es que muchos comandos básicos funcionan igual sin importar el shell que se esté usando.
+Antes de usar comandos específicos, es vital entender la comunicación con el sistema mediante el **shell**. Para un analista de seguridad, esta habilidad es indispensable, ya que muchas tareas se realizan de forma remota y sin interfaz gráfica.
 
-## **Comunicarse con Bash: comandos y respuestas**
+El shell más común es **Bash**, y aunque hay otros, muchos comandos básicos son universales.
 
-Trabajar en Bash es como tener una conversación con el sistema operativo: escribes un comando y el sistema te devuelve una respuesta. Un **comando** es simplemente una instrucción para que el sistema haga algo, como buscar un archivo, ejecutar un programa o mostrar un mensaje.
+<Aside>
+Por ejemplo: revisar logs, verificar usuarios y grupos, o gestionar permisos en archivos críticos.
+</Aside>
 
-El símbolo de dólar (`$`) al inicio de la línea es el **prompt**, y te indica que puedes escribir un nuevo comando. Por ejemplo, al escribir el comando `echo`, puedes indicarle que muestre una cadena de texto específica. Pero para que funcione, necesitas darle un **argumento**, es decir, la información que el comando necesita para ejecutarse correctamente.
+---
 
-Ejemplo:
+## 💻 Comunicarse con Bash
+
+Trabajar con Bash es como hablar con el sistema: tú escribes un comando, el sistema responde.
+
+El símbolo `$` es el **prompt**, indicando que puedes escribir.  
+Ejemplo básico:
 
 ```bash
 echo ¡Lo estás haciendo genial!
 ```
 
-En este caso, la frase “¡Lo estás haciendo genial!” es el argumento del comando `echo`.
+Aquí, "¡Lo estás haciendo genial!" es el **argumento** que le pasas al comando `echo`.
 
-## **Detalles importantes: argumentos y sensibilidad a mayúsculas**
-
-Muchos comandos en Linux aceptan varios argumentos, y es importante saber que **Linux distingue entre mayúsculas y minúsculas**. Esto aplica tanto a comandos como a nombres de archivos y directorios. Un pequeño error en la escritura puede hacer que un comando no funcione o que intentes acceder a un archivo que no existe (aunque sí esté, con diferente capitalización).
-
-Este tipo de precisión será vital al trabajar con scripts, configuraciones o auditorías en sistemas Linux.
+<Aside type="note">
+Linux distingue entre mayúsculas y minúsculas en comandos, archivos y directorios. Un error en una letra puede provocar fallos o accesos incorrectos.
+</Aside>
 
 ---
 
-## **Navegar por el sistema de archivos en Linux: una habilidad básica para analistas de seguridad**
+## 🌳 Navegar por el sistema de archivos
 
-Al comenzar a trabajar con Linux, es útil imaginar su sistema de archivos como un árbol. Las **raíces** son el punto de partida, y de ahí se ramifican las demás carpetas. En Linux, esta raíz se representa con una simple barra diagonal `/`. Desde ella, surgen todos los demás directorios y archivos.
+Imagina el sistema de archivos como un árbol: la **raíz** es `/` y de ella nacen todas las carpetas.
+Este diseño sigue el **Estándar de Jerarquía del Sistema de Archivos (FHS)**.
 
-Este sistema se organiza siguiendo el **Estándar de jerarquía del sistema de archivos (FHS)**. Todo lo que hacemos en Linux —programas, configuraciones, registros— se guarda como archivos dentro de esta estructura. Como analista de seguridad, aprender a moverte entre estas carpetas será fundamental para buscar información importante, como logs de acceso o configuraciones de aplicaciones.
+Ruta ejemplo:
 
-Por ejemplo, la ruta `/home/analyst` indica que estamos en el directorio llamado "analyst", que a su vez está dentro de "home", que parte del directorio raíz `/`.
+```
+/home/analyst
+```
 
-## **Comandos esenciales para moverse en el sistema de archivos**
+---
 
-Linux ofrece varios comandos que te permiten **navegar** entre carpetas y ver su contenido. Estos son algunos de los más básicos y más utilizados:
+## 📄 Comandos básicos para moverse
 
-* `pwd`: Muestra en qué carpeta estás actualmente.
-* `ls`: Lista los archivos y subdirectorios que hay dentro de la carpeta actual.
-* `cd`: Te permite **cambiar de directorio**, es decir, moverte a otra carpeta.
+<Steps>
+1. <code>pwd</code>: Muestra la ruta actual.
+2. <code>ls</code>: Lista archivos y carpetas.
+3. <code>cd</code>: Cambia de directorio.
+</Steps>
 
 Ejemplo:
 
 ```bash
 pwd
-```
-
-Este comando te dirá exactamente dónde estás dentro del sistema de archivos. Si luego haces:
-
-```bash
 ls
-```
-
-Verás una lista con el contenido de esa carpeta. Y si quieres entrar en un subdirectorio (por ejemplo, una carpeta llamada `logs`), puedes hacerlo con:
-
-```bash
 cd logs
+pwd
 ```
-
-Después de eso, si ejecutas nuevamente `pwd`, verás que ahora estás en el directorio `logs`, dentro de `analyst`.
-
-## **Leer archivos desde la terminal**
-
-En Linux, también puedes **leer el contenido de archivos** desde la terminal. Esto es muy útil para revisar configuraciones o detectar accesos no autorizados. Existen varios comandos para esto:
-
-* `cat`: Muestra todo el contenido de un archivo.
-* `head`: Muestra sólo las primeras 10 líneas del archivo (por defecto).
-
-Ejemplo:
-
-```bash
-cat acceso.txt
-```
-
-Este comando mostrará todo el contenido del archivo `acceso.txt`. Si el archivo es muy largo, puedes usar:
-
-```bash
-head acceso.txt
-```
-
-Así verás solo las primeras líneas, lo que puede ayudarte a obtener una vista rápida del contenido sin abrumarte con demasiada información.
 
 ---
 
-## **Estándar de jerarquía del sistema de archivos (FHS) en Linux**
+## 📖 Leer archivos desde la terminal
 
-El **Estándar de Jerarquía del Sistema de Archivos (FHS)** organiza todos los datos dentro de Linux. Este estándar define cómo se estructuran los directorios, qué contiene cada uno y cómo se accede a ellos. Conocer esta jerarquía es fundamental para cualquier profesional en ciberseguridad, ya que facilita la navegación, gestión y análisis del sistema.
-
-## **El directorio raíz: el punto de partida**
-
-En Linux, todo comienza en el **directorio raíz**, representado con una barra diagonal `/`. A partir de él, se ramifican todos los demás directorios. Cada archivo o carpeta dentro del sistema tiene una **ruta de archivo**, que es como su dirección. Las rutas usan `/` para separar los niveles de directorios.
-
-Ejemplo de ruta:
-
-```
-/home/analyst/projects
-```
-
-## **Directorios FHS estándar más comunes**
-
-Estos son los directorios más importantes que encontrarás justo debajo del directorio raíz `/`:
-
-* `/home`: Contiene los directorios personales de cada usuario.
-* `/bin`: Guarda los binarios esenciales (programas ejecutables).
-* `/etc`: Archivos de configuración del sistema.
-* `/tmp`: Archivos temporales. Cuidado: es un punto común de ataque.
-* `/mnt`: Usado para montar dispositivos externos como USBs o discos.
-* `/usr`: Contiene aplicaciones, librerías y documentación para usuarios.
-* `/sbin`: Binarios del sistema usados por el administrador (root).
-* `/var`: Archivos variables como logs, bases de datos y colas de impresión.
-* `/dev`: Archivos especiales que representan dispositivos del sistema.
-* `/lib`: Librerías esenciales para binarios en `/bin` y `/sbin`.
-* `/opt`: Software adicional instalado manualmente.
-
-🛠 **Consejo profesional:** Usa `man hier` para ver una descripción completa de todos los directorios definidos por el FHS.
-
-## **Subdirectorios de usuario y la tilde (\~)**
-
-Dentro de `/home` hay subdirectorios para cada usuario, como `/home/analyst` o `/home/analyst2`. Estos contienen carpetas personales como:
-
-* `~/projects`
-* `~/logs`
-* `~/reports`
-
-`~` representa tu directorio personal. Por ejemplo, `~/logs` es lo mismo que `/home/analyst/logs`.
-
-## **Rutas absolutas vs. relativas**
-
-* **Ruta absoluta:** empieza desde el directorio raíz `/`.
-  Ejemplo: `/home/analyst/projects`
-* **Ruta relativa:** parte del directorio actual.
-  Ejemplo: `../projects`
-
-Símbolos útiles en rutas relativas:
-
-* `.` → directorio actual
-* `..` → directorio padre
-
-## **Comandos clave para navegar por el sistema**
-
-* `pwd`: Muestra la ruta absoluta del directorio actual.
-* `whoami`: Muestra tu nombre de usuario.
-* `ls`: Lista archivos y carpetas del directorio actual.
-
-  * También puedes usarlo con rutas: `ls /home/analyst/projects`
-* `cd`: Cambia de directorio.
-
-  * Ejemplo: `cd projects`
-  * O para retroceder un nivel: `cd ..`
-
-## **Comandos para leer archivos**
-
-* `cat`: Muestra el contenido completo de un archivo.
-
-  * Ejemplo: `cat updates.txt`
-* `head`: Muestra las primeras 10 líneas de un archivo.
-
-  * Para cambiar la cantidad: `head -n 5 updates.txt`
-* `tail`: Muestra las últimas 10 líneas del archivo.
-
-  * Muy útil para leer logs recientes.
-* `less`: Muestra el archivo página por página.
-
-  * Controles:
-
-    * `Espacio`: avanzar una página
-    * `b`: retroceder
-    * `↓ / ↑`: una línea abajo / arriba
-    * `q`: salir
+<CardGrid>
+  <Card title="cat" icon="file-text">
+    Muestra todo el contenido del archivo. Ejemplo: <code>cat access.txt</code>.
+  </Card>
+  <Card title="head" icon="chevron-up">
+    Muestra las primeras líneas (10 por defecto). Ejemplo: <code>head access.txt</code>.
+  </Card>
+  <Card title="less" icon="scroll-text">
+    Permite navegar página por página. Usa <kbd>q</kbd> para salir.
+  </Card>
+</CardGrid>
 
 ---
 
-# Gestionar el contenido de los archivos en bash
-## **Filtrar información: una habilidad esencial para analistas de seguridad**
+## 🗺️ Estándar FHS
 
-Filtrar datos permite encontrar información útil entre grandes volúmenes. En ciberseguridad, esto ayuda a detectar archivos sospechosos, errores en registros o nombres específicos rápidamente.
+El **FHS** define la estructura de directorios en Linux.
 
-## **Buscar con grep**
+| Directorio | Descripción                   |
+| ---------- | ----------------------------- |
+| `/home`    | Directorios personales.       |
+| `/bin`     | Binarios esenciales.          |
+| `/etc`     | Configuraciones del sistema.  |
+| `/var`     | Logs y archivos variables.    |
+| `/tmp`     | Archivos temporales.          |
+| `/usr`     | Aplicaciones y librerías.     |
+| `/sbin`    | Binarios para administración. |
+| `/opt`     | Software adicional.           |
 
-El comando `grep` busca texto dentro de archivos.
-Ejemplo:
-
-```bash
-grep error logs.txt
-```
-
-Muestra las líneas que contienen “error” en `logs.txt`.
-
-## **Canalización: usar el pipe `|`**
-
-La canalización conecta comandos.
-Ejemplo:
-
-```bash
-ls /home/reports | grep users
-```
-
-Muestra solo archivos con “users” en su nombre.
-
-## **Buscar con find**
-
-`find` busca archivos según nombre, fecha u otras condiciones.
-
-Ejemplo por nombre:
-
-```bash
-find /home -name "*log*"
-```
-
-Ejemplo por fecha:
-
-```bash
-find /home -mtime -3
-```
-
-Muestra archivos modificados en los últimos 3 días.
+`~` representa tu carpeta personal. Ejemplo: `~/logs` equivale a `/home/analyst/logs`.
 
 ---
 
-## **Crear y modificar archivos y directorios en Linux**
+## 📌 Rutas absolutas y relativas
 
-En ciberseguridad, es esencial saber crear, mover y editar archivos y directorios desde la terminal.
+* **Absolutas**: comienzan en `/`. Ejemplo: `/home/analyst/projects`.
+* **Relativas**: dependen de la carpeta actual. Ejemplo: `../projects`.
 
-## **Directorios: crear y eliminar**
+Símbolos útiles:
 
-* `mkdir` crea un nuevo directorio.
-  Ejemplo:
+* `.` → directorio actual.
+* `..` → directorio padre.
 
-  ```bash
-  mkdir /home/analyst/logs/network
-  ```
+---
 
-* `rmdir` elimina un directorio vacío.
-  Ejemplo:
+## ⚙️ Gestionar archivos y directorios
 
-  ```bash
-  rmdir /home/analyst/logs/network
-  ```
+### Directorios
 
-## **Archivos: crear, eliminar, mover y copiar**
+```bash
+mkdir /home/analyst/logs/network
+rmdir /home/analyst/logs/network
+```
 
-* `touch` crea un archivo vacío.
+### Archivos
 
-  ```bash
-  touch permissions.txt
-  ```
+```bash
+touch permissions.txt
+rm permissions.txt
+mv permissions.txt /home/analyst/logs
+cp permissions.txt /home/analyst/logs
+```
 
-* `rm` elimina un archivo.
+---
 
-  ```bash
-  rm permissions.txt
-  ```
-
-* `mv` mueve o renombra archivos.
-
-  ```bash
-  mv permissions.txt /home/analyst/logs
-  mv permissions.txt perm.txt
-  ```
-
-* `cp` copia archivos.
-
-  ```bash
-  cp permissions.txt /home/analyst/logs
-  ```
-
-## **Editar archivos con nano**
-
-`nano` es un editor de texto simple desde la terminal.
-Abrir archivo:
+## ✍️ Editar archivos
 
 ```bash
 nano permissions.txt
 ```
 
-Guardar: `Ctrl + O`
-Salir: `Ctrl + X`
+* Guardar: <kbd>Ctrl</kbd> + <kbd>O</kbd>.
+* Salir: <kbd>Ctrl</kbd> + <kbd>X</kbd>.
 
-## **Redirigir salida estándar a archivos**
+---
 
-* `>` sobrescribe un archivo.
-* `>>` añade al final del archivo.
-
-Ejemplo:
+## 🔀 Redirigir salida
 
 ```bash
 echo "updated" >> permissions.txt
@@ -301,123 +157,96 @@ echo "time" > permissions.txt
 
 ---
 
-# Autenticacion y autorizacion de usuarios
-## Permisos en Linux: control de acceso para la seguridad
+## 🔎 Filtrar información
 
-## ¿Qué son los permisos?
+### Buscar con `grep`
 
-En Linux, los **permisos** determinan el tipo de acceso que los usuarios tienen sobre archivos y directorios. Están relacionados con la **autorización**, que permite limitar el acceso a recursos del sistema. Una buena práctica de seguridad es aplicar el principio del **menor privilegio**, es decir, conceder solo el acceso necesario.
-
-## Tipos de permisos
-
-Linux define **tres tipos de permisos**:
-
-* **Lectura (r)**: permite leer el contenido de un archivo o listar los archivos de un directorio.
-* **Escritura (w)**: permite modificar el contenido de un archivo o crear archivos en un directorio.
-* **Ejecución (x)**: permite ejecutar archivos (si son ejecutables) o acceder al contenido de un directorio.
-
-## Tipos de propietarios
-
-Los permisos se aplican a **tres tipos de propietarios**:
-
-* **Usuario (u)**: el propietario del archivo.
-* **Grupo (g)**: grupo al que pertenece el usuario.
-* **Otros (o)**: cualquier otro usuario del sistema.
-
-## Representación de permisos
-
-Los permisos se representan como una **cadena de 10 caracteres**. Por ejemplo:
-
-```
-drwxrwxrwx
+```bash
+grep error logs.txt
 ```
 
-* El primer carácter indica el tipo de archivo: `d` para directorio, `-` para archivo normal.
-* Los siguientes tres caracteres (`rwx`) indican los permisos del **usuario**.
-* Los tres siguientes (`rwx`) son los permisos del **grupo**.
-* Los últimos tres (`rwx`) son los permisos de **otros**.
+### Usar pipe `|`
 
-Si falta algún permiso, se reemplaza con un guion (`-`). Por ejemplo: `rw-r--r--`.
+```bash
+ls /home/reports | grep users
+```
 
-## Comprobación de permisos
+### Buscar con `find`
 
-Para ver los permisos, se usa el comando:
+```bash
+find /home -name "*log*"
+find /home -mtime -3
+```
+
+---
+
+# 🛡️ Permisos en Linux
+
+## 🔐 ¿Qué son los permisos?
+
+Determinan quién puede leer, escribir o ejecutar archivos/directorios. Se aplica el **principio de menor privilegio**.
+
+---
+
+## 🗝️ Tipos de permisos
+
+* **r**: lectura.
+* **w**: escritura.
+* **x**: ejecución.
+
+---
+
+## 👥 Tipos de propietarios
+
+* **u**: usuario.
+* **g**: grupo.
+* **o**: otros.
+
+---
+
+## 📄 Ejemplo de permisos
+
+```
+-rw-r--r--
+```
+
+* Primer carácter: tipo (`-` archivo, `d` directorio).
+* Tres siguientes: permisos usuario.
+* Tres siguientes: grupo.
+* Tres últimos: otros.
+
+---
+
+## 🧐 Ver permisos
 
 ```bash
 ls -l
-```
-
-Este muestra información detallada, incluyendo los permisos, el propietario y el grupo. Para ver **archivos ocultos** (los que comienzan con `.`), se usa:
-
-```bash
 ls -a
-```
-
-Y para combinar ambos:
-
-```bash
 ls -la
 ```
 
-Ejemplo:
+---
 
-```bash
--rw-r--r-- 1 analista Seguridad  proyecto1.txt
-```
-
-Indica que el usuario tiene permisos de lectura y escritura (`rw-`), el grupo tiene solo lectura (`r--`) y otros también (`r--`).
-
-## Modificación de permisos
-
-Para modificar los permisos se usa el comando:
-
-```bash
-chmod
-```
-
-El modo **simbólico** permite controlar permisos de forma clara usando:
-
-* Letras para los propietarios:
-
-  * `u` = usuario
-  * `g` = grupo
-  * `o` = otros
-* Símbolos para las acciones:
-
-  * `+` = añadir
-  * `-` = quitar
-* Letras para los permisos:
-
-  * `r` = lectura
-  * `w` = escritura
-  * `x` = ejecución
-
-Ejemplo:
+## 🛠️ Modificar permisos
 
 ```bash
 chmod g+w,o-r access.txt
 ```
 
-Este comando **añade** permisos de escritura al **grupo** y **quita** permisos de lectura a **otros**.
-
-### Resultado del cambio
-
-Antes del cambio:
+Antes:
 
 ```
 -rw-r--r-- access.txt
 ```
 
-Después del cambio:
+Después:
 
 ```
 -rw-rw---- access.txt
 ```
 
-El grupo ahora puede escribir y “otros” no tienen ningún permiso.
-
-## Importancia de los permisos correctos
-
-Configurar los permisos adecuados es esencial para la **seguridad del sistema**. Un archivo con permisos de escritura para todos puede representar un gran riesgo. Por ejemplo, si un archivo de nómina es accesible por todos, puede provocar **violaciones de privacidad** o alteraciones maliciosas.
-
 ---
+
+<Aside type="caution">
+Dar permisos excesivos puede poner en riesgo la seguridad del sistema y exponer información sensible.
+</Aside>

@@ -2,62 +2,153 @@
 title: Módulo 1 – Introducción a los Sistemas Operativos
 description: Fundamentos, amenazas y habilidades esenciales para comenzar una carrera en ciberseguridad.
 ---
-
 ---
-# Sistemas Operativos 
-Los **sistemas operativos (OS)** son la interfaz entre el hardware y el usuario, permitiendo que las computadoras funcionen de manera eficiente y sean fáciles de usar. Existen diferentes OS según el dispositivo: Windows y macOS en computadoras, Android e iOS en dispositivos móviles, y **Linux**, que es ampliamente utilizado en el sector de la seguridad.  
-
-En los primeros días de la computación, las máquinas no podían ejecutar múltiples programas a la vez, lo que hacía los procesos muy lentos. Era necesario reiniciar la computadora para cargar un nuevo programa. Con el tiempo, los sistemas operativos evolucionaron, permitiendo la ejecución simultánea de varias aplicaciones y la conexión con dispositivos externos como impresoras y teclados.  
-
-Otra función clave de los OS es servir como puente de comunicación entre los humanos y las computadoras, ya que estas últimas funcionan con lenguaje binario (0s y 1s).  
-
-Además, los sistemas operativos desempeñan un papel crítico en la **seguridad informática**, protegiendo archivos, controlando accesos y evitando amenazas como virus y malware. Para un **analista de seguridad**, es fundamental conocer a fondo los OS, ya que sus responsabilidades pueden incluir la configuración de accesos, la gestión de cortafuegos, la implementación de políticas de seguridad y la realización de auditorías para detectar actividades sospechosas. Este conocimiento es esencial para garantizar la seguridad de un sistema y será explorado más a fondo en el curso.
-
+title: Sistemas Operativos
+description: Funcionamiento, seguridad y virtualización en los sistemas operativos, con enfoque práctico para analistas de seguridad.
 ---
 
-# El sistema Operativo en Funcionamiento 
-## Dentro del sistema operativo
-Cuando una computadora se enciende, se activa un microchip **BIOS** o **UEFI**, que contiene las instrucciones de carga del sistema. **BIOS** fue el estándar hasta 2007, cuando fue reemplazado por **UEFI**, que ofrece mayor seguridad. Ambos verifican el estado del hardware y activan el **Cargador de arranque**, que inicia el sistema operativo.  
+import { Card, CardGrid, Aside, Steps } from '@astrojs/starlight/components';
 
-Para completar una tarea en una computadora, se siguen cuatro pasos:  
-1. **Usuario:** Inicia el proceso con una acción.  
-2. **Aplicación:** Un programa procesa la solicitud del usuario.  
-3. **Sistema operativo:** Gestiona la petición y la envía al hardware adecuado.  
-4. **Hardware:** Ejecuta la tarea y devuelve el resultado a la aplicación para mostrárselo al usuario.  
+# 🖥️ Sistemas Operativos
 
-El sistema operativo trabaja en segundo plano, similar a una cocina en un restaurante: recibe solicitudes, las procesa y entrega los resultados sin que el usuario vea lo que ocurre internamente.  
+Los **sistemas operativos (OS)** son la capa que conecta el hardware con el usuario, permitiendo que una computadora sea funcional y fácil de usar. Actúan como traductores entre el lenguaje binario (0 y 1) y las tareas humanas.
 
-Por ejemplo, al descargar un archivo desde un navegador: el usuario hace clic en el botón de descarga, el navegador envía la solicitud al sistema operativo, este la dirige al hardware, y una vez descargado, el navegador informa al usuario.
+<Aside>
+Windows y macOS dominan en computadoras personales, mientras que Android e iOS lideran en móviles. **Linux** es ampliamente usado en entornos de seguridad y servidores.
+</Aside>
 
-## Asignacion de recursos
-El sistema operativo no solo interactúa con el hardware y las aplicaciones, sino que también gestiona los **recursos del sistema** para que se utilicen de manera eficiente. Esto es comparable a la energía en una persona: algunas tareas requieren más recursos que otras, como un **antivirus**, que consume más energía que una **calculadora**.  
+Antes, las computadoras solo podían ejecutar un programa a la vez y requerían reinicios frecuentes. Hoy, los OS permiten la ejecución simultánea de múltiples procesos y la gestión de dispositivos externos como impresoras o teclados.
 
-El OS actúa como un **director de orquesta**, asegurando que los diferentes programas, tareas y procesos obtengan los recursos que necesitan, como **memoria, almacenamiento y ancho de banda**. Constantemente asigna y desasigna recursos para que el sistema funcione sin problemas.  
-
-Aunque gran parte de esto ocurre en segundo plano, se puede visualizar mediante el **gestor de tareas**, que muestra el uso de memoria y CPU en tiempo real. Para un analista de seguridad, entender cómo se distribuyen los recursos permite **identificar problemas**, como detectar software malicioso que ralentiza el sistema. Un conocimiento sólido del funcionamiento de los sistemas operativos es clave para desarrollar habilidades de seguridad.
-
-## Virtualizacion 
-Una **máquina virtual (VM)** es una versión digital de una computadora física, creada a través de la **virtualización**, que permite ejecutar múltiples sistemas operativos en una sola máquina física. En lugar de depender de hardware dedicado, una VM utiliza versiones definidas por software de componentes como la CPU y el almacenamiento.  
-
-Los beneficios de las máquinas virtuales incluyen **seguridad y eficiencia**. En términos de seguridad, una VM funciona como un entorno aislado (*sandbox*), lo que permite analizar software malicioso sin comprometer el sistema anfitrión. Sin embargo, sigue habiendo riesgos, ya que ciertos ataques pueden escapar de la virtualización. En cuanto a la eficiencia, permite ejecutar múltiples entornos en un solo hardware, optimizando recursos de manera similar a un autobús que transporta a varias personas en lugar de que cada una conduzca su propio coche.  
-
-El **hipervisor** es el software que gestiona las VMs y asigna recursos. Un ejemplo es **KVM (Kernel-based Virtual Machine)**, un hipervisor de código abierto integrado en Linux. Además de las VMs, existen otras formas de virtualización, como la de servidores o redes, que optimizan el uso de los recursos físicos.
+Además, un sistema operativo tiene un papel clave en la **seguridad informática**: protege archivos, gestiona permisos y combate amenazas como malware. Para un **analista de seguridad**, conocer los OS es esencial para configurar accesos, auditar eventos, implementar políticas y administrar firewalls.
 
 ---
 
-# Interfaz de Usuario
-## GUI y CLI 
-Los usuarios interactúan con el sistema operativo a través de una **interfaz de usuario**, que puede ser **gráfica (GUI)** o **de línea de comandos (CLI)**.  
+# ⚙️ El sistema operativo en funcionamiento
 
-La **GUI (Graphical User Interface)** usa iconos y menús para realizar tareas. Si has usado una computadora o un celular, ya tienes experiencia con una GUI. Incluye elementos como el **menú de inicio, la barra de tareas y el escritorio**. Permite realizar acciones con clics, facilitando el uso para cualquier persona.  
+## 🔋 Arranque del sistema
 
-Por otro lado, la **CLI (Command Line Interface)** es una interfaz basada en texto, donde los comandos ejecutan tareas directamente en el sistema operativo. Aunque no tiene iconos ni gráficos, ofrece **más flexibilidad y personalización**. Es como cocinar con ingredientes en casa en lugar de pedir comida en un restaurante. Una CLI permite ejecutar varias tareas a la vez, como mover todos los archivos JPEG de una carpeta con un solo comando, en lugar de hacerlo manualmente con una GUI.  
+Al encender una computadora, se activa un microchip llamado **BIOS** o **UEFI**.  
+- **BIOS**: estándar hasta 2007; más simple y menos seguro.  
+- **UEFI**: reemplazo moderno con mayor seguridad y funciones avanzadas.
 
-Para un **analista de seguridad**, la CLI es esencial. Se usa para **analizar registros, gestionar usuarios y realizar tareas avanzadas en sistemas como Linux**. Más adelante, aprenderás a utilizar la CLI para tareas clave en ciberseguridad.
+Ambos verifican el hardware y activan el **cargador de arranque**, que inicia el sistema operativo.
 
-## Linea de Comandos
-La **GUI (Graphical User Interface)** usa gráficos e iconos para realizar tareas, mientras que la **CLI (Command Line Interface)** es una interfaz basada en texto donde los comandos ejecutan acciones directamente en el sistema.  
+<Steps>
+1. El **usuario** inicia una acción (ejemplo: abrir un archivo).
+2. La **aplicación** procesa la solicitud.
+3. El **sistema operativo** gestiona la petición y la dirige al hardware.
+4. El **hardware** ejecuta la tarea y devuelve el resultado.
+</Steps>
 
-Visualmente, la GUI es más intuitiva, con iconos y menús, mientras que la CLI muestra solo texto, similar a líneas de código. Funcionalmente, una GUI permite hacer una tarea a la vez, mientras que una CLI puede ejecutar varias solicitudes simultáneamente.  
+Una buena analogía es una cocina en un restaurante: el cliente pide un platillo (usuario), el chef lo cocina (sistema operativo) y el mesero entrega el platillo (hardware).
 
-En **ciberseguridad**, la CLI tiene ventajas importantes. Es más eficiente para realizar tareas repetitivas o múltiples a la vez. También registra un **archivo de historial** con los comandos ejecutados, lo que permite rastrear acciones y verificar procedimientos. Esto es útil para responder a incidentes, seguir estrategias definidas y detectar actividades sospechosas en un sistema.
+---
+
+## 🧑‍💻 Asignación de recursos
+
+El sistema operativo funciona como un **director de orquesta**, organizando recursos como memoria, almacenamiento y ancho de banda para que todo fluya sin conflictos.
+
+<Aside type="tip">
+El **administrador de tareas** en Windows o el **Monitor de actividad** en macOS te permiten visualizar en tiempo real el uso de CPU y memoria.
+</Aside>
+
+Un **antivirus** puede requerir más recursos que una **calculadora**, por lo que el OS decide cuánto asignar a cada proceso. Para un analista, esta visión permite identificar software malicioso o procesos sospechosos que ralenticen el sistema.
+
+---
+
+## 🖥️ Virtualización
+
+Una **máquina virtual (VM)** es como una computadora dentro de otra. Se crea usando **virtualización**, que permite ejecutar múltiples sistemas operativos en el mismo hardware físico.
+
+<CardGrid>
+  <Card title="Aislamiento" icon="shield-check">
+    Una VM funciona como un entorno aislado (sandbox), ideal para analizar malware sin comprometer el sistema principal.
+  </Card>
+  <Card title="Eficiencia" icon="cpu">
+    Permite ejecutar varios entornos con un solo equipo, optimizando recursos.
+  </Card>
+</CardGrid>
+
+<Aside type="caution">
+Aunque las VMs aíslan procesos, existen ataques avanzados que pueden escapar de la virtualización.
+</Aside>
+
+El **hipervisor** es el software encargado de gestionar las VMs. Ejemplo:  
+- **KVM (Kernel-based Virtual Machine)**: integrado en Linux, gratuito y de código abierto.
+
+Además, existen otras virtualizaciones: de servidores, redes o escritorios, todas buscando optimizar y proteger recursos.
+
+---
+
+# 🧭 Interfaz de usuario
+
+## 🖱️ GUI (Interfaz gráfica)
+
+La **GUI** usa íconos, menús y ventanas, facilitando el uso para usuarios no técnicos.  
+Ejemplos: el **menú inicio**, la **barra de tareas** o el **escritorio**.
+
+<Aside>
+Si usas Windows, macOS o un smartphone, ya estás familiarizado con la GUI.
+</Aside>
+
+---
+
+## 💻 CLI (Línea de comandos)
+
+La **CLI** es una interfaz de texto puro donde se escriben comandos para interactuar directamente con el sistema.
+
+<CardGrid>
+  <Card title="Flexibilidad" icon="terminal">
+    Permite automatizar tareas y realizar operaciones avanzadas en segundos.
+  </Card>
+  <Card title="Control total" icon="settings">
+    Ofrece más precisión y personalización que la GUI.
+  </Card>
+</CardGrid>
+
+Una CLI puede mover cientos de archivos con un solo comando, mientras que la GUI requeriría hacerlo manualmente.  
+Para un **analista de seguridad**, dominar la CLI es vital para analizar registros, gestionar usuarios y automatizar tareas críticas.
+
+---
+
+## ⚔️ CLI en seguridad
+
+La CLI ofrece ventajas clave en ciberseguridad:  
+- **Rapidez** en ejecutar múltiples comandos simultáneamente.
+- **Historial** de comandos para auditar actividades y seguir procedimientos.  
+- **Automatización** de tareas rutinarias, como análisis de logs o generación de reportes.
+
+<Aside type="tip">
+Dominar la CLI es como tener una navaja suiza: potente, versátil y esencial para cualquier especialista en seguridad.
+</Aside>
+
+---
+
+# 💡 Resumen visual
+
+<CardGrid>
+  <Card title="OS" icon="cpu">
+    Conecta hardware y usuario; gestiona recursos y seguridad.
+  </Card>
+  <Card title="Virtualización" icon="layers">
+    Ejecuta múltiples sistemas en un mismo equipo, optimizando recursos y creando entornos seguros.
+  </Card>
+  <Card title="GUI" icon="monitor">
+    Intuitiva, basada en gráficos; ideal para tareas sencillas.
+  </Card>
+  <Card title="CLI" icon="terminal">
+    Basada en texto; más poderosa y flexible, clave en seguridad.
+  </Card>
+</CardGrid>
+
+<Aside type="tip">
+Un analista de seguridad debe conocer tanto la GUI como la CLI, además de comprender la virtualización y el manejo profundo de recursos en los OS.
+</Aside>
+
+---
+
+# 🛡️ Conclusión
+
+Los sistemas operativos son mucho más que ventanas y botones: son guardianes, gestores y traductores invisibles que hacen posible que la tecnología funcione. Conocerlos a fondo es un pilar fundamental para la seguridad y administración moderna.
+
+---

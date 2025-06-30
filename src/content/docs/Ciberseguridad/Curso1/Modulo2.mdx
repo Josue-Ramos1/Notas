@@ -1,111 +1,84 @@
 ---
-title: Módulo 2 – Historia de la Ciberseguridad
-description: Evolución de los ataques informáticos, impacto en la seguridad digital y los ocho dominios del CISSP.
+title: Historia de la Ciberseguridad y Dominios CISSP
+description: Evolución de los ataques informáticos, su impacto y los ocho dominios clave del CISSP.
 ---
+
+import { CardGrid, Card, Aside, Steps } from '@astrojs/starlight/components';
 
 # Historia de la Ciberseguridad
 
 ## Evolución de los ataques informáticos y su impacto en la seguridad
 
-La ciberseguridad es un campo en constante evolución, pero muchos ataques actuales tienen sus raíces en técnicas del pasado. Los atacantes suelen modificar y mejorar métodos existentes, por lo que comprender los primeros ataques informáticos permite a los analistas de seguridad manejar e investigar incidentes con mayor eficacia.
+La ciberseguridad es un campo en constante cambio, pero muchas técnicas actuales tienen raíces en ataques del pasado. Comprender estos orígenes permite a los analistas investigar y prevenir incidentes con mayor eficacia.
 
-Uno de los primeros virus informáticos fue **Brain**, desarrollado en 1986 por los hermanos Alvi para rastrear copias ilegales de software médico. Sin embargo, terminó propagándose sin control, infectando computadoras a través de discos extraíbles y afectando la productividad empresarial. Este evento demostró la necesidad de estrategias de seguridad para prevenir y mitigar incidentes.
+<CardGrid>
+  <Card title="Brain (1986)" icon="alert-triangle">
+    Virus creado por los hermanos Alvi para rastrear copias ilegales de software médico. Terminó propagándose sin control mediante discos extraíbles, afectando la productividad empresarial.
+  </Card>
+  <Card title="Gusano Morris (1988)" icon="activity">
+    Diseñado para medir el tamaño de Internet, causó fallos al reinfectar equipos repetidamente. Afectó el 10 % de los dispositivos conectados y motivó la creación de los CERTs.
+  </Card>
+</CardGrid>
 
-Otro ataque significativo fue el **gusano Morris** en 1988. Creado por Robert Morris para medir el tamaño de Internet, su código tenía un error que provocaba su reinstalación continua, causando que las computadoras se quedaran sin memoria y fallaran. Este gusano afectó al 10 % de los dispositivos conectados a Internet en ese momento y generó pérdidas millonarias.
+<Aside type="caution">
+Estos eventos históricos marcaron el inicio de estrategias formales para prevenir y mitigar incidentes de seguridad.
+</Aside>
 
-> 💡 Como resultado, se crearon los **Equipos de Respuesta a Emergencias Informáticas (CERTs)**, que hoy en día juegan un papel fundamental en la detección y respuesta a incidentes de seguridad.
+## Ataques en la era digital y su impacto
 
-Estos ataques históricos sentaron las bases de la ciberseguridad moderna. En el futuro, exploraremos cómo han evolucionado las amenazas en la era digital y qué medidas se han desarrollado para enfrentarlas.
+Con Internet de alta velocidad, los atacantes ya no necesitan dispositivos físicos para propagar malware, lo que ha dado lugar a ataques masivos y sofisticados.
 
-## Ataques en la era digital y su impacto en la seguridad
+<CardGrid>
+  <Card title="LoveLetter (2000)" icon="mail">
+    Usó ingeniería social mediante correos con el asunto "Te quiero", infectando 45 millones de computadoras y causando daños por más de 10.000 millones USD.
+  </Card>
+  <Card title="Brecha de Equifax (2017)" icon="database">
+    Exposición de datos de 143 millones de personas. Costó a Equifax más de 575 millones USD en multas y compensaciones.
+  </Card>
+</CardGrid>
 
-Con la expansión de Internet de alta velocidad, los atacantes ya no necesitan dispositivos físicos para propagar malware. Esto ha dado lugar a ataques masivos que explotan vulnerabilidades humanas y tecnológicas.
+<Aside type="tip">
+La ingeniería social sigue evolucionando y representa uno de los mayores riesgos actuales. Capacitar a los empleados es esencial para mitigar ataques como phishing.
+</Aside>
 
-### Caso 1: Virus LoveLetter
-
-En el año 2000, **Onel De Guzman** creó el virus LoveLetter, un ataque basado en **ingeniería social**. Se propagó mediante correos electrónicos con el asunto _"Te quiero"_, engañando a los usuarios para que abrieran un archivo adjunto malicioso.
-
-- Infectó **45 millones de computadoras**.
-- Causó más de **10 mil millones de dólares en daños**.
-
-Este incidente marcó el inicio de ataques sofisticados que manipulan el comportamiento humano.
-
-> 🧠 La ingeniería social ha evolucionado con las redes sociales, facilitando ataques como el **phishing**, donde correos fraudulentos engañan a los usuarios para revelar datos sensibles o instalar malware.
-
-### Caso 2: Brecha de Equifax (2017)
-
-En 2017, la **brecha de Equifax** expuso datos confidenciales de **143 millones de personas**, incluyendo:
-
-- Números de seguridad social
-- Datos financieros
-
-Este incidente fue causado por múltiples fallos de seguridad que no se corrigieron a tiempo.
-
-- Equifax pagó más de **575 millones de dólares** en multas y compensaciones.
-
-Estos casos han moldeado la industria y resaltan la importancia de una vigilancia constante. Como profesional de la ciberseguridad, la capacidad de **identificar patrones y vulnerabilidades** será esencial para prevenir ataques y minimizar daños.
+Estos casos muestran la importancia de la vigilancia continua. Identificar patrones y vulnerabilidades será clave para prevenir daños.
 
 ---
 
-# Los ocho dominios de seguridad CISSP
+# Los ocho dominios de Seguridad CISSP
 
-## Dominios de seguridad según el CISSP
+## Introducción a los dominios
 
-A medida que evolucionan las tácticas de los atacantes, también lo hacen las funciones de los profesionales de ciberseguridad. Para estructurar estos conocimientos, el certificado **CISSP** define **ocho dominios de seguridad**, todos interconectados.
+A medida que avanzan las tácticas de ataque, también se transforman las funciones de ciberseguridad. El **CISSP** organiza el conocimiento en **ocho dominios interconectados**, esenciales para definir estrategias y posibles áreas de especialización.
 
-> 📘 Una brecha en un dominio puede comprometer la seguridad de toda la organización.
+<Aside type="caution">
+Una brecha en un solo dominio puede comprometer la seguridad total de la organización.
+</Aside>
 
-Además, conocer estos dominios puede ayudar a definir objetivos profesionales y áreas de especialización.
+## Primeros cuatro dominios
 
-### 1. Seguridad y Gestión de Riesgos
+<Steps>
+1. **Seguridad y Gestión de Riesgos:** Establece objetivos, mitiga riesgos y asegura cumplimiento. Ejemplo: actualizar políticas médicas ante cambios en HIPAA.
+2. **Seguridad de los Recursos:** Protege activos físicos y digitales, incluyendo eliminación segura de datos.
+3. **Arquitectura e Ingeniería de Seguridad:** Configura herramientas como firewalls para filtrar tráfico malicioso y mantener la productividad.
+4. **Seguridad de la Red y las Comunicaciones:** Administra y protege redes físicas y conexiones inalámbricas, estableciendo políticas para evitar redes inseguras.
+</Steps>
 
-- Define objetivos de seguridad
-- Mitigación de riesgos
-- Cumplimiento normativo y continuidad del negocio
+## Siguientes cuatro dominios
 
-📌 *Ejemplo:* Actualizar políticas sobre datos médicos privados si cambia una ley como **HIPAA**.
+<Steps>
+5. **Gestión de Identidades y Accesos:** Controla quién accede a qué recursos. Incluye accesos físicos y lógicos, configuraciones y documentación de roles.
+6. **Evaluación y Pruebas de Seguridad:** Realiza auditorías y pruebas para identificar riesgos, por ejemplo, revisando permisos sobre datos sensibles.
+7. **Operaciones de Seguridad:** Detecta amenazas, investiga incidentes y aplica medidas preventivas. Ejemplo: respuesta ante dispositivos desconocidos en la red.
+8. **Seguridad en el Desarrollo de Software:** Integra prácticas seguras en el ciclo de vida de desarrollo, colaborando con equipos para proteger datos de usuarios.
+</Steps>
 
-### 2. Seguridad de los Recursos
+<Aside type="tip">
+Conocer y dominar estos dominios fortalece tu perfil profesional y amplía tus oportunidades de especialización.
+</Aside>
 
-- Protección de activos digitales y físicos
-- Almacenamiento y eliminación segura de datos
+---
 
-📌 *Ejemplo:* Garantizar la destrucción segura de equipos antiguos para evitar filtraciones.
-
-### 3. Arquitectura e Ingeniería de Seguridad
-
-- Uso de herramientas y procesos seguros
-- Optimización de la seguridad de sistemas
-
-📌 *Ejemplo:* Configurar un **firewall** para proteger el tráfico de red.
-
-### 4. Seguridad de la Red y las Comunicaciones
-
-- Administración de redes físicas e inalámbricas
-
-📌 *Ejemplo:* Detectar y prevenir conexiones a redes no seguras mediante políticas adecuadas.
-
-### 5. Gestión de Identidades y Accesos
-
-- Control de acceso físico y lógico
-
-📌 *Ejemplo:* Configurar roles de usuario y gestionar accesos a sistemas y oficinas.
-
-### 6. Evaluación y Pruebas de Seguridad
-
-- Auditorías y pruebas para detectar vulnerabilidades
-
-📌 *Ejemplo:* Revisar permisos de acceso a información sensible, como la nómina.
-
-### 7. Operaciones de Seguridad
-
-- Detección de amenazas e investigación de incidentes
-
-📌 *Ejemplo:* Responder a alertas de dispositivos desconocidos conectados a la red.
-
-### 8. Seguridad del Desarrollo de Software
-
-- Integración de prácticas seguras en el desarrollo de software
-
-📌 *Ejemplo:* Definir políticas de contraseñas y protección de datos en una nueva aplicación.
-
+<Aside type="tip">
+¡Listo! Con esta base podrás profundizar en cada dominio y mejorar tus habilidades como futuro profesional de ciberseguridad. 🔐🚀
+</Aside>

@@ -1,108 +1,113 @@
 ---
-title: Módulo 3 - Marcos y Controles de Seguridad
-description: Fundamentos sobre marcos de seguridad, controles y normativas en ciberseguridad.
+title: Marcos, Controles y Ética en la Ciberseguridad
+description: Fundamentos de marcos de seguridad, controles y principios éticos para proteger organizaciones y usuarios.
 ---
 
-# Marcos y Controles
+import { CardGrid, Card, Aside, Steps } from '@astrojs/starlight/components';
 
-Cuando un analista de seguridad recibe múltiples alertas de actividad sospechosa en la red, su prioridad es identificar los activos críticos, evaluar los riesgos y, a partir de ahí, implementar **marcos** y **controles de seguridad** que ayuden a mitigar dichos riesgos.
+# Marcos y controles
 
-Los marcos de seguridad proporcionan directrices estructuradas para gestionar amenazas y garantizar el cumplimiento normativo. Su propósito es:
+Si como analista recibes múltiples alertas de actividades sospechosas, el primer paso es identificar activos críticos y evaluar riesgos. Luego, es fundamental implementar **marcos** y **controles** adecuados para gestionarlos y mitigarlos.
 
-- Proteger la **información personal (PII)** y financiera.
-- Alinear la seguridad con los **objetivos comerciales**.
-- Establecer prácticas repetibles que mejoren la **resiliencia organizacional**.
+<Aside type="tip">
+Los marcos proporcionan directrices estructuradas para proteger información personal, financiera y alinear la seguridad con los objetivos comerciales.
+</Aside>
 
-### Componentes clave de un marco de seguridad
+## Componentes clave de un marco de seguridad
 
-1. **Identificación de objetivos de seguridad**  
-   Por ejemplo, cumplir con regulaciones como el **RGPD**, que otorga a los ciudadanos europeos control sobre sus datos.
+<Steps>
+1. **Identificación de objetivos de seguridad:** Ejemplo: cumplir con GDPR para proteger datos de ciudadanos europeos.
+2. **Establecimiento de directrices:** Definir políticas sobre acceso y gestión de datos.
+3. **Implementación de procesos sólidos:** Garantizar cumplimiento normativo mediante procedimientos efectivos.
+4. **Monitoreo y comunicación de resultados:** Supervisar redes e informar sobre incumplimientos.
+</Steps>
 
-2. **Establecimiento de directrices**  
-   Como definir políticas sobre el tratamiento de solicitudes de acceso a datos personales.
+Los **controles de seguridad** complementan los marcos al reducir riesgos específicos. Un ejemplo es la capacitación obligatoria en privacidad para empleados, gestionada con herramientas automatizadas.
 
-3. **Implementación de procesos de seguridad**  
-   Asegurar que la organización cumpla las normativas mediante procedimientos bien definidos.
-
-4. **Monitoreo y comunicación de resultados**  
-   Supervisar la red e informar sobre incumplimientos o desviaciones en tiempo real.
-
-### Controles de seguridad
-
-Los controles complementan a los marcos ayudando a reducir riesgos específicos.
-
-> 🔒 **Ejemplo**: La capacitación obligatoria en privacidad para empleados es un control. Su cumplimiento puede auditarse mediante herramientas automatizadas.
-
-En conjunto, marcos y controles aseguran que **toda la organización contribuya a la mitigación de riesgos** y al mantenimiento de la seguridad.
+<Aside type="caution">
+La combinación de marcos y controles es esencial para minimizar riesgos y garantizar que todos colaboren en la seguridad organizacional.
+</Aside>
 
 ---
 
-## Marcos de Seguridad
+# Marcos
 
-Los marcos permiten una gestión estructurada del **ciclo de vida de la seguridad**, el cual se compone de políticas y estándares que deben actualizarse continuamente.
+Los marcos proporcionan un enfoque estructurado para gestionar el ciclo de vida de la seguridad. Se integran con controles y regulaciones para minimizar riesgos.
 
-La **tríada CID (Confidencialidad, Integridad, Disponibilidad)** es un modelo esencial que guía la implementación de controles para minimizar amenazas y vulnerabilidades.
+## Confidencialidad, Integridad y Disponibilidad (CID)
 
-> ⚙️ Los controles de seguridad actúan como salvaguardas que reducen riesgos y se alinean con los objetivos del marco adoptado.
+Este modelo ayuda a definir controles que mitigan amenazas y vulnerabilidades.
 
-### Cumplimiento normativo
+## Cumplimiento normativo
 
-El cumplimiento se refiere a la **adhesión a normativas y estándares**, tanto internos como externos. A continuación se presentan algunos de los marcos y regulaciones más relevantes:
+El cumplimiento implica seguir estándares internos y regulaciones externas. Ejemplos:
 
-#### Normas y marcos reconocidos
+<CardGrid>
+  <Card title="NIST" icon="shield">
+    Incluye el Cybersecurity Framework (CSF) y Risk Management Framework (RMF) para gestión del riesgo.
+  </Card>
+  <Card title="FERC-NERC" icon="zap">
+    Protege infraestructura eléctrica crítica en EE.UU.
+  </Card>
+  <Card title="FedRAMP" icon="cloud">
+    Establece seguridad en servicios en la nube para agencias gubernamentales.
+  </Card>
+  <Card title="CIS" icon="lock">
+    Proporciona controles accionables para proteger redes y sistemas; guía clave durante incidentes.
+  </Card>
+  <Card title="GDPR" icon="user-check">
+    Protege datos personales de ciudadanos de la UE.
+  </Card>
+  <Card title="PCI DSS" icon="credit-card">
+    Norma de seguridad para proteger transacciones con tarjetas y reducir fraudes.
+  </Card>
+  <Card title="HIPAA" icon="heart-pulse">
+    Protege la información médica en EE.UU.
+  </Card>
+  <Card title="ISO" icon="globe">
+    Estándares internacionales para mejorar procesos y gestión organizacional.
+  </Card>
+  <Card title="SOC 1 y SOC 2" icon="file-text">
+    Evalúan cumplimiento financiero y seguridad general de datos.
+  </Card>
+</CardGrid>
 
-- **NIST (National Institute of Standards and Technology)**  
-  - **NIST CSF**: Cybersecurity Framework  
-  - **NIST RMF**: Risk Management Framework
+## Otras regulaciones importantes
 
-- **FERC-NERC**  
-  Regula la seguridad de la infraestructura eléctrica en Estados Unidos.
+- **Ley Gramm-Leach-Bliley:** Protege información financiera.
+- **Ley Sarbanes-Oxley:** Establece requisitos de reporte financiero y controles internos.
+- **Orden Ejecutiva 14028 (EE.UU.):** Refuerza la ciberseguridad nacional.
 
-- **FedRAMP**  
-  Estándar de seguridad para servicios en la nube utilizados por agencias federales.
-
-- **CIS (Center for Internet Security)**  
-  Ofrece controles prácticos para proteger sistemas y redes.  
-  > ✅ Incluye guías de acción para responder a incidentes de seguridad.
-
-- **GDPR (General Data Protection Regulation)**  
-  Regula la protección de datos personales de ciudadanos de la Unión Europea.
-
-- **PCI DSS (Payment Card Industry Data Security Standard)**  
-  Norma internacional para proteger datos de tarjetas de crédito.  
-  > 💳 Su propósito es **reducir el fraude** mediante requisitos técnicos y organizativos.
-
-- **HIPAA (Health Insurance Portability and Accountability Act)**  
-  Regula la privacidad y seguridad de la información médica en EE. UU.
-
-- **ISO (International Organization for Standardization)**  
-  Establece estándares internacionales aplicables en tecnología, industria y gestión organizacional.
-
-- **SOC 1 y SOC 2**  
-  Auditorías sobre controles financieros y de seguridad. Evalúan aspectos como:
-  - Confidencialidad
-  - Disponibilidad
-  - Integridad
-  - Privacidad
-  - Protección frente a fraude
-
-#### Otras regulaciones clave
-
-- **Ley Gramm-Leach-Bliley**  
-  Regula la protección de información financiera personal.
-
-- **Ley Sarbanes-Oxley**  
-  Asegura transparencia en reportes financieros, incluyendo medidas de seguridad.
-
-- **Orden Ejecutiva 14028 (EE. UU.)**  
-  Busca mejorar la ciberseguridad nacional a través de requisitos estrictos para agencias federales y contratistas.
-
-> 🧠 **Nota**: Es esencial que los profesionales de seguridad se mantengan actualizados respecto a estos marcos y regulaciones. Esto garantiza que las organizaciones operen de forma segura y cumplan con las leyes vigentes.
+<Aside type="tip">
+Mantenerse actualizado con regulaciones es clave para proteger organizaciones y usuarios, y evitar sanciones.
+</Aside>
 
 ---
 
-# Ética de la Ciberseguridad
+# Ética de la ciberseguridad
 
-> ⚖️ *(Próxima sección en desarrollo)*  
-> En esta parte se abordarán los principios éticos fundamentales que guían la conducta profesional en la ciberseguridad, tales como la responsabilidad, el uso adecuado de información y la protección de derechos digitales.
+La ética es el pilar fundamental para cualquier profesional en ciberseguridad. Implica proteger la información de usuarios y organizaciones, actuar con integridad y cumplir leyes y estándares éticos.
 
+<Aside type="tip">
+Un analista ético prioriza la privacidad y seguridad, evitando explotar vulnerabilidades o acceder a información sin autorización.
+</Aside>
+
+Los principios éticos incluyen:
+
+<Steps>
+1. **Confidencialidad:** Proteger datos sensibles y evitar divulgación no autorizada.
+2. **Integridad:** Garantizar la precisión y fiabilidad de la información.
+3. **Disponibilidad:** Asegurar que la información y servicios estén accesibles cuando se necesiten.
+4. **Legalidad y cumplimiento:** Respetar leyes y regulaciones aplicables.
+5. **Transparencia:** Informar a las partes interesadas sobre incidentes y políticas de seguridad.
+</Steps>
+
+<Aside type="caution">
+Una mala práctica ética no solo expone a la organización a sanciones, sino que también afecta la reputación y confianza pública.
+</Aside>
+
+---
+
+<Aside type="tip">
+La combinación de marcos sólidos, controles eficaces y ética profesional te ayudará a crear entornos digitales más seguros y confiables. 🔐🚀
+</Aside>

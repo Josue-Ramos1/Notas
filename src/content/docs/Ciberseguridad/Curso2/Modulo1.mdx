@@ -1,178 +1,121 @@
 ---
-title: Modulo 1 - Dominios de Seguridad en Ciberseguridad
-description: Análisis de los dominios CISSP, amenazas, riesgos, vulnerabilidades y su impacto en la organización.
+title: Dominios de seguridad en ciberseguridad
+description: Los ocho dominios clave, amenazas, riesgos, vulnerabilidades y su impacto en las organizaciones.
 ---
 
-# Dominios de Seguridad en Ciberseguridad
+import { CardGrid, Card, Aside, Steps } from '@astrojs/starlight/components';
 
-## Importancia de los dominios de seguridad
+# Dominios de seguridad en ciberseguridad
 
-Los ocho dominios definidos en ciberseguridad son fundamentales para proteger activos digitales, infraestructura crítica y datos sensibles. Abordar cada dominio permite:
+## Importancia
 
-- Reducir el riesgo de ciberataques.
-- Garantizar la continuidad del negocio.
-- Proteger la privacidad y la integridad de la información.
-
-> ❗ Una estrategia incompleta puede dejar a las organizaciones vulnerables ante brechas de seguridad, pérdidas económicas o sanciones regulatorias.
+Los ocho dominios son fundamentales para proteger activos digitales, infraestructura y datos. Sin una estrategia sólida, las organizaciones son vulnerables a ciberataques, brechas de datos y pérdidas financieras.
 
 ---
 
 ## Áreas clave en ciberseguridad
 
-### Seguridad y Gestión de Riesgos
-
-Establece la postura de seguridad mediante:
-
-- Políticas organizacionales.
-- Cumplimiento de normativas como **ISO 27001** y **GDPR**.
-- Gestión de riesgos.
-- Continuidad del negocio y recuperación ante desastres.
-- Seguridad en la nube.
-- Respuesta ante incidentes.
-
-### Seguridad de los Recursos
-
-Protege los activos físicos y virtuales:
-
-- Gestión del ciclo de vida de la información.
-- Clasificación de datos según sensibilidad.
-- Políticas de respaldo y recuperación.
-- Eliminación segura de datos.
-
-### Arquitectura de Seguridad e Ingeniería
-
-Diseña entornos seguros usando:
-
-- **Defensa en profundidad** y **mínimo privilegio**.
-- Controles de seguridad a nivel hardware y software.
-- Uso de herramientas como **SIEM**.
-- Seguridad en entornos virtualizados y contenedores.
-
-### Comunicación y Seguridad de Red
-
-Garantiza la integridad y confidencialidad de datos en tránsito:
-
-- Cifrado, segmentación y uso de VPN.
-- Firewalls, **IDS/IPS**, autenticación en redes.
-- Seguridad en redes definidas por software (SDN).
-- Prevención de ataques como **Man-in-the-Middle (MitM)**.
-
-### Gestión de Identidad y Acceso (IAM)
-
-Controla el acceso a los recursos:
-
-- Principio de **privilegio mínimo**.
-- **MFA**, **SSO** y modelo **Zero Trust**.
-- Gestión de credenciales y federación de identidades.
-- **PAM (Privileged Access Management)**.
-
-### Evaluación y Pruebas de Seguridad
-
-Identifica vulnerabilidades mediante:
-
-- Auditorías de seguridad y pruebas de penetración.
-- Escaneo de vulnerabilidades.
-- Análisis de código (estático y dinámico).
-- Simulaciones **Red Team / Blue Team**.
-
-### Operaciones de Seguridad
-
-Monitorea y responde a amenazas activas:
-
-- Herramientas como **SIEM**, análisis forense.
-- Automatización con **SOAR**.
-- Gestión de **APT (Amenazas Persistentes Avanzadas)**.
-- Coordinación desde un **SOC**.
-
-### Seguridad en el Desarrollo de Software
-
-Integra prácticas seguras en el ciclo de vida de desarrollo:
-
-- Enfoque **DevSecOps**.
-- Prevención de vulnerabilidades como **SQLi**, **XSS**, y **buffer overflows**.
-- Evaluación de dependencias en código abierto.
-- Pruebas de seguridad para APIs y aplicaciones.
+<CardGrid>
+  <Card title="Seguridad y Gestión de Riesgos" icon="shield">
+    Define la postura de seguridad, desarrolla políticas, gestiona riesgos y asegura el cumplimiento normativo (ISO 27001, GDPR).
+  </Card>
+  <Card title="Seguridad de los Recursos" icon="server">
+    Protege activos físicos y digitales, asegura almacenamiento y eliminación segura, y gestiona respaldos.
+  </Card>
+  <Card title="Arquitectura e Ingeniería de Seguridad" icon="cpu">
+    Diseña infraestructuras seguras con defensa en profundidad, mínimo privilegio y uso de SIEM y segmentación.
+  </Card>
+  <Card title="Comunicación y Seguridad de Red" icon="wifi">
+    Protege datos transmitidos con cifrado, VPN y firewalls. Incluye IDS/IPS y Zero Trust.
+  </Card>
+  <Card title="Gestión de Identidad y Acceso" icon="user-check">
+    Controla autenticación, autorización y privilegios con MFA, SSO y Zero Trust.
+  </Card>
+  <Card title="Evaluación y Pruebas de Seguridad" icon="bug">
+    Realiza auditorías, pentesting y escaneo para identificar vulnerabilidades y medir defensas.
+  </Card>
+  <Card title="Operaciones de Seguridad" icon="activity">
+    Detecta, responde y mitiga amenazas con SOC, SIEM y automatización (SOAR).
+  </Card>
+  <Card title="Seguridad en Desarrollo de Software" icon="code">
+    Integra seguridad en DevSecOps, analiza código y previene vulnerabilidades como XSS y inyecciones SQL.
+  </Card>
+</CardGrid>
 
 ---
 
-# Amenazas, Riesgos y Vulnerabilidades
+## Amenazas, riesgos y vulnerabilidades
 
-## Gestión de activos y seguridad
-
-Un analista de nivel básico gestiona tanto activos físicos (dispositivos, oficinas) como digitales (datos, cuentas, servidores), todos ellos expuestos a múltiples riesgos.
+<Aside type="caution">
+Gestionar activos digitales y físicos es esencial para evitar amenazas, mitigar riesgos y reducir vulnerabilidades.
+</Aside>
 
 ### Amenazas
 
-Son eventos o agentes que pueden dañar activos:
-
-- **Ingeniería social**: técnicas que manipulan usuarios.
-- **Phishing**: correos fraudulentos para obtener datos sensibles.
+Eventos que pueden afectar negativamente los activos. Ejemplo: **ingeniería social** y **phishing**, donde los atacantes engañan para robar credenciales o instalar malware.
 
 ### Riesgos
 
-Es la probabilidad de que una amenaza aproveche una vulnerabilidad.
+La posibilidad de que una amenaza explote una vulnerabilidad. Pueden ser:
 
-Ejemplo: No tener respaldo de datos ➝ Alto riesgo si ocurre un ataque.
-
-#### Niveles de riesgo
-
-- **Bajo:** Afecta información pública (sitio web informativo).
-- **Medio:** Afecta datos internos (reportes no públicos).
-- **Alto:** Afecta información crítica (PII, propiedad intelectual).
+<Steps>
+1. **Bajo riesgo:** Información pública, sin impacto crítico.
+2. **Riesgo medio:** Datos internos que podrían afectar reputación o finanzas.
+3. **Alto riesgo:** PII o datos regulados, con consecuencias graves.
+</Steps>
 
 ### Vulnerabilidades
 
-Son debilidades explotables por amenazas:
+Debilidades que pueden ser aprovechadas por amenazas. Ejemplos: contraseñas débiles, firewalls sin actualizar, datos no cifrados, y errores humanos.
 
-- **Firewalls desactualizados**
-- **Contraseñas débiles**
-- **Datos sin cifrar**
-- **Errores humanos** (por desconocimiento o negligencia)
-
-> ⚠️ El factor humano es una de las mayores vulnerabilidades en ciberseguridad.
+<Aside type="tip">
+El factor humano es una de las mayores vulnerabilidades. La capacitación y cultura de seguridad son claves.
+</Aside>
 
 ---
 
 ## Mitigación y concienciación
 
-El analista debe identificar vulnerabilidades y reducir riesgos mediante:
-
-- Capacitación en **detección de phishing**.
-- Uso de **tarjetas de acceso** en zonas sensibles.
-- Control de accesos y privilegios.
-- Fomento de la **cultura de seguridad** en toda la organización.
+Un analista debe identificar vulnerabilidades, promover buenas prácticas y capacitar al personal en detección de amenazas (como phishing). Controlar accesos físicos y digitales fortalece la seguridad.
 
 ---
 
-# Impacto de amenazas, riesgos y vulnerabilidades
+## Impactos
 
-## Ransomware y consecuencias organizacionales
+### Ransomware
 
-El **ransomware** cifra datos de una organización y exige pago para restaurar el acceso. Impactos:
+El ransomware cifra datos y exige rescate. Puede inutilizar dispositivos y sistemas, y conlleva filtraciones en la **web oscura**.
 
-- Paraliza operaciones.
-- Provoca pérdidas económicas.
-- Genera exposición en la **web oscura**.
+#### Capas de la web
 
-## Capas de la web
-
-- **Web de superficie**: accesible desde navegadores (Google, redes sociales).
-- **Web profunda**: requiere autenticación (intranets, bases de datos).
-- **Web oscura**: accesible solo con software como Tor, utilizada para actividades anónimas o ilícitas.
-
-## Impactos comunes
-
-1. **Económico:**  
-   Costos por recuperación, interrupción del servicio y multas.
-
-2. **Robo de identidad:**  
-   Filtración de **PII**, posible uso indebido o venta en mercados ilegales.
-
-3. **Reputacional:**  
-   Pérdida de confianza del cliente, fuga de usuarios, impacto legal y mediático.
-
-> 🔐 Mitigar estos impactos requiere políticas de seguridad robustas, monitoreo continuo y educación de los usuarios.
+<CardGrid>
+  <Card title="Web de superficie" icon="globe">
+    Accesible con buscadores. Ej: redes sociales y sitios públicos.
+  </Card>
+  <Card title="Web profunda" icon="lock">
+    Requiere credenciales o permisos. Ej: intranets o bases de datos privadas.
+  </Card>
+  <Card title="Web oscura" icon="moon">
+    Accesible con software especializado (ej: Tor). Usada para actividades anónimas o ilícitas.
+  </Card>
+</CardGrid>
 
 ---
 
-> 📘 En la siguiente sección, se presentarán los **siete pasos del marco de gestión de riesgos del NIST**, una guía estructurada para reducir amenazas de forma proactiva.
+### Impactos clave
+
+<Steps>
+1. **Financiero:** Pérdidas por interrupciones, recuperación, y multas regulatorias.
+2. **Robo de identidad:** Exposición de PII, ventas en la dark web y consecuencias legales.
+3. **Reputación:** Pérdida de confianza y clientes, sanciones y daños a la imagen pública.
+</Steps>
+
+<Aside type="danger">
+Implementar medidas sólidas y protocolos claros es crítico para mitigar impactos.
+</Aside>
+
+---
+
+<Aside type="tip">
+En la próxima sección se explorarán los siete pasos del marco de gestión de riesgos del NIST para abordar estos desafíos de forma estructurada.
+</Aside>

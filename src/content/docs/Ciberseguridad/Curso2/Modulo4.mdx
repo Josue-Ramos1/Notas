@@ -3,46 +3,89 @@ title: Modulo 4 - Manuales de respuesta
 description: Manuales de respuesta a incidentes y su relación con herramientas SIEM
 ---
 
+import { Card, CardGrid, Aside, Steps } from '@astrojs/starlight/components';
+
 # Manuales de respuesta
 
-Anteriormente, analizamos cómo se utilizan las herramientas SIEM para ayudar a proteger los activos y datos críticos de una organización. En este vídeo, se presenta otra herramienta clave para la seguridad organizacional: el **manual de estrategias**.
+<Aside>
+Los **manuales de estrategias** ayudan a los equipos de ciberseguridad a responder con urgencia, eficiencia y precisión ante incidentes.
+</Aside>
 
-Un manual de estrategias proporciona detalles sobre cualquier acción operativa y especifica qué herramientas deben usarse en respuesta a un incidente de seguridad. En el campo de la seguridad, estos manuales son esenciales porque garantizan que los procedimientos se sigan de manera consistente, independientemente de quién maneje el incidente.
+Un **manual de estrategias** describe las acciones operativas que se deben tomar y qué herramientas usar ante un incidente de seguridad.  
+Garantiza que todos sigan un proceso estandarizado, independientemente de quién atienda el incidente.
 
-Dado que la **urgencia, eficiencia y precisión** son fundamentales para mitigar rápidamente una amenaza de seguridad, los manuales aseguran que los equipos sigan una serie de pasos predefinidos. Existen distintos tipos de manuales de estrategias, incluyendo guías para la **respuesta a incidentes**, **alertas de seguridad**, y aquellos diseñados para propósitos específicos de equipos y productos.
+<CardGrid>
+  <Card title="Respuesta a incidentes" icon="activity">
+    Manual más usado; describe un proceso estructurado en seis fases.
+  </Card>
+  <Card title="Alertas de seguridad" icon="alert-triangle">
+    Guías para atender notificaciones de amenazas.
+  </Card>
+  <Card title="Guías específicas" icon="book-open">
+    Diseñadas para ciertos equipos, productos o tipos de ataque.
+  </Card>
+</CardGrid>
 
-Uno de los manuales más utilizados en ciberseguridad es el **manual de respuesta a incidentes**, el cual describe un proceso estructurado en **seis fases** para mitigar y gestionar incidentes de seguridad de principio a fin.
+<Aside type="tip">
+La **urgencia, eficiencia y precisión** son clave para mitigar rápidamente una amenaza.
+</Aside>
 
-## **Las seis fases del manual de respuesta a incidentes**
+## Seis fases del manual de respuesta a incidentes
 
+<Steps>
 1. **Preparación**  
-   Las organizaciones deben establecer procedimientos y planes de respuesta para reducir el impacto de un incidente de seguridad. Esto incluye documentar procesos, asignar responsabilidades dentro del equipo de seguridad y educar a los usuarios sobre cómo actuar ante amenazas.
+   Establecer procedimientos y planes de respuesta, asignar roles y capacitar usuarios.
 
 2. **Detección y análisis**  
-   En esta fase, se identifican eventos sospechosos utilizando herramientas y procesos específicos. Las tecnologías adecuadas ayudan a determinar si ha ocurrido una violación y a evaluar su posible alcance.
+   Identificar eventos sospechosos usando herramientas y procesos para evaluar su alcance.
 
 3. **Contención**  
-   Se busca limitar el daño y reducir el impacto inmediato del incidente. Para ello, los profesionales de seguridad toman medidas para contener la amenaza y evitar su propagación. La contención es crucial para proteger los activos críticos.
+   Limitar el impacto inmediato y proteger activos críticos, evitando que la amenaza se propague.
 
 4. **Erradicación y recuperación**  
-   Una vez contenida la amenaza, se eliminan por completo los elementos dañinos, como código malicioso o vulnerabilidades explotadas. Luego, la organización restaura los sistemas afectados para volver a un estado seguro, en un proceso conocido como **restauración de TI**.
+   Eliminar elementos dañinos (código malicioso, vulnerabilidades) y restaurar sistemas afectados.
 
 5. **Actividad posterior al incidente**  
-   En esta etapa, se documenta lo sucedido, se informa a los líderes organizacionales y se analizan las lecciones aprendidas para mejorar la respuesta ante futuros incidentes. Dependiendo de la gravedad, se pueden implementar mejoras en la seguridad.
+   Documentar lo ocurrido, informar a líderes y analizar lecciones aprendidas para mejorar la respuesta futura.
 
 6. **Coordinación**  
-   Esta fase implica la comunicación y el reporte de incidentes siguiendo estándares organizacionales y normativos. La coordinación es clave para garantizar el cumplimiento de regulaciones y facilitar una respuesta estructurada y eficiente.
+   Comunicar y reportar incidentes según normas y regulaciones de la organización.
+</Steps>
 
-Las herramientas **SIEM** desempeñan un papel fundamental en este proceso, ya que recopilan y analizan datos para detectar amenazas y generar alertas de seguridad. Cuando un analista recibe una alerta de SIEM, puede usar el manual de respuesta a incidentes para gestionar el evento de manera estructurada.
-
-A lo largo del programa, seguirás desarrollando tu comprensión sobre estos conceptos esenciales en ciberseguridad.
+<Aside type="tip">
+Las herramientas **SIEM** ayudan en la fase de detección al generar alertas en tiempo real.
+</Aside>
 
 ---
 
 # Manuales de respuesta y SIEM
 
-Los **manuales de respuesta a incidentes** ayudan a los profesionales de seguridad a actuar con urgencia y precisión ante amenazas, proporcionando estructura, cumplimiento normativo y procesos de documentación. Las organizaciones pueden contar con guías específicas para diferentes tipos de ataques, como **ransomware, software malicioso y DDoS**.
+Los **manuales de respuesta a incidentes** orientan a los analistas a actuar de forma estructurada y garantizar cumplimiento normativo.
 
-Cuando un **SIEM** detecta una posible amenaza, un manual guía a los analistas a través de los siguientes pasos: **evaluación de la alerta**, determinando su validez mediante el análisis de registros; **contención**, aislando el sistema infectado para evitar su propagación; **eliminación y restauración**, asegurando que el sistema vuelva a un estado seguro; y **actividad posterior al incidente y coordinación**, donde se documenta el evento y, si es necesario, se informa a las autoridades.
+<Aside>
+Las organizaciones pueden contar con guías específicas para diferentes ataques como **ransomware, malware y DDoS**.
+</Aside>
 
-Estos manuales son **documentos vivos** que se actualizan constantemente para adaptarse a nuevas amenazas y mejorar las estrategias de seguridad. Para un analista de seguridad, comprender su importancia y aplicarlos correctamente es fundamental para una respuesta efectiva ante incidentes.
+Cuando un **SIEM** detecta una amenaza:
+
+<Steps>
+1. **Evaluación de la alerta**  
+   Analizar registros para validar si la alerta es real.
+
+2. **Contención**  
+   Aislar el sistema afectado para evitar la propagación.
+
+3. **Eliminación y restauración**  
+   Limpiar el sistema y devolverlo a un estado seguro.
+
+4. **Actividad posterior y coordinación**  
+   Documentar el incidente y notificar a autoridades si es necesario.
+</Steps>
+
+<Aside type="caution">
+Los manuales son **documentos vivos**: deben actualizarse constantemente ante nuevas amenazas.
+</Aside>
+
+<Aside type="tip">
+Para un analista, dominar estos manuales es fundamental para una respuesta rápida y efectiva.
+</Aside>

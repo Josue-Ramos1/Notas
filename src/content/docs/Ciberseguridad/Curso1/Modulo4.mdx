@@ -1,123 +1,99 @@
 ---
-title: Modulo 4 Herramientas y Habilidades en Ciberseguridad
-description: Conjunto de herramientas esenciales para analistas de seguridad, habilidades técnicas y construcción de un portafolio profesional.
+title: Herramientas y habilidades clave en ciberseguridad
+description: Herramientas básicas, conocimientos técnicos y la importancia de crear un portfolio en ciberseguridad.
 ---
+
+import { CardGrid, Card, Aside, Steps } from '@astrojs/starlight/components';
 
 # Herramientas importantes de ciberseguridad
 
-El kit de herramientas de un analista de seguridad de nivel básico puede variar según las necesidades de cada organización. Es esencial conocer las herramientas estándar del sector y demostrar la capacidad de aprender nuevas tecnologías en entornos reales de trabajo.
+El kit de herramientas de un analista varía según la organización, pero es esencial conocer las herramientas estándar y demostrar capacidad de aprendizaje continuo.
 
-### Registros y monitoreo
+## Registros y SIEM
 
-Los **registros** documentan eventos relevantes en los sistemas, como inicios de sesión o accesos a servicios web. Son fundamentales para identificar vulnerabilidades e investigar incidentes.
+Los **registros** documentan eventos en los sistemas (como inicios de sesión y accesos), y son clave para identificar vulnerabilidades y posibles infracciones.
 
-### Herramientas SIEM
+Las herramientas **SIEM** recopilan y analizan datos de registros para monitorear actividades críticas y detectar amenazas. Reducen la carga de trabajo al generar alertas específicas y ofrecen paneles visuales. Pueden alojarse en la nube o on-premise.
 
-Las plataformas **SIEM (Security Information and Event Management)** recopilan y analizan registros de múltiples fuentes para:
+## Analizadores de protocolos y manuales de estrategia
 
-- Detectar amenazas en tiempo real.
-- Generar alertas automatizadas.
-- Presentar datos mediante paneles visuales.
+Los **analizadores de protocolos de red** (sniffers) registran y analizan el tráfico dentro de la red. Más adelante en el curso se practicarán herramientas comunes.
 
-> ☁️ Estas herramientas pueden ser implementadas en la nube o en servidores locales (_on-premise_), dependiendo de la experiencia y recursos del equipo de seguridad.
+Los **manuales de estrategias** detallan los procedimientos para responder a incidentes. Incluyen:
 
-### Analizadores de protocolos de red
+<CardGrid>
+  <Card title="Libro de jugadas de cadena de custodia" icon="clipboard-list">
+    Documenta la posesión y control de pruebas digitales durante una investigación.
+  </Card>
+  <Card title="Manual de preservación de evidencias" icon="shield-check">
+    Prioriza conservar datos digitales frágiles usando el orden de volatilidad.
+  </Card>
+</CardGrid>
 
-También conocidos como **sniffers** o **rastreadores de paquetes**, estas herramientas capturan y analizan el tráfico de red, facilitando la identificación de actividad sospechosa.
-
-> 🧪 Más adelante en el programa, se practicará con herramientas específicas de este tipo.
-
-### Manuales y estrategias
-
-Los **manuales de estrategias** detallan procedimientos para la respuesta a incidentes y son esenciales en investigaciones forenses. Existen dos tipos clave:
-
-- **Libro de jugadas de la cadena de custodia:**  
-  Documenta el manejo, posesión y control de las pruebas digitales.
-
-- **Manual de protección y preservación de evidencias:**  
-  Prioriza la conservación de datos frágiles y volátiles según el **orden de volatilidad**.
-
-> ⚠️ Un manejo inadecuado de las pruebas puede invalidarlas legalmente. Para preservar la integridad, siempre se deben trabajar con copias de los datos.
+<Aside type="caution">
+Un manejo incorrecto de pruebas digitales puede comprometer su validez. Siempre se deben hacer copias y trabajar sobre ellas para preservar la integridad.
+</Aside>
 
 ---
 
 # Conocimientos y habilidades básicas de ciberseguridad
 
-## Herramientas técnicas
+## Herramientas
 
-En ciberseguridad, las herramientas permiten automatizar tareas, detectar amenazas y proteger los sistemas. A continuación, se describen algunas categorías clave:
+<Steps>
+1. **Programación:** Python para automatizar procesos, SQL para consultas a bases de datos.
+2. **Sistemas operativos:** Linux (código abierto y flexible), macOS y Windows.
+3. **Vulnerabilidades web:** Revisar el OWASP Top 10 para conocer los principales riesgos.
+4. **Antivirus:** Detecta y elimina software malicioso mediante análisis de memoria.
+5. **IDS (Sistema de detección de intrusiones):** Monitorea tráfico y detecta accesos sospechosos.
+6. **Encriptación:** Protege la confidencialidad de los datos, impidiendo accesos no autorizados.
+7. **Pruebas de penetración:** Simulan ataques para identificar vulnerabilidades en redes, sistemas y aplicaciones.
+</Steps>
 
-### Programación y bases de datos
-
-- **Python**: Se utiliza para automatizar tareas rutinarias y desarrollar scripts que agilizan análisis o respuestas.
-- **SQL**: Permite consultar bases de datos para extraer información útil en investigaciones o auditorías.
-
-### Sistemas operativos
-
-- **Linux**, **macOS** y **Windows** son las plataformas principales.
-- Linux destaca por su enfoque en línea de comandos y su naturaleza de código abierto, que permite personalización.
-
-### Seguridad de aplicaciones web
-
-Las **vulnerabilidades web** permiten a los atacantes robar información o insertar malware. Para mantenerse actualizado:
-
-> 🔎 Revisa regularmente el **OWASP Top 10**, una lista reconocida de riesgos críticos en aplicaciones web.
-
-### Protección de endpoints
-
-- **Antivirus**: Escanean y eliminan amenazas de malware utilizando firmas digitales o análisis heurístico.
-- **IDS (Intrusion Detection Systems)**: Monitorean el tráfico en busca de comportamientos sospechosos, como intentos de acceso no autorizados.
-
-### Encriptación
-
-- Convierte los datos en un formato ilegible sin la clave correcta.
-- Protege la **confidencialidad** de la información frente a accesos no autorizados.
-- Se diferencia de la codificación, que busca compatibilidad entre sistemas.
-
-### Pruebas de penetración (Pen Testing)
-
-- Simulan ataques reales para detectar vulnerabilidades.
-- Ayudan a **evaluar la postura de seguridad** de redes, aplicaciones y sistemas internos.
+<Aside type="tip">
+Dominar estas herramientas y conceptos es clave para fortalecer la seguridad de cualquier infraestructura.
+</Aside>
 
 ---
 
-# Portafolio profesional en ciberseguridad
+## Portafolio
 
-Un **portfolio** es una herramienta fundamental para mostrar habilidades, formación y experiencia en el área de seguridad informática. Aporta credibilidad técnica y permite destacar frente a posibles empleadores.
+Un **portfolio** es esencial para mostrar habilidades, proyectos y conocimientos de forma más profunda que en un currículum. Permite destacarse ante potenciales empleadores.
 
-## ¿En qué se diferencia del currículum?
+### Opciones para crear un portfolio
 
-- El **currículum** es un resumen breve.
-- El **portfolio** presenta proyectos concretos, documentación y logros específicos.
+<CardGrid>
+  <Card title="Carpeta local" icon="folder">
+    Archivos organizados por categorías en tu disco duro.
+  </Card>
+  <Card title="Google Drive o Dropbox" icon="cloud">
+    Permite almacenar y compartir documentos en la nube con actualizaciones en tiempo real.
+  </Card>
+  <Card title="Google Sites" icon="globe">
+    Crear un sitio web profesional, accesible y personalizable.
+  </Card>
+  <Card title="Repositorio Git" icon="github">
+    GitHub, GitLab o Bitbucket para mostrar proyectos, documentación y código en Markdown.
+  </Card>
+</CardGrid>
 
-## Opciones para construir tu portfolio
+### Contenido recomendado
 
-1. **Carpeta local**  
-   Organiza subcarpetas por tema: currículum, herramientas, proyectos.
+<Steps>
+1. Auditorías de seguridad.
+2. Análisis de redes.
+3. Gestión de permisos en Linux.
+4. Consultas SQL.
+5. Documentación de incidentes.
+6. Revisión de currículum y certificados.
+</Steps>
 
-2. **Google Drive / Dropbox**  
-   Ideal para compartir documentos con actualizaciones automáticas en la nube.
-
-3. **Google Sites**  
-   Permite crear una página web personalizable para mostrar tu trayectoria de forma profesional.
-
-4. **Repositorio Git (GitHub, GitLab, Bitbucket)**  
-   Muestra código, scripts y documentación técnica usando Markdown para claridad.
-
-## ¿Qué incluir?
-
-Durante tu formación o experiencia práctica, puedes documentar:
-
-- Auditorías de seguridad
-- Análisis de tráfico de red
-- Consultas SQL aplicadas
-- Gestión de permisos en Linux
-- Documentación de incidentes
-- Proyectos con herramientas SIEM o IDS
-- Revisión y mejoras de currículum
-
-> 🚫 Recuerda: **no compartas información sensible** ni propiedad de otras organizaciones. Mantén tu portfolio privado hasta que esté listo para ser evaluado.
+<Aside type="caution">
+Evita incluir información privada o protegida por derechos. Mantén tu portfolio en "privado" hasta que esté listo para compartir.
+</Aside>
 
 ---
 
-> ✅ **Conclusión**: Dominar herramientas clave y presentar tus habilidades de manera estructurada en un portfolio fortalecerá tu perfil profesional y abrirá oportunidades laborales en el campo de la ciberseguridad.
+<Aside type="tip">
+Crear y mantener un portfolio actualizado te ayudará a demostrar tu crecimiento técnico y destacar en el mercado laboral. 🚀🔐
+</Aside>

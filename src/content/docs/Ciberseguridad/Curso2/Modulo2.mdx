@@ -3,134 +3,125 @@
 title: Modulo 2 - Marcos y Controles de Seguridad
 description: Fundamentos, tipos y aplicaciones prácticas de marcos y controles de ciberseguridad.
 -------------------------------------------------------------------------------------------------
+import { Card, CardGrid, Aside, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
-# Marcos y Controles de Seguridad
+# Marcos y Controles
 
-## Marcos de Seguridad
+<CardGrid>
+  <Card title="Marcos de Seguridad" icon="open-book">
+    Directrices que ayudan a mitigar riesgos y cumplir regulaciones, como HIPAA en salud.
+  </Card>
+  <Card title="Controles de Seguridad" icon="lock">
+    Salvaguardas para proteger datos, como MFA para acceso seguro a registros.
+  </Card>
+</CardGrid>
 
-Los marcos de seguridad proporcionan directrices estructuradas para planificar y mitigar amenazas y riesgos, además de facilitar el cumplimiento de regulaciones.
+<Aside type="tip">
+Existen marcos específicos como el **CTF**, que facilita compartir información sobre ciberamenazas, e **ISO/IEC 27001**, que establece requisitos para sistemas de gestión de seguridad de la información.
+</Aside>
 
-> 🏥 Ejemplo: El sector salud utiliza marcos como HIPAA para proteger datos de pacientes.
+## Tipos de Controles
 
-## Controles de Seguridad
+<Tabs>
+  <TabItem label="Físicos">
+    - Puertas, vallas, cerraduras  
+    - Guardias de seguridad  
+    - CCTV y detectores de movimiento  
+    - Tarjetas de acceso
+  </TabItem>
+  <TabItem label="Técnicos">
+    - Firewalls  
+    - MFA  
+    - Antivirus
+  </TabItem>
+  <TabItem label="Administrativos">
+    - Separación de funciones  
+    - Políticas de autorización  
+    - Clasificación de activos
+  </TabItem>
+</Tabs>
 
-Son salvaguardas específicas aplicadas para mitigar riesgos. Por ejemplo, la autenticación multifactor (MFA) en hospitales ayuda a cumplir con HIPAA restringiendo accesos indebidos.
+<Aside type="caution">
+El uso combinado de distintos tipos de controles reduce mejor los riesgos.
+</Aside>
 
-## Marcos y Controles Específicos
+## Tríada CID
 
-### Marco de Amenaza Cibernética (CTF)
+<Steps>
+1. **Confidencialidad**: Limitar el acceso solo a usuarios autorizados (ej. principio de privilegio mínimo).
+2. **Integridad**: Proteger datos contra modificaciones no autorizadas (ej. criptografía).
+3. **Disponibilidad**: Garantizar que los datos estén accesibles para quien los necesita (ej. acceso remoto seguro).
+</Steps>
 
-Diseñado por el gobierno de EE.UU. para unificar la comunicación sobre amenazas. Mejora la respuesta ante ataques mediante taxonomías compartidas.
-
-### ISO/IEC 27001
-
-Un estándar internacional para gestionar la seguridad de la información. Define un Sistema de Gestión de Seguridad de la Información (SGSI), orientado a proteger datos financieros, de empleados y terceros.
-
-## Tipos de Controles de Seguridad
-
-### Controles Físicos
-
-* Cerraduras, vallas, guardias de seguridad
-* Cámaras CCTV y tarjetas de acceso
-
-### Controles Técnicos
-
-* Firewalls
-* MFA
-* Antivirus
-
-### Controles Administrativos
-
-* Separación de funciones
-* Gestión de accesos
-* Políticas de clasificación de activos
-
----
-
-## Tríada CID: Confidencialidad, Integridad y Disponibilidad
-
-### 1. Confidencialidad
-
-Restringe el acceso solo a usuarios autorizados. Aplicación del **principio de privilegio mínimo**.
-
-### 2. Integridad
-
-Asegura que los datos no han sido alterados. Se implementa con **criptografía y hash**.
-
-### 3. Disponibilidad
-
-Los datos deben estar accesibles para usuarios autorizados cuando los necesiten.
-
-> ✅ Un sistema robusto equilibra estos tres pilares para minimizar riesgos.
-
----
+<Aside>
+Mantener equilibrio entre los tres principios es clave para una seguridad sólida.
+</Aside>
 
 ## Marco de Ciberseguridad del NIST (CSF)
 
-Desarrollado por el NIST, este marco global se compone de cinco funciones clave:
+<Aside>
+El **NIST CSF** es uno de los marcos más usados globalmente para gestionar riesgos de ciberseguridad. Contiene cinco funciones básicas.
+</Aside>
 
-### 1. Identificar
+<CardGrid>
+  <Card title="Identificar" icon="search">
+    Reconocer activos y riesgos.
+  </Card>
+  <Card title="Proteger" icon="shield">
+    Implementar medidas y políticas.
+  </Card>
+  <Card title="Detectar" icon="alert-circle">
+    Descubrir incidentes rápidamente.
+  </Card>
+  <Card title="Responder" icon="activity">
+    Actuar ante incidentes.
+  </Card>
+  <Card title="Recuperar" icon="refresh-ccw">
+    Restaurar servicios y sistemas.
+  </Card>
+</CardGrid>
 
-Reconocer activos, sistemas y riesgos. Ejemplo: detectar dispositivos no autorizados.
+<Aside type="tip">
+Ejemplo práctico: ante un dispositivo desconocido, se identifica la amenaza, se protege bloqueando el dispositivo, se detectan otras anomalías, se responde investigando y se recuperan archivos afectados.
+</Aside>
 
-### 2. Proteger
+<Aside>
+El **SP 800-53** del NIST también mantiene la tríada CID para sistemas gubernamentales.
+</Aside>
 
-Desarrollar políticas y controles para proteger los recursos.
+## OWASP: Principios de Seguridad
 
-### 3. Detectar
-
-Identificar incidentes con rapidez. Uso de SIEM y monitoreo continuo.
-
-### 4. Responder
-
-Contención, análisis e informe del incidente.
-
-### 5. Recuperar
-
-Restauración de sistemas y activos críticos tras una infracción.
-
-> 🔐 El NIST también incluye el **SP 800-53**, usado en entornos gubernamentales para proteger la información cumpliendo la tríada CID.
-
----
-
-## Principios de Seguridad según OWASP
-
-1. **Minimizar superficie de ataque**
-2. **Privilegio mínimo**
-3. **Defensa en profundidad**
-4. **Separación de funciones**
-5. **Seguridad simple**
-6. **Corrección eficaz**
-7. **Valores seguros por defecto**
-8. **Fallo seguro**
-9. **Desconfianza de servicios externos**
-10. **Evitar seguridad por oscuridad**
-
-> 📌 Estos principios fortalecen la seguridad y reducen vectores de ataque.
-
----
+<Tabs>
+  <TabItem label="Principales">
+    1. Minimizar la superficie de ataque  
+    2. Principio de privilegio mínimo  
+    3. Defensa en profundidad  
+    4. Separación de funciones  
+    5. Seguridad sencilla  
+    6. Solucionar correctamente los problemas
+  </TabItem>
+  <TabItem label="Adicionales">
+    1. Valores predeterminados seguros  
+    2. Fallar con seguridad  
+    3. No confiar ciegamente en servicios externos  
+    4. Evitar seguridad por oscuridad
+  </TabItem>
+</Tabs>
 
 ## Auditorías de Seguridad
 
-### Objetivo
+<Steps>
+1. **Definir el alcance**: Determinar qué recursos evaluar.
+2. **Evaluación de riesgos**: Relacionar amenazas con presupuesto y regulaciones.
+3. **Realizar la auditoría**: Revisar controles técnicos, físicos y administrativos.
+4. **Plan de mitigación**: Diseñar acciones para reducir riesgos.
+5. **Comunicar resultados**: Elaborar informe con hallazgos y mejoras.
+</Steps>
 
-Revisar controles internos y externos para detectar deficiencias, asegurar cumplimiento y evitar sanciones.
+<Aside type="tip">
+Marcos como **NIST CSF** e **ISO 27000** ayudan a preparar auditorías internas y externas.
+</Aside>
 
-### Factores que afectan
-
-Industria, tamaño de empresa, ubicación y regulaciones vigentes.
-
-### Marcos utilizados
-
-* **NIST CSF**
-* **ISO 27000**
-
-### Pasos clave
-
-1. Definir alcance
-2. Evaluar riesgos
-3. Ejecutar auditoría
-4. Crear plan de mitigación
-5. Comunicar resultados
-
-> 📊 Las auditorías permiten fortalecer la postura de seguridad mediante informes claros y planes de acción documentados.
+<Aside type="danger">
+Las auditorías son clave para evitar sanciones y proteger datos contra amenazas.
+</Aside>
