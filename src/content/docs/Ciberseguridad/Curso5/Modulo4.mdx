@@ -2,3 +2,291 @@
 title: Módulo 4 – Amenazas a la Seguridad de los Recursos
 description: Fundamentos, amenazas y habilidades esenciales para comenzar una carrera en ciberseguridad.
 ---
+
+
+import { Card, CardGrid, Aside, Steps } from '@astrojs/starlight/components'
+
+# 🛡️ Ingeniería Social
+## Fortalecimiento frente a ataques de ingeniería social
+
+### ¿Qué es la ingeniería social?
+
+La **ingeniería social** es una técnica que explota la confianza, el miedo o la urgencia para obtener información confidencial o acceso a sistemas, sin necesidad de vulnerar directamente la tecnología.
+
+---
+
+### 🧩 Etapas de un ataque típico
+
+<Steps>
+1. Preparación e investigación del objetivo
+2. Generación de confianza (pretexto)
+3. Manipulación para obtener datos o acceso
+4. Retirada y borrado de rastros
+</Steps>
+
+---
+
+## 📌 Ejemplos reales
+
+<CardGrid>
+  <Card>
+    <h3>Falsa llamada de soporte</h3>
+    <p>El atacante se hace pasar por TI y pide restablecer una contraseña urgente.</p>
+  </Card>
+  <Card>
+    <h3>Correos falsos de urgencia</h3>
+    <p>Notificaciones simuladas que solicitan descargar archivos maliciosos.</p>
+  </Card>
+  <Card>
+    <h3>Observación directa</h3>
+    <p>Espiar pantallas o contraseñas apuntadas cerca del puesto de trabajo.</p>
+  </Card>
+</CardGrid>
+
+---
+
+## 🔐 Estrategias de defensa
+
+- Definir **políticas claras** para manejo de información y verificación de identidades.
+- Capacitación continua para detectar intentos de engaño.
+- Fomentar la cultura de **“duda razonable”** antes de entregar datos sensibles.
+- Simulacros internos para identificar fallas.
+
+<Aside>
+<strong>Recuerda:</strong> el eslabón más débil en la seguridad casi siempre es el factor humano.
+</Aside>
+
+---
+
+# 🎣 Phishing y variantes
+
+## ¿Qué es el phishing?
+
+Forma digital de ingeniería social que busca engañar usando correos, SMS o llamadas para capturar contraseñas, datos financieros o distribuir malware.
+
+---
+
+## 🧬 Variantes de phishing
+
+<CardGrid>
+  <Card>
+    <h3>Phishing tradicional</h3>
+    <p>Correos con enlaces o archivos que imitan marcas legítimas.</p>
+  </Card>
+  <Card>
+    <h3>Smishing</h3>
+    <p>Mensajes SMS con links maliciosos o promesas de premios falsos.</p>
+  </Card>
+  <Card>
+    <h3>Vishing</h3>
+    <p>Llamadas telefónicas haciéndose pasar por bancos o empresas.</p>
+  </Card>
+  <Card>
+    <h3>Spear phishing</h3>
+    <p>Ataques dirigidos usando datos reales de la víctima para aumentar credibilidad.</p>
+  </Card>
+</CardGrid>
+
+---
+
+## 🔧 Herramientas usadas por atacantes
+
+- Kits de phishing listos para crear webs falsas
+- Adjuntos infectados (documentos, hojas de cálculo)
+- Formularios falsos que simulan portales reales
+- Enlaces acortados que ocultan URLs peligrosas
+
+---
+
+## 🛡 Estrategias de defensa
+
+- Filtros antispam y listas de bloqueo.
+- Cursos y campañas internas para identificar correos sospechosos.
+- Sistemas de detección y respuesta (IDS/IPS).
+- Monitoreo y registro de accesos y anomalías.
+
+<Aside>
+El phishing no solo se combate con tecnología, sino también reforzando la educación del usuario final.
+</Aside>
+
+---
+
+# 🐛 Malware
+
+## 🤔 ¿Qué es?
+
+Software diseñado para dañar, robar información o controlar dispositivos de manera oculta.
+
+---
+
+## 🔍 Tipos principales
+
+<CardGrid>
+  <Card>
+    <h3>Virus</h3>
+    <p>Necesita ejecutarse en un archivo; se propaga por usuarios desprevenidos.</p>
+  </Card>
+  <Card>
+    <h3>Gusano</h3>
+    <p>Se replica automáticamente aprovechando fallos de red.</p>
+  </Card>
+  <Card>
+    <h3>Troyano</h3>
+    <p>Se disfraza de programa útil para abrir puertas traseras.</p>
+  </Card>
+  <Card>
+    <h3>Adware & Spyware</h3>
+    <p>Recopilan datos o muestran publicidad intrusiva.</p>
+  </Card>
+  <Card>
+    <h3>Rootkit</h3>
+    <p>Otorga acceso oculto y profundo al sistema infectado.</p>
+  </Card>
+  <Card>
+    <h3>Ransomware</h3>
+    <p>Cifra archivos y exige rescate, como el caso de WannaCry.</p>
+  </Card>
+</CardGrid>
+
+---
+
+## ⚙️ Cryptojacking
+
+Usa la capacidad de los equipos de la víctima para minar criptomonedas sin su permiso.
+
+**Señales de alerta:**
+- Uso alto de CPU
+- Lentitud del sistema
+- Facturas de energía inusuales
+
+**Defensas:**
+- Extensiones anti-minería
+- Monitoreo de procesos y consumo
+- Actualización constante del software
+
+---
+
+# 🌐 Explotaciones web
+
+## Introducción
+
+Los ciberdelincuentes también atacan vulnerabilidades de aplicaciones web para robar datos o ejecutar código malicioso.
+
+---
+
+## ✏️ Ejemplos
+
+### XSS (Cross-Site Scripting)
+Permite inyectar código malicioso que roba cookies o redirige usuarios.
+
+Tipos:
+- Reflejado
+- Almacenado
+- Basado en DOM
+
+---
+
+### SQL Injection (SQLi)
+
+Aprovecha formularios o entradas sin filtrar para ejecutar comandos directamente en la base de datos.
+
+**Ejemplo de consulta vulnerable:**
+```sql
+SELECT * FROM usuarios WHERE user = '$input' AND pass = '$input';
+````
+
+**Prevención:**
+
+* Sentencias preparadas
+* Validación y saneamiento de entradas
+* Limitar privilegios de la base de datos
+
+---
+
+## 🛡 Consejos generales
+
+* Actualizar librerías y frameworks
+* Revisiones de código y auditorías
+* Simulacros de ataques internos
+
+<Aside>
+Las vulnerabilidades más peligrosas suelen nacer de descuidos pequeños en la validación de datos.
+</Aside>
+
+---
+
+# 🔍 Modelo de amenazas
+
+## ¿Qué es?
+
+Análisis estructurado para:
+
+* Identificar activos importantes
+* Evaluar amenazas y vulnerabilidades
+* Diseñar defensas proporcionales
+
+---
+
+## 🔄 Etapas principales
+
+<Steps>
+1. Recursos (activos)
+2. Amenazas
+3. Vulnerabilidades
+4. Análisis de riesgo
+5. Mitigación
+</Steps>
+
+---
+
+## 🧰 Ejemplo: Framework PASTA
+
+Un modelo reconocido para proyectos de software que sigue estas fases:
+
+<CardGrid>
+  <Card>
+    <h3>1. Definir objetivos</h3>
+    <p>Ejemplo: proteger datos de usuarios en una app.</p>
+  </Card>
+  <Card>
+    <h3>2. Alcance técnico</h3>
+    <p>Red, servidores, APIs, dispositivos móviles.</p>
+  </Card>
+  <Card>
+    <h3>3. Descomposición</h3>
+    <p>Mapear flujos de datos y puntos críticos.</p>
+  </Card>
+  <Card>
+    <h3>4. Análisis de amenazas</h3>
+    <p>Buscar vectores de ataque relevantes al contexto.</p>
+  </Card>
+  <Card>
+    <h3>5. Vulnerabilidades</h3>
+    <p>Escaneos, auditorías y pruebas de penetración.</p>
+  </Card>
+  <Card>
+    <h3>6. Simulación de ataques</h3>
+    <p>Validar qué fallas podrían explotar.</p>
+  </Card>
+  <Card>
+    <h3>7. Análisis de riesgo</h3>
+    <p>Priorizar acciones según impacto y probabilidad.</p>
+  </Card>
+</CardGrid>
+
+---
+
+## ✅ Conclusión
+
+La ciberseguridad efectiva combina:
+
+* Procesos
+* Personas capacitadas
+* Tecnología adecuada
+
+Más importante aún, fomenta una **cultura de prevención y reporte**, para que todos sean parte activa de la protección.
+
+<Aside>
+La documentación como esta ayuda a formar equipos más conscientes y preparados ante amenazas reales.
+</Aside>
+```

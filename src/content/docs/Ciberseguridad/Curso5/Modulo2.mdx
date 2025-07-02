@@ -1,669 +1,643 @@
 ---
-title: Módulo 1 – Proteger los recursos de la organizacion
+title: Modulo 2 - Proteger los recursos de la organizacion
 description: Fundamentos, amenazas y habilidades esenciales para comenzar una carrera en ciberseguridad.
 ---
 
-# Informacion de salvaguardia
+import { Card, CardGrid, Aside, Steps } from '@astrojs/starlight/components'
+
+# Información de salvaguardia
+
 ## ¿Qué son los controles de seguridad?
 
-Actualmente, la información está dispersa en muchos lugares al mismo tiempo. Por eso, **las organizaciones necesitan implementar controles de seguridad eficaces** para protegerla de robos o exposiciones. Los **controles de seguridad** son herramientas diseñadas para **reducir riesgos específicos**, actuando **antes, durante y después** de un evento.
+Vivimos en una era digital donde la información fluye entre dispositivos, servidores, nubes y usuarios de todo el mundo. Esta información es uno de los activos más valiosos de cualquier organización y, por ello, requiere **controles de seguridad sólidos**.
+
+Los **controles de seguridad** no son solo software o dispositivos, sino un conjunto de medidas técnicas, operativas y de gestión diseñadas para:
+
+* Reducir riesgos.
+* Prevenir accesos no autorizados.
+* Detectar incidentes.
+* Responder ante amenazas.
+* Garantizar la continuidad del negocio.
+
+<Aside type="note">
+Un control puede ser tan simple como una política de contraseñas fuertes, o tan complejo como un sistema de detección de intrusiones con inteligencia artificial.
+</Aside>
 
 ---
 
 ## Tipos de controles de seguridad
 
-Los controles se agrupan en tres grandes categorías:
+Los controles se agrupan tradicionalmente en tres categorías. Ninguna es más importante que otra; todas forman parte de una **defensa en profundidad**.
 
----
+<CardGrid>
+  <Card>
+    ### 🛡️ Controles técnicos
+    Automatizados y soportados por tecnología. Ejemplos: cifrado, firewalls, IDS/IPS, autenticación multifactor, antivirus, control de accesos basado en roles (RBAC).
+  </Card>
+  <Card>
+    ### 👩‍💻 Controles operativos
+    Procedimientos y actividades realizadas por personas para proteger la información: formación de usuarios, respuesta a incidentes, mantenimiento de sistemas, auditorías.
+  </Card>
+  <Card>
+    ### 📋 Controles de gestión
+    Políticas, estándares, procedimientos y lineamientos que definen cómo deben implementarse los controles técnicos y operativos. Alinean la seguridad con los objetivos del negocio.
+  </Card>
+</CardGrid>
 
-### 1. **Controles técnicos**
-
-* Usan **tecnología** para proteger los recursos.
-* Ejemplos: **encriptación, autenticación, firewalls**, antivirus.
-
----
-
-### 2. **Controles operativos**
-
-* Se relacionan con el **mantenimiento diario** del entorno de seguridad.
-* Generalmente los llevan a cabo **personas**, e incluyen:
-
-  * Capacitación en concienciación
-  * Respuesta a incidentes
-  * Auditorías periódicas
-
----
-
-### 3. **Controles de gestión**
-
-* Supervisan y **evalúan la eficacia** de los otros dos tipos.
-* Ejemplos: **políticas, estándares y procedimientos** de seguridad.
+<Aside type="tip">
+Combinar estos tipos de controles permite que si uno falla, otros sigan protegiendo los activos.
+</Aside>
 
 ---
 
 ## Privacidad de la información
 
-La **privacidad** se refiere al **derecho a decidir** cuándo, cómo y hasta qué punto se comparte la información personal.
-Los **controles de seguridad** regulan este acceso para proteger ese derecho.
+La privacidad no es solo cumplir la ley: es un **derecho fundamental**.
 
----
+<Steps>
+  1. El usuario debe saber qué datos se recogen.
+  2. Decidir cómo se usan y comparten.
+  3. Poder revocar su consentimiento en cualquier momento.
+</Steps>
 
-### Ejemplo práctico
+Ejemplo práctico: cuando aceptas los términos de una app, cedes parte de tu información. Pero esa empresa **debe limitar** el acceso interno: solo empleados o sistemas con funciones justificadas pueden consultar esos datos.
 
-Imagina que reservas un vuelo por una app:
-
-* Proporcionas tu **nombre, correo y tarjeta** para pagar.
-* Es razonable que **solo ciertas personas** (como el agente de servicio al cliente) accedan a tus datos.
-* Pero **no todo el personal** (como el área de marketing) debe tener acceso.
+> Sin privacidad, la seguridad pierde sentido: proteger datos que el usuario no controla es insuficiente.
 
 ---
 
 ## Principio de privilegio mínimo
 
-Para proteger la privacidad, se aplica el **principio de privilegio mínimo**:
+Este principio afirma que **cada persona, aplicación o dispositivo solo debe tener el acceso estrictamente necesario** para hacer su trabajo.
 
-> Cada persona o sistema solo debe tener **el acceso mínimo necesario** para realizar su trabajo.
+<CardGrid>
+  <Card>
+    ### Beneficios
+    * Menos superficie de ataque.
+    * Menos errores humanos graves.
+    * Mejor trazabilidad.
+  </Card>
+  <Card>
+    ### Ejemplo
+    Un contable necesita ver facturas, pero no modificar configuraciones del servidor.
+  </Card>
+  <Card>
+    ### Implementación
+    Revisar permisos regularmente, retirar privilegios innecesarios y aplicar auditorías.
+  </Card>
+</CardGrid>
 
----
-
-## Propietarios vs. Custodios de datos
-
-### **Propietario de datos**:
-
-* Decide quién puede **acceder, modificar o eliminar** la información.
-* A veces puede haber varios propietarios, como en el caso de **propiedad intelectual**.
-
-### **Custodio de datos**:
-
-* Se encarga de **almacenar, trasladar o proteger** la información.
-* Pueden ser **personas, sistemas o entidades**.
-
----
-
-## Consideraciones adicionales
-
-Al igual que cualquier otro recurso, la información debe **clasificarse y manipularse adecuadamente** para asegurar su privacidad.
-Este control riguroso es clave para reducir riesgos y mantener la confianza de todos los involucrados.
+<Aside type="note">
+El principio de privilegio mínimo se aplica también a sistemas y procesos automatizados, no solo a personas.
+</Aside>
 
 ---
 
-## Limitar el acceso reduce el riesgo
+## Propietarios y custodios de datos
 
-Toda empresa debe prepararse frente a riesgos como el **robo, mal uso o abuso de datos**. Aplicar el **principio de privilegio mínimo** es una de las mejores formas de reducir incidentes costosos como las filtraciones de datos.
+<Steps>
+  1. **Propietario**: decide quién accede, define clasificación, establece políticas.
+  2. **Custodio**: implementa medidas técnicas y operativas para proteger esos datos.
+</Steps>
 
----
-
-## ¿Qué logra el privilegio mínimo?
-
-* **Limita el acceso a información sensible.**
-* **Reduce errores humanos** como pérdidas o manipulaciones accidentales.
-* **Facilita la supervisión y gestión de sistemas.**
-
-Este principio **asigna acceso solo a lo necesario**, conectando recursos específicos con usuarios concretos. Así, **se reduce la probabilidad de éxito de un ataque**.
+Ejemplo: el departamento legal puede ser propietario de documentos confidenciales, mientras que el departamento de TI actúa como custodio manteniéndolos cifrados y con backup.
 
 ---
 
-## Separación de funciones
+## Clasificación de la información
 
-El privilegio mínimo se relaciona con la **separación de funciones**, un concepto que reparte tareas críticas entre diferentes usuarios para evitar que una sola persona tenga control absoluto sobre funciones delicadas.
+Para proteger la información correctamente, primero hay que clasificarla:
 
----
-
-## Determinar el acceso y la autorización
-
-Para implementar el principio de privilegio mínimo, hay que responder dos preguntas:
-
-1. **¿Quién es el usuario?**
-2. **¿Cuánto acceso necesita a un recurso específico?**
-
-Un "usuario" puede ser:
-
-* Una **persona** (empleado, cliente, proveedor).
-* Un **dispositivo** o **software** conectado a la red.
-
-Cada usuario debe tener su **propia cuenta**, administrada desde un servicio de directorio centralizado.
-
----
-
-## Tipos comunes de cuentas de usuario
-
-* **Cuenta de invitado:** acceso temporal para clientes, contratistas o socios externos.
-* **Cuenta de usuario:** asignada según el rol del empleado.
-* **Cuenta de servicio:** usada por software que interactúa con otros sistemas.
-* **Cuenta con privilegios:** tiene permisos elevados o acceso administrativo.
-
-**Consejo:** Define un nivel base de acceso por tipo de cuenta, pero ajusta dinámicamente según el contexto.
-Ejemplo: un agente de soporte **solo debe acceder a los datos del cliente mientras lo atiende**, no después.
-
-Además, **una contraseña débil puede anular el privilegio mínimo**, por lo tanto, es vital usar contraseñas seguras.
+<CardGrid>
+  <Card>
+    ### Pública
+    Información destinada a compartirse, como notas de prensa o folletos.
+  </Card>
+  <Card>
+    ### Interna
+    Uso interno, su divulgación podría causar molestias pero no daños significativos.
+  </Card>
+  <Card>
+    ### Confidencial
+    Su divulgación no autorizada puede causar perjuicios financieros, legales o de reputación.
+  </Card>
+  <Card>
+    ### Restringida
+    Información crítica, cuya divulgación puede tener consecuencias graves.
+  </Card>
+</CardGrid>
 
 ---
 
-## Auditorías de privilegios de las cuentas
+## Ciclo de vida de los datos
 
-No basta con configurar las cuentas: hay que **auditarlas periódicamente** para mantener la seguridad. Existen **tres tipos principales de auditorías**:
+La información no es estática: **nace, se usa, se archiva y se destruye**.
 
----
-
-### 1. Auditorías de uso
-
-* Revisa **qué recursos** usa cada cuenta y **cómo** se utilizan.
-* Detecta usos indebidos o permisos que **ya no son necesarios**.
-
----
-
-### 2. Auditorías de privilegios
-
-* Identifica la **acumulación innecesaria de privilegios**.
-* Asegura que el acceso esté alineado con las responsabilidades reales del usuario.
-
-> Ejemplo: si alguien cambió de puesto, ¿sigue teniendo permisos que ya no necesita?
-
----
-
-### 3. Auditorías de cambios en cuentas
-
-* Verifican **quién y cuándo** realizó cambios en una cuenta.
-* Sirven para detectar **actividades sospechosas**, como muchos intentos de cambiar una contraseña.
-
----
-
-## El Ciclo de Vida de los Datos
-
-El **ciclo de vida de los datos** es una guía que ayuda a las organizaciones a gestionar y proteger la información de forma eficaz. Sirve para establecer políticas alineadas con los objetivos del negocio y determinar las tecnologías necesarias para mantener los datos accesibles y seguros.
-
----
-
-## Las 5 etapas del ciclo de vida de los datos
-
-1. **Recopilar:** Recolección de información desde fuentes internas o externas.
-2. **Almacenar:** Guardar los datos de forma segura y accesible.
-3. **Utilizar:** Acceder y procesar los datos para cumplir objetivos específicos.
-4. **Archivar:** Guardar datos que ya no se usan activamente, pero pueden ser necesarios en el futuro.
-5. **Destruir:** Eliminar los datos cuando ya no son útiles ni necesarios.
-
-> **Proteger los datos en cada etapa** garantiza que sigan siendo accesibles y recuperables en caso de incidentes.
+<Steps>
+  1. 📥 **Recopilación**: ¿Qué datos? ¿Para qué? ¿Con qué consentimiento?
+  2. 💾 **Almacenamiento**: bases de datos, backups, cifrado en reposo.
+  3. 📊 **Uso**: acceso limitado, monitoreo de actividades.
+  4. 📦 **Archivo**: datos históricos, protegidos y menos accesibles.
+  5. 🗑️ **Destrucción**: borrado seguro, trituración de discos o borrado criptográfico.
+</Steps>
 
 ---
 
 ## Gobierno de datos
 
-El **Gobierno de datos** es un conjunto de procesos y políticas que determinan **cómo se manejan los datos en toda la organización**, incluyendo privacidad, precisión, disponibilidad y seguridad.
+Es el **marco de políticas y roles** que regula cómo se gestionan los datos.
 
-Roles clave:
+<CardGrid>
+  <Card>
+    ### Objetivo
+    Asegurar calidad, integridad, disponibilidad y confidencialidad.
+  </Card>
+  <Card>
+    ### Roles
+    Propietario, custodio y administrador.
+  </Card>
+  <Card>
+    ### Herramientas
+    Políticas, controles, auditorías y formación.
+  </Card>
+</CardGrid>
 
-* **Propietario de los datos:** Decide quién puede acceder, modificar o destruir la información.
-* **Custodio de datos:** Asegura el manejo, transporte y almacenamiento seguro.
-* **Administrador de datos:** Implementa y mantiene las políticas de gobierno de datos.
-
-> Como **custodio de datos**, tu responsabilidad principal es **garantizar que la información esté segura y protegida**.
-
----
-
-## Política de gobierno de datos
-
-Toda organización debe tener una **política clara** que defina cómo se gestiona y protege la información. Esto incluye:
-
-* Qué procedimientos seguir para asegurar los datos.
-* Quién o qué tiene permitido el acceso.
-* Cómo los profesionales de seguridad contribuyen al cumplimiento de esta política.
-
----
-
-## Importancia de proteger los datos personales
-
-Los datos no son solo información digital; también representan **acciones, pensamientos y decisiones personales**. Por eso, los propietarios de los datos tienen el **derecho a decidir cómo se comparte su información**.
-
-> Como profesional de seguridad, tu deber es **respetar siempre las decisiones de privacidad** de los usuarios.
+> Sin un buen gobierno, la información puede perder valor o convertirse en un riesgo.
 
 ---
 
-## El reto de proteger los datos
+## ¿Por qué proteger los datos personales?
 
-Uno de los grandes desafíos es que los propietarios generan **más datos de los que pueden gestionar**, y a veces no existen instrucciones claras sobre cómo tratarlos. Para resolver esto, los gobiernos y entidades regulatorias han definido **tipos de datos protegidos por defecto**.
+* Representan **identidad, hábitos, salud, economía**.
+* Su pérdida o mal uso afecta derechos y seguridad.
+* El usuario debe tener el control de su propia información.
 
----
-
-## Tipos de información protegida legalmente
-
-* **PII (Personally Identifiable Information):** Información que puede usarse para identificar a una persona (nombre, dirección, teléfono).
-* **PHI (Protected Health Information):** Información médica protegida por leyes como **HIPAA (EE.UU.)** o **GDPR (UE)**.
-* **SPII (Sensitive Personally Identifiable Information):** Tipo especial de PII más delicada, como contraseñas, números de cuenta o credenciales de acceso.
-
-> Esta información debe ser protegida **con mayores restricciones y controles** para evitar el uso indebido o la divulgación no autorizada.
-
----
-## Seguridad de la información vs. Privacidad de la información
-
-Aunque a menudo se confunden, **seguridad** y **privacidad** son conceptos distintos pero relacionados:
-
-* **Privacidad de la información**: Se refiere a dar control a las personas sobre sus datos personales y cómo se comparten.
-* **Seguridad de la información (InfoSec)**: Se centra en proteger esa información contra accesos no autorizados en cualquier estado (en reposo, en tránsito o en uso).
-
-> **Diferencia clave**: La **privacidad** protege las decisiones individuales sobre los datos; la **seguridad** garantiza que esas decisiones se respeten y que los datos estén protegidos.
-
-**Ejemplo práctico:**
-Una empresa que recolecta información de sus clientes para marketing debe primero pedir **consentimiento**, ofrecer la opción de **no compartir**, y luego proteger esos datos con **controles de seguridad**.
+<Aside type="tip">
+No es solo cuestión técnica: también es ética y legal.
+</Aside>
 
 ---
 
-## Importancia de la privacidad en la seguridad
+## Tipos de datos protegidos
 
-A finales de los años 90, las empresas tecnológicas pasaron de procesar datos a **almacenarlos y compartirlos**. Esto generó preocupaciones sobre la privacidad y los posibles abusos. Cuantos más datos se recopilan, **más vulnerables** se vuelven ante amenazas.
-
-> Las empresas respondieron con mayor transparencia y medidas de seguridad, pero sin regulaciones claras, los esfuerzos eran inconsistentes.
-
----
-
-## Regulaciones clave sobre privacidad
-
-Las **regulaciones de privacidad** protegen a los usuarios de la recolección y uso indebido de sus datos personales. También indican las **medidas de seguridad obligatorias**.
-
-Tres regulaciones fundamentales en el sector:
-
-### 1. **GDPR (Reglamento General de Protección de Datos)**
-
-* Aplicado en la UE.
-* Da a los usuarios el control total sobre su información personal.
-* Aplica a cualquier empresa que maneje datos de ciudadanos o residentes de la UE, sin importar dónde esté ubicada.
-
-### 2. **PCI DSS (Payment Card Industry Data Security Standard)**
-
-* Crea estándares para proteger **transacciones con tarjetas de crédito y débito**.
-* Desarrollado por organizaciones de la industria financiera.
-
-### 3. **HIPAA (Health Insurance Portability and Accountability Act)**
-
-* Ley de EE.UU. que protege la **información médica sensible**.
-* Prohíbe compartir datos de salud sin consentimiento del paciente.
-
-> **Nota:** Aunque estas regulaciones nacen en regiones específicas, su influencia es **global**.
+<CardGrid>
+  <Card>
+    ### 📌 PII
+    Datos identificativos (nombre, dirección, correo, teléfono).
+  </Card>
+  <Card>
+    ### 🏥 PHI
+    Datos de salud, regulados por leyes como HIPAA.
+  </Card>
+  <Card>
+    ### 🔒 SPII
+    Datos especialmente sensibles: contraseñas, tarjetas, biometría.
+  </Card>
+</CardGrid>
 
 ---
 
-## Cumplimiento normativo y auditorías
+## Seguridad vs. privacidad
 
-El cumplimiento demuestra que una empresa **protege adecuadamente la privacidad de los datos**. Esto se valida a través de:
+* **Seguridad**: proteger la información contra accesos no autorizados, cambios o destrucción.
+* **Privacidad**: derecho del usuario a decidir cómo y con quién comparte su información.
 
-### 1. **Auditorías de seguridad**
-
-* Evaluaciones puntuales de políticas, procedimientos y controles de seguridad.
-* Pueden ser internas o externas, y suelen hacerse **una vez al año**.
-
-### 2. **Evaluaciones de seguridad**
-
-* Análisis continuos sobre la resistencia de las defensas actuales frente a amenazas.
-* Realizadas con más frecuencia, **cada 3 o 6 meses**.
-
-> **Ejemplo:** Una auditoría detecta que no se aplica MFA en cuentas de administrador. Se realiza una evaluación de seguridad y se decide habilitar MFA en **todas las cuentas** para mejorar la seguridad.
+Ejemplo práctico: una app cifra (seguridad) y también pide permiso para usar tus fotos (privacidad).
 
 ---
 
-# Metodos de encrpiptacion
-## La información de identificación personal (PII) y su protección
+## Regulaciones internacionales
 
-**Internet** es un sistema público y abierto por el que circulan enormes cantidades de datos. Aunque usamos internet para compartir información, también deseamos que ciertos datos permanezcan privados. En **seguridad**, esta información se conoce como **PII (Personally Identifiable Information)**.
+<Steps>
+  1. 🇪🇺 **GDPR**: Transparencia, derecho al olvido, portabilidad de datos.
+  2. 🏥 **HIPAA**: Protege PHI en EE.UU.
+  3. 💳 **PCI DSS**: Datos de tarjetas de crédito y débito.
+</Steps>
 
-> **PII** es cualquier dato que pueda usarse para identificar a una persona, como nombre, correo electrónico, información médica o financiera, fotos, huellas digitales, etc.
-
----
-
-## Criptografía: protegiendo la PII en línea
-
-Proteger la PII requiere **controles de seguridad**, siendo uno de los más importantes la **criptografía**.
-
-* **Criptografía**: Proceso de transformar información para que no pueda ser comprendida por terceros no autorizados.
-* Consiste en dos pasos:
-
-  * **Encriptación**: Convierte la información legible (**texto plano**) en un formato ilegible (**texto cifrado**).
-  * **Desencriptación**: Convierte el texto cifrado nuevamente en texto plano.
-
-> **Ejemplo**: Enviar un correo electrónico. El contenido original se cifra y solo el destinatario con la clave correcta puede leerlo al desencriptarlo.
+<Aside type="note">
+Incluso si tu empresa está fuera de la UE, GDPR aplica si tratas datos de ciudadanos europeos.
+</Aside>
 
 ---
 
-## Cifrado de César: el origen de la criptografía
+## Cumplimiento y auditorías
 
-La práctica de ocultar información no es nueva. Uno de los métodos más antiguos es el **cifrado de César**, usado por Julio César para enviar mensajes secretos a sus generales.
+* **Auditorías de seguridad**: revisan controles y políticas (normalmente anuales).
+* **Evaluaciones de seguridad**: pruebas periódicas para encontrar vulnerabilidades.
+* **Documentación**: evidencia de cumplimiento.
 
-* **Funcionamiento**: Desplaza cada letra del alfabeto un número fijo de posiciones.
-
-  * Ejemplo con desplazamiento de 3:
-
-    * A → D
-    * B → E
-    * “hola” → “khoor”
-* Este tipo de cifrado depende de una **clave criptográfica**, que indica cuántas posiciones se han desplazado.
-
-> **Clave criptográfica**: Permite descifrar el texto cifrado. Sin ella, no se puede entender el mensaje.
+> El cumplimiento no elimina riesgos, pero demuestra diligencia.
 
 ---
 
-## Limitaciones del cifrado de César
+## Auditorías de cuentas
 
-Aunque ingenioso en su época, este sistema tiene defectos graves:
+<CardGrid>
+  <Card>
+    ### 🔍 Uso
+    Qué recursos utiliza cada cuenta y cómo.
+  </Card>
+  <Card>
+    ### 🛡️ Privilegios
+    Detecta permisos acumulados o innecesarios.
+  </Card>
+  <Card>
+    ### 📝 Cambios
+    Quién hizo cambios en la cuenta y cuándo.
+  </Card>
+</CardGrid>
 
-1. **Poca complejidad**: Solo hay 26 combinaciones posibles en el alfabeto inglés.
-
-   * Esto permite realizar un **ataque de fuerza bruta**, probando todas las combinaciones hasta encontrar el mensaje.
-2. **Una sola clave**: Si se pierde o se roba, cualquiera puede descifrar la información.
-
-> **Buenas prácticas**:
-
-* No almacenar claves en lugares públicos.
-* Compartir las claves **por separado** del mensaje cifrado.
-
----
-
-## Criptografía moderna
-
-El cifrado de César es el punto de partida de la criptografía, pero hoy usamos **algoritmos mucho más complejos** que:
-
-* Superan las limitaciones de los antiguos sistemas.
-* Ofrecen **mayor seguridad** para proteger la privacidad de la información en línea.
-* Utilizan claves robustas y técnicas avanzadas para evitar vulnerabilidades como el ataque de fuerza bruta.
-
-> Próximo paso: aprender cómo funcionan los algoritmos criptográficos modernos para mantener la privacidad digital.
-
----
-Perfecto, aquí tienes un **resumen breve y formal** del contenido sobre la **Infraestructura de Clave Pública (PKI)**, manteniendo el formato profesional que solicitaste:
+<Aside type="tip">
+Automatiza alertas para detectar cambios sospechosos.
+</Aside>
 
 ---
 
-## Infraestructura de Clave Pública (PKI)
+## Separación de funciones
 
-### ¿Qué es la PKI?
+Evita que una sola persona controle procesos críticos:
 
-La **Infraestructura de Clave Pública (PKI)** es un sistema criptográfico que permite **intercambiar información de forma segura** en entornos digitales. Utiliza métodos de cifrado para proteger datos y garantizar la autenticidad de las partes involucradas en una comunicación.
+* Quien aprueba no debe ejecutar.
+* Quien desarrolla no debe desplegar en producción.
 
----
-
-### Métodos de cifrado
-
-#### Cifrado asimétrico
-
-Utiliza un par de claves:
-
-* **Clave pública**: cifra los datos y puede compartirse.
-* **Clave privada**: descifra los datos y debe mantenerse en secreto.
-
-Es seguro, pero más lento.
-
-#### Cifrado simétrico
-
-Usa una **única clave secreta** compartida entre las partes.
-Es rápido, pero menos seguro debido al riesgo de que la clave sea interceptada.
+> Reduce fraude, errores y abuso de poder.
 
 ---
 
-### Uso combinado en la PKI
+## Cómo determinar accesos
 
-La PKI **combina ambos cifrados**:
-
-* El cifrado asimétrico establece una conexión segura.
-* Luego, el cifrado simétrico se emplea para una comunicación más rápida.
-
----
-
-### Certificados digitales
-
-La PKI **resuelve el problema de la confianza** mediante **certificados digitales**, emitidos por una **Autoridad Certificadora (CA)**.
-
-Un certificado digital:
-
-* Verifica la identidad del titular de una clave pública.
-* Contiene datos cifrados y la firma de la CA.
-
-Estos certificados funcionan como una **identificación digital**, asegurando que la comunicación ocurra entre partes legítimas.
+<Steps>
+  1. 📌 Identificar roles y necesidades reales.
+  2. 🔐 Aplicar permisos mínimos.
+  3. 🕵️ Revisar y retirar accesos que ya no se necesitan.
+</Steps>
 
 ---
 
-## Tipos de Cifrado y Algoritmos Criptográficos
+## Tipos de cuentas
 
-### Tipos de cifrado
-
-Existen dos enfoques principales de cifrado utilizados en la protección de datos:
-
-1. **Cifrado simétrico**: Utiliza una única clave secreta para cifrar y descifrar información. Emisor y receptor deben conocer esta clave.
-2. **Cifrado asimétrico**: Usa un par de claves —una pública para cifrar y una privada para descifrar—. Solo los usuarios autorizados tienen acceso a la clave privada.
-
-### Longitud de clave y seguridad
-
-La seguridad del cifrado depende en gran medida de la **longitud de la clave**. Cuanto más larga sea, más difícil será descifrarla mediante ataques de **fuerza bruta**, aunque esto también implica mayores tiempos de procesamiento. El reto está en equilibrar velocidad y seguridad.
-
-### Algoritmos de cifrado
-
-#### Simétricos
-
-* **Triple DES (3DES)**: Aplica el algoritmo DES tres veces con diferentes claves, alcanzando una longitud efectiva de 168 bits. Aunque es más seguro que DES, su uso ha disminuido.
-* **AES (Advanced Encryption Standard)**: Utiliza claves de 128, 192 o 256 bits. Es uno de los algoritmos más seguros y resistentes a ataques de fuerza bruta.
-
-#### Asimétricos
-
-* **RSA**: Desarrollado en MIT, genera claves de hasta 4.096 bits. Se usa para proteger datos altamente sensibles.
-* **DSA (Digital Signature Algorithm)**: Estándar introducido por el NIST, con claves de hasta 2.048 bits. Se utiliza junto con RSA en entornos de clave pública.
-
-### Generación de claves
-
-Herramientas como **OpenSSL** permiten generar claves públicas y privadas y verificar certificados digitales. A pesar de vulnerabilidades pasadas como el bug **Heartbleed**, hoy en día se recomienda usar versiones actualizadas y seguras.
-
-### Principio de Kerckhoffs
-
-Un sistema criptográfico debe ser seguro incluso si su funcionamiento es conocido públicamente. Solo la clave debe mantenerse secreta. La seguridad basada en el secreto del algoritmo se considera débil y poco confiable.
-
-### Aplicación y cumplimiento
-
-En entornos reales, los sistemas combinan cifrado simétrico y asimétrico. Por ejemplo, se usa **cifrado asimétrico** para autenticar usuarios y **cifrado simétrico** para mantener la sesión segura. Normativas como **FIPS 140-3** y **GDPR** exigen el uso adecuado del cifrado para el manejo responsable de datos.
-
----
-Claro, aquí tienes el **resumen formal** en el mismo formato que los anteriores:
+<CardGrid>
+  <Card>
+    ### Invitado
+    Temporal, acceso muy limitado.
+  </Card>
+  <Card>
+    ### Usuario
+    Según rol, con privilegios controlados.
+  </Card>
+  <Card>
+    ### Servicio
+    Usadas por aplicaciones, necesitan monitoreo constante.
+  </Card>
+  <Card>
+    ### Administrador
+    Máximos privilegios; deben ser pocas y muy vigiladas.
+  </Card>
+</CardGrid>
 
 ---
 
-## Funciones Hash y Verificación de Integridad
+## Conclusión
 
-### ¿Qué es una función hash?
+La **información es un activo** que debe protegerse durante todo su ciclo de vida, aplicando:
 
-Una **función hash** es un algoritmo unidireccional que transforma datos en un código único llamado **valor hash** o **resumen**. A diferencia de los algoritmos de cifrado, los hashes no pueden revertirse ni descifrarse. No generan claves de cifrado, y su principal función es validar la **integridad** de la información.
+* Privilegio mínimo.
+* Separación de funciones.
+* Clasificación adecuada.
+* Controles técnicos, operativos y de gestión.
+* Auditorías y cumplimiento.
 
-### Detección de alteraciones
+Solo así reducimos riesgos y protegemos la confianza de usuarios y clientes.
 
-Al aplicar una función hash a un archivo o aplicación, se genera un valor único. Si un atacante modifica mínimamente el archivo, el nuevo valor hash será completamente diferente. Esta propiedad permite a los profesionales detectar **cambios no autorizados**, aunque visualmente el archivo parezca idéntico al original.
+<Aside type="tip">
+¿Quieres que haga el siguiente bloque (Métodos de encriptación) igual de extenso?  
+Solo dime: **"Sí, continúa"**.
+</Aside>
 
-### Uso en seguridad informática
+# Métodos de encriptación
 
-Los **analistas de seguridad** utilizan funciones hash para verificar que archivos, programas o sistemas no hayan sido manipulados. Comparan el hash generado con bases de datos de **hashes maliciosos conocidos**, como las que ofrece **VirusTotal**, una herramienta ampliamente usada para escanear archivos, URLs o direcciones IP sospechosas.
+## ¿Qué es el cifrado?
 
-### Ejemplo práctico
+El **cifrado** (o encriptación) es el proceso que transforma datos legibles (texto plano) en datos ininteligibles (texto cifrado) mediante un **algoritmo** y una **clave**.
 
-En sistemas Linux, se puede generar un valor hash mediante la terminal con comandos como `sha256 nombre_del_archivo`. El resultado es una cadena única que representa el contenido del archivo. Esta cadena puede ser usada para validar la integridad comparándola con el hash original.
+Cuando se necesita, los datos pueden volver a su forma original (descifrado) usando la clave correspondiente.
 
-### No repudio e integridad
-
-Las funciones hash garantizan el **no repudio**, lo que significa que la autenticidad y exactitud de los datos no pueden ser negadas. Son esenciales para asegurar que la información no ha sido alterada durante el almacenamiento o transmisión.
-
----
-
-## Orígenes y Evolución de las Funciones Hash
-
-### Inicios del hash
-
-Las **funciones hash** surgieron con los primeros sistemas informáticos como métodos para organizar y buscar datos eficientemente. Representan entradas de cualquier tamaño como valores de tamaño fijo, almacenados en estructuras llamadas **tablas hash**. Uno de los primeros algoritmos fue **MD5**, desarrollado por Ronald Rivest, que generaba un valor de 128 bits para verificar la integridad de archivos.
-
-### Colisiones de hash
-
-Un problema inherente a las funciones hash es la **colisión de hash**, que ocurre cuando diferentes entradas generan el mismo valor hash. Este defecto en MD5 lo hace vulnerable, ya que puede permitir a un atacante **suplantar datos**. Cuanto más corto el hash, mayor es el riesgo de colisiones.
-
-### Algoritmos SHA: la nueva generación
-
-Para resolver las limitaciones de MD5, se desarrollaron los algoritmos **SHA (Secure Hash Algorithm)**, aprobados por el **NIST**. Generan valores más largos y seguros. La familia SHA incluye:
-
-* **SHA-1** (160 bits)
-* **SHA-224**
-* **SHA-256**
-* **SHA-384**
-* **SHA-512**
-
-Excepto SHA-1, se consideran resistentes a colisiones.
-
-### Hash y contraseñas
-
-Las contraseñas se almacenan como valores hash en bases de datos. Si se guardaran en texto plano, un atacante con acceso podría leerlas fácilmente. El hash impide recuperar la contraseña original, incluso si se roba la base de datos.
-
-### Ataques con tablas rainbow
-
-Una **tabla rainbow** contiene valores hash precomputados y sus equivalentes en texto plano. Se usan para descifrar contraseñas débiles. Si el hash es simple y sin medidas adicionales, el atacante podría compararlo y obtener el texto original.
-
-### Salting: protección adicional
-
-El **salting** consiste en añadir una cadena aleatoria a los datos antes de aplicar la función hash. Esto produce un valor hash único, incluso si la entrada es la misma. Hace inútiles las tablas rainbow, ya que impide encontrar coincidencias. Cuanto más **larga y compleja** sea la sal, más segura será.
-
----
-# Autenticacion, autorizacion y contabilidad
-
-## Controles de Acceso: Autenticación
-
-### Introducción a los controles de acceso
-
-Proteger la información requiere más que solo cifrado o funciones hash. Los **Controles de acceso** son mecanismos esenciales que gestionan **quién puede ver o utilizar recursos específicos**, manteniendo la **confidencialidad, integridad y disponibilidad** de los datos. Estos controles se dividen en tres componentes: **autenticación, autorización y contabilidad**.
-
-Este resumen se enfoca en la **autenticación**, el proceso de verificar la identidad de un usuario o entidad.
-
-### Factores de autenticación
-
-Los sistemas de autenticación se basan en tres tipos principales de factores:
-
-1. **Conocimiento:** Algo que el usuario sabe, como una contraseña o una respuesta secreta.
-2. **Propiedad:** Algo que el usuario posee, como un token, una tarjeta o un **código OTP** (One-Time Password).
-3. **Característica:** Algo que el usuario es, como una **huella digital** o un **reconocimiento facial** (datos biométricos).
-
-Para que la autenticación sea válida, los datos proporcionados deben coincidir con los registrados previamente. Si no hay coincidencia, se deniega el acceso.
-
-### Inicio de sesión único (SSO)
-
-El **SSO (Single Sign-On)** permite a los usuarios autenticarse una sola vez y obtener acceso a múltiples servicios o aplicaciones sin volver a introducir credenciales. Esto mejora la **experiencia del usuario**, pero también puede presentar riesgos si no se implementa con medidas adicionales de seguridad.
-
-### Autenticación multifactor (MFA)
-
-La **MFA (Multi-Factor Authentication)** combina dos o más factores para verificar la identidad del usuario. Por ejemplo, una contraseña más un código OTP. Este enfoque reduce el riesgo de acceso no autorizado.
-
-### Combinación de SSO y MFA
-
-La combinación de **SSO y MFA** ofrece un equilibrio entre **comodidad y seguridad**, facilitando el acceso a los sistemas sin comprometer la protección de la información.
+<Aside type="note">
+El objetivo del cifrado no es solo ocultar información, sino **asegurar la confidencialidad, integridad y autenticidad**.
+</Aside>
 
 ---
 
-## Controles de Acceso: Autorización
+## Objetivos del cifrado
 
-### Principios clave
-
-La **autorización** es el proceso que determina **qué acciones puede realizar un usuario o sistema** una vez autenticado. Se basa en dos principios fundamentales:
-
-1. **Principio de privilegio mínimo:** Los usuarios solo deben tener acceso a la información y recursos necesarios para realizar sus funciones.
-2. **Separación de funciones:** Se deben dividir las responsabilidades para evitar que una sola persona tenga control total sobre un proceso, reduciendo el riesgo de abuso o errores.
-
-Estos principios aplican tanto a usuarios humanos como a sistemas, redes o bases de datos.
-
-### Tecnologías comunes de autorización
-
-* **HTTP Basic Auth:**
-  Forma básica de autenticación que transmite nombres de usuario y contraseñas en texto plano. Aún se usa en algunos sitios, pero es vulnerable.
-  Su versión segura es **HTTPS**, que cifra la comunicación para proteger las credenciales.
-
-* **OAuth:**
-  Protocolo de autorización abierto que permite compartir acceso limitado entre aplicaciones sin exponer contraseñas.
-  Utiliza **tokens de API**, bloques cifrados que contienen información sobre el usuario y los permisos otorgados.
-
-### Seguridad adicional con tokens
-
-Cuando se usa OAuth, si el usuario tiene habilitada la autenticación multifactor (MFA), esta sigue activa, brindando mayor protección.
-Los **tokens de API** actúan como una capa adicional de cifrado, lo que protege las credenciales incluso si una plataforma externa se ve comprometida.
-
----
-## Controles de Acceso: Contabilización
-
-### Supervisión y análisis de sesiones
-
-La **contabilización** es la práctica de registrar y supervisar la actividad de los usuarios dentro de un sistema. A través de los **registros de acceso**, se documenta quién accede, cuándo lo hace y qué recursos utiliza. Estos datos son fundamentales para los analistas de seguridad, ya que permiten:
-
-* Identificar intentos de acceso no autorizados.
-* Detectar incidentes, como violaciones de datos.
-* Analizar patrones de uso y comportamiento sospechoso.
-
-### Funcionamiento de las sesiones
-
-Cada vez que un usuario accede a un sistema, se inicia una **sesión**, la cual incluye dos elementos clave:
-
-1. **ID de sesión:** Identificador único que vincula al usuario con su dispositivo mientras está conectado.
-2. **Cookie de sesión:** Token que ayuda a validar la sesión y establecer su duración. Este se intercambia entre el servidor y el dispositivo del usuario para gestionar correctamente la experiencia.
-
-Las **cookies de sesión** aumentan la seguridad al evitar el envío repetido de credenciales. Sin embargo, también representan un riesgo si son robadas, ya que permiten a los atacantes suplantar a un usuario, en lo que se conoce como **secuestro de sesión**.
-
-### Importancia de la contabilización
-
-Monitorear registros de sesión permite:
-
-* Detectar accesos no autorizados.
-* Investigar incidentes de seguridad.
-* Prevenir daños mayores derivados de sesiones comprometidas.
-
-Por ello, la contabilización es una función crítica en la protección de los sistemas de información dentro del marco de autenticación, autorización y contabilización (AAA).
+<CardGrid>
+  <Card>
+    ### 🔒 Confidencialidad
+    Solo personas autorizadas deben poder leer los datos.
+  </Card>
+  <Card>
+    ### ✅ Integridad
+    Garantizar que los datos no han sido modificados.
+  </Card>
+  <Card>
+    ### 🧾 Autenticidad
+    Verificar que los datos provienen de una fuente legítima.
+  </Card>
+</CardGrid>
 
 ---
 
-## Gestión de Identidad y Acceso (IAM)
+## Tipos de cifrado
 
-### Principios fundamentales de seguridad
+<Steps>
+  1. 📦 **Simétrico**: la misma clave cifra y descifra.
+  2. 🔑 **Asimétrico**: se usan dos claves distintas (pública y privada).
+</Steps>
 
-La protección de recursos no solo requiere tecnología, sino también una estrategia basada en **principios sólidos**:
-
-* **Privilegio mínimo:** Otorgar únicamente el acceso necesario para completar una tarea.
-* **Separación de funciones:** Evitar que una sola persona tenga control total sobre un proceso o sistema.
-
-Estos principios se aplican tanto a usuarios humanos como a dispositivos y software.
-
-### Modelos de gestión de acceso
-
-Dos marcos comunes utilizados para aplicar estos principios son:
-
-* **AAA (Autenticación, Autorización y Contabilidad)**
-* **IAM (Identity and Access Management)**
-
-Ambos gestionan identidades digitales, privilegios y supervisión de actividades, garantizando que el usuario adecuado acceda al recurso correcto en el momento indicado.
-
-### Autenticación
-
-Para validar identidades, IAM utiliza:
-
-* **Factores de autenticación:**
-
-  * *Conocimiento* (algo que sabe)
-  * *Propiedad* (algo que tiene)
-  * *Característica* (algo que es)
-
-* **Herramientas comunes:**
-
-  * *SSO* (Inicio de sesión único)
-  * *MFA* (Autenticación multifactor)
-
-### Aprovisionamiento de usuarios
-
-El **aprovisionamiento** crea y configura las cuentas de los usuarios con los accesos necesarios.
-El **desaprovisionamiento** elimina estos accesos cuando ya no son requeridos, protegiendo los sistemas de accesos innecesarios.
-
-### Autorización: modelos comunes
-
-* **MAC (Mandatory Access Control):**
-  Acceso otorgado por una autoridad central, basado en necesidad estricta. Común en gobierno y defensa.
-
-* **DAC (Discretionary Access Control):**
-  El propietario de los datos controla quién accede, como al compartir permisos en Google Drive.
-
-* **RBAC (Role-Based Access Control):**
-  Permisos definidos según el rol del usuario en la organización.
-
-### Tecnologías de control de acceso
-
-Las tecnologías de IAM combinan autenticación, autorización y auditoría para ofrecer seguridad eficiente. Algunas organizaciones desarrollan sus propias soluciones, pero muchas optan por herramientas de terceros, que ofrecen escalabilidad y facilidad de implementación.
+Cada uno tiene sus ventajas, usos y limitaciones.
 
 ---
+
+## Cifrado simétrico
+
+El más antiguo y rápido.
+
+<CardGrid>
+  <Card>
+    ### 🔐 ¿Cómo funciona?
+    Una única clave secreta cifra y descifra los datos.
+  </Card>
+  <Card>
+    ### ⚙️ Ejemplos
+    AES, DES, 3DES, Blowfish.
+  </Card>
+  <Card>
+    ### 🚀 Ventajas
+    * Alta velocidad.
+    * Bajo consumo de recursos.
+  </Card>
+  <Card>
+    ### ⚠️ Desventajas
+    * Distribuir y proteger la clave es complicado.
+    * Escala mal cuando hay muchos usuarios.
+  </Card>
+</CardGrid>
+
+<Aside type="tip">
+Se recomienda para cifrar grandes volúmenes de datos, como discos o bases de datos.
+</Aside>
+
+---
+
+## Cifrado asimétrico
+
+Se basa en un par de claves: **una pública y una privada**.
+
+<CardGrid>
+  <Card>
+    ### 🔑 Clave pública
+    Se comparte con todos; sirve para cifrar.
+  </Card>
+  <Card>
+    ### 🛡️ Clave privada
+    Se mantiene secreta; sirve para descifrar.
+  </Card>
+  <Card>
+    ### ✉️ Ejemplo práctico
+    Si alguien quiere enviarte un mensaje seguro, usa tu clave pública. Solo tú podrás leerlo con tu clave privada.
+  </Card>
+  <Card>
+    ### ⚙️ Algoritmos
+    RSA, DSA, ECC.
+  </Card>
+</CardGrid>
+
+<Aside type="note">
+También se usa para firmar digitalmente datos: firmo con mi clave privada y cualquiera puede verificar con mi clave pública.
+</Aside>
+
+---
+
+## Híbrido: lo mejor de ambos mundos
+
+<Steps>
+  1. Se cifra el mensaje con una clave simétrica (rápida).
+  2. Esa clave se cifra con cifrado asimétrico (seguro).
+  3. El receptor descifra primero la clave simétrica y luego el mensaje.
+</Steps>
+
+Este es el método usado, por ejemplo, en HTTPS.
+
+---
+
+## Algoritmos más usados
+
+<CardGrid>
+  <Card>
+    ### 🔒 AES (Advanced Encryption Standard)
+    * Simétrico.
+    * Bloques de 128 bits.
+    * Claves de 128, 192 o 256 bits.
+  </Card>
+  <Card>
+    ### 🔑 RSA
+    * Asimétrico.
+    * Claves grandes (2048 o 4096 bits).
+    * Amplio uso en firmas digitales y cifrado de claves.
+  </Card>
+  <Card>
+    ### 🧠 ECC (Elliptic Curve Cryptography)
+    * Asimétrico.
+    * Seguridad equivalente a RSA con claves mucho más cortas.
+    * Ideal para dispositivos móviles y IoT.
+  </Card>
+</CardGrid>
+
+<Aside type="tip">
+Usa siempre algoritmos considerados seguros y actualizados por organismos como NIST.
+</Aside>
+
+---
+
+## Cifrado en tránsito y en reposo
+
+**Cifrado en tránsito**  
+Protege los datos mientras viajan por redes (ejemplo: HTTPS, VPN).
+
+**Cifrado en reposo**  
+Protege los datos cuando están almacenados (ejemplo: bases de datos, discos duros cifrados).
+
+<Aside type="note">
+Idealmente, se aplican ambos.
+</Aside>
+
+---
+
+## Firmas digitales
+
+No cifran el contenido, pero **garantizan la integridad y autenticidad**.
+
+<Steps>
+  1. Se calcula un resumen (hash) del documento.
+  2. Se cifra ese resumen con la clave privada del firmante.
+  3. Quien recibe puede verificarlo con la clave pública.
+</Steps>
+
+---
+
+## ¿Por qué usar cifrado?
+
+<CardGrid>
+  <Card>
+    ### Protección contra robos
+    Si alguien roba tu base de datos, los datos cifrados no podrán usarse.
+  </Card>
+  <Card>
+    ### Cumplimiento legal
+    Muchas normativas obligan a cifrar (GDPR, HIPAA, PCI DSS).
+  </Card>
+  <Card>
+    ### Confianza
+    Usuarios y clientes saben que sus datos están protegidos.
+  </Card>
+</CardGrid>
+
+---
+
+## Cifrado de extremo a extremo
+
+Los datos se cifran en el origen y solo se descifran en el destino.
+
+Ejemplo: aplicaciones de mensajería segura.
+
+<Aside type="tip">
+Ni siquiera el proveedor del servicio puede leer los mensajes.
+</Aside>
+
+---
+
+## Retos y buenas prácticas
+
+<Steps>
+  1. 📌 Gestionar bien las claves (rotación, backup seguro).
+  2. 🧠 No reinventar algoritmos: usa bibliotecas probadas.
+  3. 🔄 Actualizar algoritmos y claves periódicamente.
+  4. 🛡️ Combinar cifrado con autenticación y control de accesos.
+</Steps>
+
+---
+
+## Ciclo de vida de las claves
+
+<CardGrid>
+  <Card>
+    ### Generación
+    Usar generadores de números aleatorios de calidad.
+  </Card>
+  <Card>
+    ### Distribución
+    Canales seguros, preferiblemente cifrados.
+  </Card>
+  <Card>
+    ### Almacenamiento
+    Protegidas con hardware seguro (HSM, TPM).
+  </Card>
+  <Card>
+    ### Rotación
+    Cambiar claves periódicamente o tras incidentes.
+  </Card>
+  <Card>
+    ### Revocación
+    Anular claves comprometidas.
+  </Card>
+</CardGrid>
+
+---
+
+## Fuerza del cifrado
+
+Depende de:
+
+* Algoritmo usado.
+* Longitud de la clave.
+* Entropía (calidad aleatoria de la clave).
+* Prácticas de implementación.
+
+> Una clave corta o mal generada puede comprometer incluso el mejor algoritmo.
+
+---
+
+## Criptoanálisis
+
+Disciplina que estudia cómo romper cifrados.
+
+<Aside type="note">
+No siempre implica fuerza bruta: a veces se aprovechan fallos en la implementación o en la gestión de claves.
+</Aside>
+
+---
+
+## Ejemplo real: HTTPS
+
+<Steps>
+  1. Navegador solicita la página al servidor.
+  2. Se negocia un protocolo (TLS) y se intercambian claves.
+  3. Los datos se cifran usando cifrado simétrico (rápido).
+  4. Las claves se intercambian de forma segura mediante cifrado asimétrico.
+</Steps>
+
+---
+
+## Ventajas del cifrado asimétrico moderno
+
+<CardGrid>
+  <Card>
+    ### Distribución simple
+    Solo la clave pública se comparte.
+  </Card>
+  <Card>
+    ### Firmas digitales
+    Verifican identidad y origen.
+  </Card>
+  <Card>
+    ### Escalabilidad
+    Más práctico para grandes redes.
+  </Card>
+</CardGrid>
+
+---
+
+## Ventajas del cifrado simétrico
+
+<CardGrid>
+  <Card>
+    ### Velocidad
+    Mucho más rápido que el asimétrico.
+  </Card>
+  <Card>
+    ### Bajo consumo
+    Ideal para cifrar grandes volúmenes.
+  </Card>
+</CardGrid>
+
+<Aside type="tip">
+Por eso se combinan: cifrado híbrido.
+</Aside>
+
+---
+
+## Conclusión
+
+El cifrado no es opcional: es una capa fundamental de la seguridad moderna.
+
+Para aplicarlo correctamente:
+
+* Elige algoritmos actualizados y seguros.
+* Gestiona las claves de forma responsable.
+* Usa cifrado en tránsito y en reposo.
+* Revisa y actualiza tus controles regularmente.
+
+<Aside type="tip">
+¿Quieres que siga con el siguiente bloque (“PKI”) al mismo nivel?  
+Solo dime: **"Sí, continúa con PKI"**.
+</Aside>

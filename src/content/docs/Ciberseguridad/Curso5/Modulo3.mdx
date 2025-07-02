@@ -3,387 +3,564 @@ title: Módulo 3 – Vulnerabilidades de los sistemas
 description: Fundamentos, amenazas y habilidades esenciales para comenzar una carrera en ciberseguridad.
 ---
 
-# Fallos en el sistema 
-## Gestión de Vulnerabilidades
+---
+title: Módulo 3 – Vulnerabilidades de los sistemas
+description: Fundamentos, amenazas y habilidades esenciales para comenzar una carrera en ciberseguridad.
+---
+import { Card, CardGrid, Aside, Steps } from '@astrojs/starlight/components'
 
-### ¿Qué es una vulnerabilidad?
+# PKI: Infraestructura de Clave Pública
 
-Una **vulnerabilidad** es una debilidad que *puede* ser explotada por una amenaza. Este “puede” es crucial: no todas las vulnerabilidades se convierten en incidentes, pero todas son potenciales puntos de falla.
+## ¿Qué es la PKI?
 
-### Exploits: cuando una vulnerabilidad es utilizada
+La **Infraestructura de Clave Pública (PKI)** es un **conjunto de políticas, estándares, roles y sistemas** que permiten administrar el ciclo de vida de claves y certificados digitales.
 
-Un **exploit** es el método mediante el cual una amenaza se aprovecha de una vulnerabilidad. Pensar en los posibles exploits permite anticiparse y tomar medidas antes de que ocurra un ataque.
+Su objetivo principal es ofrecer **confianza, autenticidad e integridad** en las comunicaciones digitales, gracias al uso de **cifrado asimétrico** y **certificados digitales**.
 
-**Ejemplo:**
-Una ventana es vulnerable a romperse. Un ladrón puede explotarla arrojando una piedra. La solución anticipada puede ser instalar una alarma.
-
-### ¿Qué es la gestión de vulnerabilidades?
-
-La **gestión de vulnerabilidades** es un proceso estructurado que busca identificar y corregir debilidades en los sistemas antes de que sean explotadas. Consta de **cuatro etapas cíclicas**:
-
-1. **Identificación de vulnerabilidades**
-2. **Evaluación de posibles exploits**
-3. **Implementación de defensas**
-4. **Evaluación de las defensas**
-
-Cuando se completa el ciclo, vuelve a iniciarse. Esto se hace de forma continua porque **las amenazas evolucionan constantemente**.
-
-### Importancia de la diversidad en seguridad
-
-Contar con equipos de seguridad **diversos** en experiencias y antecedentes mejora la capacidad para detectar distintas amenazas y pensar como los atacantes.
-
-### Exploits de Día Cero
-
-Los **exploits de Día Cero** son vulnerabilidades que se descubren y se explotan antes de que exista una solución. Se denominan así porque:
-
-* Se detectan *en tiempo real*
-* No hay tiempo para corregirlos (cero días)
-
-**Ejemplo:**
-Una cerradura que se derrite por calor extremo no era una vulnerabilidad conocida. Un exploit de Día Cero puede ser un software malicioso que se introduce por primera vez en un sitio popular sin advertencia previa.
-
-### Conclusión
-
-La gestión de vulnerabilidades es una defensa **proactiva** y esencial. La etapa más importante es **identificar las vulnerabilidades**, lo cual exploraremos en la siguiente lección.
+<Aside type="note">
+PKI no es solo tecnología: incluye procedimientos, personas y reglas que rigen cómo se generan, distribuyen y revocan certificados.
+</Aside>
 
 ---
 
-## Seguridad en CI/CD: Gestión de Vulnerabilidades
+## Elementos clave de la PKI
 
-### ¿Qué es CI/CD y por qué es importante?
-
-Las canalizaciones de **Integración Continua (CI)**, **Entrega Continua (CD)** y **Despliegue Continuo (CD)** son fundamentales en el desarrollo moderno de software. Automatizan desde la escritura del código hasta su despliegue, permitiendo a los equipos ser más rápidos, eficientes y responder ágilmente a las necesidades de los usuarios.
-
-* **CI (Integración continua):** Integra y prueba automáticamente el código cada vez que se actualiza, detectando errores tempranamente.
-* **CD (Entrega continua):** Prepara automáticamente el código para su publicación final, aunque puede requerir aprobación manual.
-* **CD (Despliegue continuo):** Publica automáticamente el código en producción una vez que pasa todas las pruebas.
-
-### Beneficios de seguridad en CI/CD
-
-Un canal de CI/CD bien diseñado **fortalece la postura de seguridad** al integrar prácticas automatizadas que:
-
-* Ejecutan **pruebas de seguridad dinámicas (DAST)** en entornos reales.
-* Verifican el **cumplimiento de políticas de seguridad**.
-* Evalúan la **seguridad de la infraestructura** donde se alojan las aplicaciones.
-
-### Riesgos si no se protege el canal CI/CD
-
-Un canal CI/CD mal configurado **puede ser una puerta de entrada crítica para los atacantes**. Las consecuencias incluyen:
-
-* Automatización de errores y vulnerabilidades.
-* Inclusión de software inseguro en producción.
-* Tiempos de respuesta lentos ante fallos o brechas.
-* Mayor impacto en caso de compromisos.
-
-### Vulnerabilidades comunes en CI/CD
-
-1. **Dependencias inseguras (CVE):**
-   Uso de bibliotecas o componentes de terceros con vulnerabilidades conocidas.
-   ✔ *Solución:* Utilizar herramientas como **Snyk** o **Dependabot** para analizarlas y mantenerlas actualizadas.
-
-2. **Permisos mal configurados:**
-   Acceso excesivo o mal controlado a herramientas, repositorios y entornos.
-   ✔ *Solución:* Aplicar **RBAC** (control basado en roles) y principio de **mínimo privilegio**.
-
-3. **Falta de pruebas de seguridad automatizadas:**
-   Publicar software sin validaciones de seguridad rigurosas.
-   ✔ *Solución:* Integrar herramientas de **SAST**, **DAST** y **SCA** en la canalización.
-
-4. **Secretos expuestos en código:**
-   Claves API, contraseñas o tokens escritos en el código o configuraciones.
-   ✔ *Solución:* Usar herramientas de gestión de secretos como **HashiCorp Vault** o **AWS Secrets Manager**.
-
-5. **Entornos de compilación inseguros:**
-   Servidores de CI/CD vulnerables o mal protegidos.
-   ✔ *Solución:* Ejecutar las compilaciones en **contenedores o máquinas virtuales seguras**.
-
-### Mejores prácticas para un canal CI/CD seguro
-
-* **Integrar seguridad desde el inicio (DevSecOps):**
-  Incorporar la seguridad en todas las fases del desarrollo.
-
-* **Controles de acceso estrictos:**
-  Aplicar MFA, RBAC y el principio de mínimo privilegio en todos los entornos.
-
-* **Automatizar análisis de seguridad:**
-  Incluir escaneos SAST, DAST y SCA como parte del ciclo CI/CD.
-
-* **Gestión segura de dependencias:**
-  Mantener un inventario actualizado y revisar las bibliotecas utilizadas.
-
-* **Manejo seguro de secretos:**
-  Nunca incluir datos confidenciales directamente en el código. Usar gestores seguros.
-
----
-## Defensa en profundidad: Modelo de Seguridad en Capas
-
-### ¿Qué es la defensa en profundidad?
-
-La **defensa en profundidad** es un modelo de seguridad que utiliza múltiples capas de protección para reducir el riesgo y fortalecer la postura de seguridad de una organización. Se basa en la idea de que si una barrera de seguridad falla, otra la reemplaza para detener al atacante. Esta estrategia también se conoce como el **enfoque del castillo**, ya que se inspira en las estructuras medievales con defensas escalonadas que dificultaban su penetración.
-
-### Ejemplo histórico: el castillo
-
-En la Edad Media, los castillos empleaban múltiples defensas:
-
-* **Foso**: impedía el acceso directo al muro.
-* **Muros altos**: dificultaban la entrada, aunque eran vulnerables a la escalada.
-* **Torres de vigilancia**: contrarrestaban los intentos de escalar.
-
-Cada nivel mitigaba los riesgos, anticipando vulnerabilidades y aplicando **controles defensivos** ante cada amenaza potencial.
-
-### Aplicación en ciberseguridad
-
-La defensa en profundidad se adapta a la ciberseguridad mediante un diseño **en cinco capas**, cada una con controles específicos que protegen la información a medida que se transmite o accede desde una red.
-
-#### 1. **Capa Perimetral**: Autenticación externa
-
-* **Función:** Controla quién puede ingresar al sistema desde el exterior.
-* **Tecnologías comunes:** Usuario y contraseña, filtros de acceso.
-* **Objetivo:** Solo permitir el acceso a socios de confianza.
-
-#### 2. **Capa de Red**: Control de tráfico interno
-
-* **Función:** Supervisa y filtra el tráfico dentro de la red.
-* **Tecnologías:** Firewalls de red, segmentación.
-* **Relación:** Más alineada con la **autorización** de usuarios y sistemas.
-
-#### 3. **Capa de Punto Final**: Protección de dispositivos
-
-* **Función:** Protege los dispositivos individuales conectados a la red.
-* **Ejemplos de dispositivos:** Laptops, desktops, servidores.
-* **Tecnologías:** Antivirus, EDR (Endpoint Detection and Response).
-
-#### 4. **Capa de Aplicación**: Seguridad en las interfaces
-
-* **Función:** Controla el acceso y uso seguro de las aplicaciones.
-* **Ejemplo:** Autenticación multifactor (MFA), validaciones de sesión.
-* **Contexto:** Integra la seguridad desde el desarrollo de software.
-
-#### 5. **Capa de Datos**: Protección de la información crítica
-
-* **Función:** Resguarda la información más sensible de la organización.
-* **Ejemplo:** Clasificación de activos, cifrado de datos.
-* **Objetivo:** Impedir accesos no autorizados a datos personales o confidenciales.
-
-### Movimiento a través de las capas
-
-Los datos **entran y salen constantemente de cada capa** durante las operaciones normales. Por eso, la combinación de múltiples controles en distintos niveles **reduce el riesgo de exposición o ataque**, incluso si una capa es vulnerada.
-
-### Conclusión: Seguridad multicapa para máxima protección
-
-La defensa en profundidad es un **enfoque estratégico y preventivo**. Al combinar múltiples niveles de seguridad —desde el perímetro hasta los datos—, se crea una arquitectura resiliente capaz de resistir ataques complejos. Este modelo es ampliamente utilizado en organizaciones que buscan **proteger eficazmente sus recursos críticos** ante un entorno de amenazas en constante evolución.
+<CardGrid>
+  <Card>
+    ### 🔑 Claves públicas y privadas
+    Base del cifrado asimétrico.
+  </Card>
+  <Card>
+    ### 📜 Certificados digitales
+    Documentos electrónicos que vinculan una clave pública a una identidad.
+  </Card>
+  <Card>
+    ### 🏢 Autoridades de Certificación (CA)
+    Entidades de confianza que emiten y gestionan certificados.
+  </Card>
+  <Card>
+    ### 🏷️ Autoridades de Registro (RA)
+    Verifican identidades antes de que la CA emita certificados.
+  </Card>
+  <Card>
+    ### 📦 Repositorios
+    Almacenan certificados y listas de revocación.
+  </Card>
+  <Card>
+    ### 🛡️ Listas de Revocación de Certificados (CRL)
+    Listados de certificados anulados antes de su expiración.
+  </Card>
+</CardGrid>
 
 ---
 
-## Lista CVE y Gestión Colaborativa de Vulnerabilidades
+## ¿Cómo funciona la PKI? (Proceso resumido)
 
-### Seguridad: un esfuerzo global
-
-La **seguridad de la información** no es responsabilidad exclusiva de un equipo. Es una labor colectiva que involucra a individuos, organizaciones y comunidades técnicas en todo el mundo. Uno de los pilares de esta colaboración global es la **documentación pública de vulnerabilidades y exposiciones comunes**.
-
-### Vulnerabilidades vs. exposiciones
-
-Aunque a menudo se mencionan juntas, las vulnerabilidades y exposiciones tienen diferencias clave:
-
-* **Vulnerabilidad**: una debilidad en un sistema que puede ser explotada.
-* **Exposición**: una condición o error que permite que una amenaza se aproveche de una vulnerabilidad.
-
-#### Ejemplo:
-
-Colocar un documento importante cerca de una ventana abierta representa una exposición: el viento podría llevárselo. Su naturaleza física frágil, como que pueda mojarse, representa una vulnerabilidad.
-
-### ¿Qué es la lista CVE?
-
-La **lista de Vulnerabilidades y Exposiciones Comunes (CVE)** es un **diccionario de acceso público** que contiene identificadores únicos para vulnerabilidades y exposiciones conocidas. Es ampliamente utilizada por organizaciones de todo el mundo para mejorar sus defensas.
-
-* **Creada en 1999 por**: [MITRE Corporation](https://cve.mitre.org/), una organización sin fines de lucro patrocinada por el gobierno de EE. UU.
-* **Propósito**: Ofrecer una forma estandarizada de **identificar, nombrar y categorizar** las vulnerabilidades y exposiciones.
-
-### Proceso de inclusión en la lista CVE
-
-Las vulnerabilidades pueden ser reportadas por:
-
-* Investigadores independientes
-* Proveedores de tecnología
-* Hackers éticos
-* Cualquier persona con pruebas válidas
-
-#### Revisión por Autoridades de Numeración de CVE (CNA)
-
-Una **CNA** es una organización autorizada para revisar y validar reportes de vulnerabilidad. Las CNAs deben tener experiencia comprobada en investigación de seguridad y ser capaces de realizar evaluaciones rigurosas.
-
-#### Criterios para asignar un ID CVE
-
-1. **Debe ser independiente** de otras fallas.
-2. **Reconocida como un riesgo de seguridad**.
-3. **Acompañada de pruebas verificables**.
-4. **Debe afectar una sola base de código** (por ejemplo, una versión específica de un software).
-
-### Evaluación de gravedad: CVSS y NVD
-
-Una vez que se asigna un CVE, se evalúa su severidad mediante sistemas de puntuación como:
-
-* **CVSS (Common Vulnerability Scoring System)**: mide el impacto potencial de una vulnerabilidad.
-* **NVD (National Vulnerability Database)** del **NIST**: proporciona una puntuación base de 0 a 10.
-
-#### Interpretación de la puntuación CVSS
-
-* **0.0 – 3.9**: Riesgo bajo
-* **4.0 – 6.9**: Riesgo medio
-* **7.0 – 8.9**: Riesgo alto
-* **9.0 – 10.0**: Riesgo crítico (requiere atención inmediata)
-
-### Aplicación práctica en gestión de vulnerabilidades
-
-Los equipos de seguridad utilizan la lista CVE junto con las puntuaciones CVSS para:
-
-* **Priorizar correcciones y actualizaciones**
-* **Determinar el nivel de riesgo para su entorno**
-* **Establecer plazos para aplicar parches**
-
-### Colaboración global: un beneficio colectivo
-
-Bibliotecas como la lista CVE permiten a las organizaciones:
-
-* Consultar amenazas conocidas
-* Evaluar riesgos con mayor objetividad
-* Contribuir al conocimiento compartido
-
-Este modelo colaborativo permite **una defensa más rápida y coordinada** frente a nuevas amenazas.
+<Steps>
+  1. El usuario o sistema genera un par de claves (pública y privada).
+  2. Se solicita un certificado digital a la CA.
+  3. La RA verifica la identidad del solicitante.
+  4. La CA emite y firma el certificado digital.
+  5. El certificado se publica y usa para autenticar, cifrar o firmar digitalmente.
+</Steps>
 
 ---
 
-## El OWASP Top 10: Principales Riesgos de Seguridad en Aplicaciones Web
+## Certificados digitales
 
-### ¿Qué es OWASP?
+Son como **“pasaportes digitales”**: contienen datos que identifican a su titular y permiten comprobar su identidad.
 
-El **Open Worldwide Application Security Project (OWASP)** es una fundación sin ánimo de lucro que busca mejorar la seguridad del software. Opera como una plataforma abierta donde profesionales de seguridad de todo el mundo comparten:
-
-* Conocimientos
-* Herramientas
-* Buenas prácticas
-* Eventos y proyectos centrados en la **seguridad de aplicaciones web**
-
-### ¿Qué es el OWASP Top 10?
-
-El **OWASP Top 10** es una lista de las **principales vulnerabilidades en aplicaciones web**, publicada regularmente desde 2003. Sirve como guía práctica y actualizada para desarrolladores, auditores y profesionales de ciberseguridad.
-
-* **Objetivo**: Aumentar la concienciación sobre las amenazas más comunes.
-* **Aplicación**: Se centra especialmente en software nuevo o personalizado.
-* **Actualización periódica**: Las posiciones varían según la **frecuencia** y el **riesgo** de las vulnerabilidades detectadas en el entorno global.
-
-#### Uso profesional:
-
-* Las **empresas** lo utilizan para orientar sus desarrollos desde el diseño.
-* Los **auditores** lo emplean como referencia para evaluar el cumplimiento de normas y buenas prácticas.
-
-### Principales vulnerabilidades del OWASP Top 10
-
-A continuación, se describen las vulnerabilidades más comunes según OWASP:
-
-#### 1. Control de acceso roto
-
-* **Qué es**: Fallos en los mecanismos que limitan lo que los usuarios pueden hacer.
-* **Ejemplo**: Un visitante puede eliminar publicaciones en lugar de solo comentar.
-* **Riesgo**: Acceso, modificación o destrucción no autorizada de información.
-
-#### 2. Fallos criptográficos
-
-* **Qué es**: Uso incorrecto o ausencia de cifrado.
-* **Ejemplo**: Uso de algoritmos inseguros como MD5.
-* **Riesgo**: Pérdida de confidencialidad y posibles sanciones legales por violar normativas como el RGPD.
-
-#### 3. Inyección
-
-* **Qué es**: Inclusión de código malicioso en entradas de usuario.
-* **Ejemplo**: Ataques SQL en formularios de inicio de sesión.
-* **Riesgo**: Acceso o manipulación de bases de datos.
-
-#### 4. Diseño inseguro
-
-* **Qué es**: Ausencia de principios de seguridad desde el diseño.
-* **Ejemplo**: Aplicaciones que no prevén ataques comunes o control de errores.
-* **Riesgo**: Mayor exposición a múltiples vectores de ataque.
-
-#### 5. Desconfiguración de la seguridad
-
-* **Qué es**: Implementaciones con ajustes por defecto o mala configuración.
-* **Ejemplo**: Equipos implementados sin revisar configuraciones básicas.
-* **Riesgo**: Brechas de seguridad por omisiones en configuraciones.
-
-#### 6. Componentes vulnerables y obsoletos
-
-* **Qué es**: Uso de bibliotecas de terceros sin mantenimiento.
-* **Ejemplo**: Dependencias con CVEs conocidas y sin parches.
-* **Riesgo**: Fácil explotación por actores maliciosos.
-
-#### 7. Fallos de identificación y autenticación
-
-* **Qué es**: Fallos en la verificación de identidad y control de sesiones.
-* **Ejemplo**: Formularios de acceso débiles en routers o dispositivos IoT.
-* **Riesgo**: Acceso no autorizado y suplantación de identidad.
-
-#### 8. Fallos de integridad de software y datos
-
-* **Qué es**: Errores en actualizaciones o distribución de software.
-* **Ejemplo**: **Ataques a la cadena de suministro**, como el caso **SolarWinds (2020)**.
-* **Riesgo**: Distribución inadvertida de malware a terceros.
-
-#### 9. Fallos en el registro y monitoreo de seguridad
-
-* **Qué es**: Ausencia o deficiencia en la captura de eventos críticos.
-* **Ejemplo**: No registrar intentos de inicio de sesión fallidos.
-* **Riesgo**: Incapacidad de detectar y responder a incidentes.
-
-#### 10. Falsificación de peticiones del lado del servidor (SSRF)
-
-* **Qué es**: Manipulación de solicitudes web para explotar servidores internos.
-* **Ejemplo**: Un servidor que acepta comandos para acceder a recursos internos mediante solicitudes falsas.
-* **Riesgo**: Acceso no autorizado a datos sensibles en servidores backend.
+**Campos habituales:**
+* Nombre común (CN)
+* Organización (O)
+* País (C)
+* Clave pública del titular
+* Algoritmo usado
+* Período de validez
+* Firma digital de la CA
 
 ---
 
-## Inteligencia de Fuentes Abiertas (OSINT): Información pública al servicio de la ciberseguridad
+## Cadena de confianza
 
-### ¿Qué es OSINT?
+<Steps>
+  1. Un certificado de entidad final (por ejemplo, un servidor web) está firmado por una CA intermedia.
+  2. La CA intermedia está firmada por una CA raíz.
+  3. Los sistemas confían en la CA raíz, instalada como "de confianza".
+  4. La confianza se transfiere desde la CA raíz hasta el certificado final.
+</Steps>
 
-La **Inteligencia de Fuentes Abiertas (OSINT, por sus siglas en inglés)** es el proceso de **recopilar, analizar e interpretar información disponible públicamente** con el fin de generar inteligencia útil para la toma de decisiones. Esta práctica es clave en ciberseguridad, ya que permite anticipar amenazas y detectar vulnerabilidades **sin comprometer sistemas o utilizar técnicas invasivas**.
-
-### Información vs. Inteligencia
-
-Es importante distinguir entre **información** e **inteligencia**:
-
-* **Información**: Datos crudos y hechos sin procesar (por ejemplo, una actualización de software anunciada).
-* **Inteligencia**: Información analizada, interpretada y contextualizada para apoyar decisiones (por ejemplo, evaluar si esa actualización expone vulnerabilidades conocidas).
-
-La inteligencia surge del análisis de la información, y en ciberseguridad, esta diferencia marca la efectividad de una respuesta preventiva o reactiva ante amenazas.
-
-### Aplicaciones de OSINT en ciberseguridad
-
-OSINT se utiliza en múltiples aspectos de la seguridad informática, especialmente dentro del campo de **InfoSec** (Seguridad de la Información). A continuación, se presentan ejemplos de cómo se aplica:
-
-* **Monitoreo de foros y comunidades de hackers**: Identificación temprana de amenazas emergentes.
-* **Detección de filtraciones de datos**: Validación de posibles exposiciones de credenciales u otros datos sensibles.
-* **Evaluación de vulnerabilidades**: Revisión de posibles debilidades aún no documentadas internamente.
-* **Estadísticas de ciberataques**: Análisis de patrones de ataques públicos que pueden afectar a la organización.
-
-Esto permite a los equipos de seguridad priorizar acciones como **parches de seguridad**, **implementación de controles adicionales**, o **reforzamiento de políticas existentes**.
-
-### Herramientas y recursos OSINT comunes
-
-La cantidad de información pública disponible en internet es vasta. Para filtrar lo relevante y convertirlo en inteligencia, se utilizan diversas herramientas. Algunas de las más destacadas incluyen:
-
-#### Herramientas de análisis y monitoreo
-
-* **VirusTotal**: Permite escanear archivos, URLs, dominios e IPs para detectar malware.
-* **MITRE ATT\&CK**: Base de conocimiento sobre tácticas y técnicas utilizadas por atacantes reales.
-* **OSINT Framework**: Mapa interactivo de herramientas OSINT organizadas por tipo de fuente o plataforma.
-
-#### Herramientas de búsqueda de exposiciones
-
-* **Have I Been Pwned**: Verifica si una dirección de correo electrónico ha sido comprometida en filtraciones públicas.
-
-Estas herramientas no solo ayudan a detectar riesgos, sino que **fortalecen los procesos de gestión de vulnerabilidades**, al ofrecer contexto y evidencia a partir de datos públicos.
+<Aside type="tip">
+Nunca debes usar directamente la CA raíz para firmar certificados de usuarios; se utiliza una CA intermedia por motivos de seguridad.
+</Aside>
 
 ---
 
+## Autoridad de Certificación (CA)
+
+Entidad responsable de emitir, renovar y revocar certificados.
+
+<CardGrid>
+  <Card>
+    ### 📦 CA interna
+    Implementada dentro de una organización.
+    * Control total.
+    * Adecuada para uso interno.
+  </Card>
+  <Card>
+    ### 🌐 CA pública
+    Proveedores globales como Let's Encrypt, DigiCert o GlobalSign.
+    * Reconocidas por navegadores y sistemas.
+    * Ideal para servicios públicos (web, APIs).
+  </Card>
+</CardGrid>
+
+---
+
+## Revocación de certificados
+
+Cuando un certificado pierde su validez antes de su expiración (por ejemplo, clave comprometida), se revoca.
+
+**Métodos:**
+* 📜 **CRL** (Certificate Revocation List): Lista publicada periódicamente.
+* ⚡ **OCSP** (Online Certificate Status Protocol): Verificación en tiempo real.
+
+---
+
+## Casos de uso de PKI
+
+<CardGrid>
+  <Card>
+    ### 🔒 HTTPS / SSL
+    Cifrado y autenticación en sitios web.
+  </Card>
+  <Card>
+    ### ✉️ Correo seguro
+    Firmas y cifrado con S/MIME.
+  </Card>
+  <Card>
+    ### 🛡️ VPN y redes privadas
+    Autenticación de usuarios y dispositivos.
+  </Card>
+  <Card>
+    ### 📲 Dispositivos móviles
+    Certificados para MDM y Wi-Fi seguro.
+  </Card>
+  <Card>
+    ### 🏢 Control de acceso
+    Autenticación basada en certificados.
+  </Card>
+</CardGrid>
+
+---
+
+## Ciclo de vida de un certificado digital
+
+<Steps>
+  1. **Solicitud:** el solicitante crea una CSR (Certificate Signing Request).
+  2. **Verificación:** la RA valida la identidad.
+  3. **Emisión:** la CA firma el certificado.
+  4. **Distribución:** el certificado se instala y comparte.
+  5. **Renovación o revocación:** antes de que expire o si hay incidentes.
+</Steps>
+
+---
+
+## Tipos de certificados según su validación
+
+<CardGrid>
+  <Card>
+    ### 📝 Validación de dominio (DV)
+    Solo comprueba que el solicitante controla el dominio.
+    * Rápido y automatizado.
+  </Card>
+  <Card>
+    ### 🏢 Validación de organización (OV)
+    Verifica también datos de la empresa.
+    * Mayor confianza.
+  </Card>
+  <Card>
+    ### 🟩 Validación extendida (EV)
+    Validación exhaustiva, muestra barra verde en navegadores.
+    * Más garantía y transparencia.
+  </Card>
+</CardGrid>
+
+---
+
+## Buenas prácticas de PKI
+
+<Steps>
+  1. Usar algoritmos actualizados y claves fuertes (mínimo 2048 bits en RSA).
+  2. Proteger las claves privadas en HSMs (Hardware Security Modules).
+  3. Rotar y renovar certificados antes de que expiren.
+  4. Segmentar roles: CA, RA y repositorios.
+  5. Revocar certificados rápidamente ante incidentes.
+</Steps>
+
+---
+
+## PKI y el mundo real
+
+* Sin PKI no existiría la web segura (HTTPS).
+* Grandes infraestructuras usan PKI para controlar accesos, firmas y cifrado.
+* La **gestión correcta** de certificados es crítica: fallos pueden interrumpir servicios o comprometer seguridad.
+
+<Aside type="tip">
+Ejemplo real: en 2021, la expiración de un certificado raíz provocó la caída de aplicaciones y dispositivos IoT.
+</Aside>
+
+---
+
+## Conclusión
+
+La PKI es la base de la **confianza digital moderna**: hace posible la autenticación, el cifrado y la firma de documentos.
+
+Para usarla correctamente:
+* Comprende sus componentes.
+* Gestiona de forma segura el ciclo de vida.
+* Implementa controles de revocación y renovación.
+
+<Aside type="tip">
+Cuando quieras, envíame la **siguiente mitad** del archivo.  
+Así seguimos y unificamos el texto completo con el mismo nivel de detalle.
+</Aside>
+
+
+# Identificar las vulnerabilidades de los sistemas
+
+## Evaluación de vulnerabilidades: un proceso sistemático para identificar y corregir debilidades
+
+### ¿Qué es una evaluación de vulnerabilidades?
+Una **evaluación de vulnerabilidades** es el proceso mediante el cual una organización **revisa internamente sus sistemas de seguridad** para **identificar debilidades y prevenir ataques**.  
+A diferencia de la lista de CVE® —que recopila vulnerabilidades descubiertas y divulgadas públicamente— las evaluaciones son realizadas directamente por el **equipo de seguridad de la organización**, que se encarga de identificar, analizar, clasificar y corregir vulnerabilidades.
+
+---
+
+### Objetivos principales
+* Detectar fallos **antes** de que sean explotados.
+* Determinar si los controles cumplen con **normativas y estándares**.
+* Priorizar recursos en función del riesgo.
+* Proteger activos críticos de forma estratégica.
+
+<Aside type="note">
+No siempre se evalúan todos los activos; se suele <strong>focalizar en áreas de mayor riesgo o valor</strong>.
+</Aside>
+
+---
+
+## Etapas del proceso de evaluación
+
+<Steps>
+  1. Identificación: mediante escáneres automáticos y pruebas manuales se obtiene una “fotografía” del estado actual.
+  2. Análisis: se estudia el origen y contexto de cada vulnerabilidad.
+  3. Evaluación de riesgos: se clasifica según impacto y probabilidad para priorizar.
+  4. Reparación: se aplican parches, actualizaciones o ajustes técnicos.
+</Steps>
+
+---
+
+## Exploración de vulnerabilidades: métodos clave
+
+### ¿Qué es un escáner de vulnerabilidades?
+Software que detecta **errores de configuración o programación**, comparando resultados con bases de datos de amenazas conocidas.  
+Permite simular ataques no intrusivos en distintas capas como red, aplicación o dispositivos finales.
+
+---
+
+### Funciones de los escáneres
+<CardGrid>
+  <Card>
+    🔍 Simulan ataques sin comprometer el sistema.
+  </Card>
+  <Card>
+    🛡️ Detectan debilidades técnicas y errores de configuración.
+  </Card>
+  <Card>
+    📊 Ayudan a priorizar la estrategia de mitigación.
+  </Card>
+  <Card>
+    ♻️ Se actualizan con nuevas firmas y vulnerabilidades conocidas.
+  </Card>
+</CardGrid>
+
+<Aside type="danger">
+Pueden causar interrupciones si no se configuran correctamente.
+</Aside>
+
+---
+
+## Tipos de escaneos
+
+<Steps>
+  1. Externos vs internos: desde fuera o dentro de la red.
+  2. Autenticados vs no autenticados: usando o no credenciales.
+  3. Limitados vs exhaustivos: en activos críticos o toda la infraestructura.
+</Steps>
+
+<Aside type="tip">
+Se recomienda comenzar con una <strong>exploración de descubrimiento</strong> para mapear activos.
+</Aside>
+
+---
+
+## Actualizaciones: cerrando puertas abiertas
+
+### ¿Por qué son críticas?
+Corrigen vulnerabilidades conocidas antes de que los atacantes las aprovechen.
+
+<CardGrid>
+  <Card>
+    ✅ Automáticas: rapidez, menor esfuerzo.
+  </Card>
+  <Card>
+    ⚙️ Manuales: control total, pero riesgo de olvidar.
+  </Card>
+</CardGrid>
+
+<Aside type="note">
+La <strong>CISA</strong> recomienda activar actualizaciones automáticas siempre que sea posible.
+</Aside>
+
+---
+
+### Riesgos del software en EOL (End of Life)
+- Sin soporte ni parches.
+- Mayor riesgo en dispositivos IoT.
+- Incompatibilidad con defensas modernas.
+
+<Aside type="danger">
+Aunque implique costes, sustituir software EOL es esencial para proteger activos críticos.
+</Aside>
+
+---
+
+## Pruebas de penetración (Pen Tests)
+
+### ¿Qué son?
+Ataques **simulados y autorizados** para demostrar la explotación real de una vulnerabilidad.
+
+<Aside>
+🏦 Ejemplo: un banco prueba si su app permite transferencias sin autenticación.
+</Aside>
+
+---
+
+### Tipos según el equipo
+<CardGrid>
+  <Card>
+    🔴 <strong>Equipo rojo</strong>: simula ataques reales.
+  </Card>
+  <Card>
+    🔵 <strong>Equipo azul</strong>: defiende y monitoriza.
+  </Card>
+  <Card>
+    🟣 <strong>Equipo púrpura</strong>: colaboración entre ambos.
+  </Card>
+</CardGrid>
+
+---
+
+### Según nivel de conocimiento
+
+| Tipo         | Acceso/Conocimiento | También conocido como |
+|--------------|--------------------:|---------------------:|
+| White-box    | Acceso total        | Caja clara           |
+| Black-box    | Ningún dato previo  | Caja cerrada         |
+| Gray-box     | Parcial             | Caja gris            |
+
+<Aside type="tip">
+Cada enfoque descubre distintos vectores y vulnerabilidades.
+</Aside>
+
+---
+
+## Carrera en pruebas de penetración
+
+<Steps>
+  1. Conocimientos en redes, sistemas y Linux.
+  2. Uso de herramientas de pentesting.
+  3. Programación (Python, Bash).
+  4. Comunicación clara para redactar reportes.
+  5. Participar en bug bounty o CTFs para experiencia real.
+</Steps>
+
+<Aside type="tip">
+Plataformas como <a href="https://www.hackerone.com/" target="_blank">HackerOne</a> permiten practicar de forma legal y ganar recompensas.
+</Aside>
+
+---
+
+## Mentalidad de atacante
+
+### Superficie de ataque
+Todo punto que un atacante puede aprovechar para acceder o dañar un sistema.
+
+<Aside type="note">
+🏰 Ejemplo: un castillo con puerto puede recibir ataques navales.
+</Aside>
+
+---
+
+### Tipos de superficie
+<CardGrid>
+  <Card>
+    🏢 <strong>Física</strong>: dispositivos, empleados, visitantes.
+  </Card>
+  <Card>
+    🌐 <strong>Digital</strong>: apps web, APIs, IoT, cloud.
+  </Card>
+</CardGrid>
+
+<Aside type="note">
+Reducir la superficie de ataque facilita la defensa.
+</Aside>
+
+---
+
+## Pensar como atacante
+
+### Simulaciones
+
+<Steps>
+  1. Proactivas: equipo rojo explora vulnerabilidades antes del atacante real.
+  2. Reactivas: equipo azul monitoriza, detecta y corrige tras incidentes.
+</Steps>
+
+<Aside type="tip">
+Ambos enfoques documentan riesgos y priorizan mitigación.
+</Aside>
+
+---
+
+## Ciclo de análisis
+
+<Steps>
+  1. Identificar vulnerabilidad.
+  2. Analizar causa raíz.
+  3. Evaluar impacto.
+  4. Corregir y documentar.
+</Steps>
+
+<Aside type="tip">
+Mantente actualizado usando recursos como el <a href="https://nvd.nist.gov/" target="_blank">NVD del NIST</a>.
+</Aside>
+
+---
+
+## Agentes de amenaza
+
+### ¿Qué son?
+Personas, grupos o entidades que pueden causar un incidente.
+
+<CardGrid>
+  <Card>
+    🏭 Competidores.
+  </Card>
+  <Card>
+    🏛️ Estados nación.
+  </Card>
+  <Card>
+    💰 Crimen organizado.
+  </Card>
+  <Card>
+    👩‍💻 Amenazas internas.
+  </Card>
+  <Card>
+    🛠️ TI en la sombra (Shadow IT).
+  </Card>
+</CardGrid>
+
+---
+
+### Hackers según motivación
+
+| Tipo                | Intención principal                           |
+|--------------------:|-----------------------------------------------:|
+| No autorizados     | Daño, beneficio económico o curiosidad        |
+| Éticos (autorizados) | Mejorar la seguridad                         |
+| Semiautorizados    | Activismo político o social (hacktivismo)     |
+
+---
+
+### APT (Amenaza Persistente Avanzada)
+Acceso prolongado y discreto, generalmente patrocinado por estados o grupos especializados.
+
+---
+
+## Vectores de ataque comunes
+
+<CardGrid>
+  <Card>
+    📧 Phishing, emails maliciosos.
+  </Card>
+  <Card>
+    🖥️ Redes sociales y descargas.
+  </Card>
+  <Card>
+    🔌 Dispositivos USB infectados.
+  </Card>
+  <Card>
+    ☁️ Servicios cloud expuestos.
+  </Card>
+  <Card>
+    🧑‍💼 Empleados negligentes o malintencionados.
+  </Card>
+</CardGrid>
+
+---
+
+## Defender los vectores
+
+<Steps>
+  1. Concienciación y formación continua.
+  2. Aplicar principio de mínimo privilegio.
+  3. Uso de antivirus, firewalls y monitoreo.
+  4. Equipos de seguridad diversos para distintas perspectivas.
+</Steps>
+
+---
+
+## Fuerza bruta: ataques contra credenciales
+
+### Tipos
+
+<CardGrid>
+  <Card>
+    🧪 Simple y diccionario.
+  </Card>
+  <Card>
+    🔄 Relleno de credenciales.
+  </Card>
+  <Card>
+    🧮 Pass the hash.
+  </Card>
+</CardGrid>
+
+---
+
+### Herramientas populares
+
+* Hashcat
+* John the Ripper
+* Aircrack-ng
+* Hydra
+* Ophcrack
+
+---
+
+### Estrategias de defensa
+
+<Steps>
+  1. Hashing robusto + salting.
+  2. MFA (autenticación múltiple).
+  3. CAPTCHA contra bots.
+  4. Políticas de contraseñas fuertes.
+  5. Seguir guías como <strong>NIST SP 800-63B</strong>.
+</Steps>
+
+---
+
+<Aside type="tip">
+📩 Cuando quieras, envíame la <strong>siguiente mitad</strong> del documento para continuar.
+</Aside>

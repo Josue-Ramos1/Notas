@@ -3,427 +3,432 @@ title: Módulo 1 – Introduccion a la Seguridad de los Recursos
 description: Fundamentos, amenazas y habilidades esenciales para comenzar una carrera en ciberseguridad.
 ---
 
-# Introduccion a los recursos
+import { Card, CardGrid, Aside, Steps } from '@astrojs/starlight/components'
+
+# Introducción a los recursos
+
+## ¿Por qué hablamos de recursos y seguridad?
+
+Imagina que tienes una casa llena de objetos importantes: fotos familiares, documentos legales, dispositivos electrónicos y recuerdos.  
+No todos valen lo mismo, ni todos necesitan el mismo nivel de protección, pero todos **forman parte de tus recursos**.
+
+En las organizaciones ocurre algo parecido: gestionan **activos** (recursos) físicos, digitales y humanos que deben protegerse frente a amenazas y vulnerabilidades.
+
+<Aside>Un buen plan de seguridad no se basa solo en miedo a ataques, sino en entender qué es más importante y qué podría pasar.</Aside>
+
+---
+
 ## Práctica y planificación en seguridad
 
-Al igual que perfeccionar una habilidad como pintar o tocar un instrumento requiere práctica constante, la seguridad también demanda preparación y entrenamiento continuo. Uno de los aspectos fundamentales es la **planificación para el futuro**, lo cual implica anticiparse a los riesgos.
+La seguridad, como aprender a nadar o conducir, no se improvisa: requiere práctica, formación y **planificación anticipada**.
+
+Por ejemplo:
+- Un restaurante hace simulacros de incendio.
+- Un banco diseña políticas para prevenir fraudes.
+- Una persona activa la autenticación en dos pasos en su cuenta.
+
+<Aside>Planificar no elimina los riesgos, pero ayuda a reducir su impacto y a recuperarse más rápido.</Aside>
 
 ---
 
 ## El papel de la planificación en seguridad
 
-Todos queremos sentirnos seguros al saber que existe un plan si algo sale mal. Las **organizaciones**, al igual que las personas, planifican **analizando riesgos**. Los equipos de seguridad se encargan de identificar y gestionar estos riesgos, centrados en proteger tres pilares clave conocidos como la **tríada CID**:
+Planificar implica **analizar los riesgos**: preguntarse qué puede salir mal, cómo afectaría y qué medidas reducirían ese impacto.
 
-* **Confidencialidad**
-* **Integridad**
-* **Disponibilidad**
+En seguridad de la información, este análisis protege lo que llamamos la **tríada CID**:
 
-El proceso de planificación de seguridad comienza con el **análisis de riesgos**, y cada organización diseña su propio plan en función de sus necesidades específicas.
+<CardGrid>
+  <Card title="Confidencialidad" description="Solo las personas autorizadas pueden acceder a la información." />
+  <Card title="Integridad" description="La información es correcta y no ha sido modificada sin permiso." />
+  <Card title="Disponibilidad" description="La información está accesible cuando se necesita." />
+</CardGrid>
+
+**Ejemplo práctico:**
+- Un servidor de correos debe:
+  - Mantener confidencialidad (nadie ajeno lee tus mails).
+  - Mantener integridad (que los mensajes no se alteren).
+  - Mantener disponibilidad (que puedas enviar/recibir correos siempre que lo necesites).
 
 ---
+
 ## Elementos clave en un plan de seguridad
 
-Los planes de seguridad se fundamentan en tres elementos:
+Un plan de seguridad se apoya en tres conceptos básicos:
 
-* **Recursos (activos)**
-* **Amenazas**
-* **Vulnerabilidades**
+<Steps>
+1. Recursos (activos)
+2. Amenazas
+3. Vulnerabilidades
+</Steps>
 
-Estos tres conceptos representan el **qué**, el **por qué** y el **cómo** de la seguridad.
+Estos nos ayudan a entender qué tenemos, qué lo pone en peligro y por dónde podría fallar.
 
-### Recursos (activos)
+---
 
-Un recurso es cualquier elemento valioso para la organización, como:
+## Recursos (activos)
 
-* Edificios
-* Equipos
-* Datos
-* Personas
+Un **activo** es cualquier cosa valiosa que queremos proteger:
 
-**Ejemplo:** En una casa, los recursos incluyen tanto a las personas como a la estructura física (puertas, ventanas, paredes). Proteger cada recurso requiere diferentes niveles de prioridad.
+- Infraestructura física (edificios, servidores)
+- Información (bases de datos, documentos)
+- Personas (empleados, clientes)
+- Imagen y reputación
+
+**Ejemplo personal:** tus fotos, contraseñas y dispositivos móviles también son activos.
+
+<Aside>Conocer todos los recursos es el primer paso para protegerlos. “No se puede proteger lo que no sabes que tienes”.</Aside>
 
 ---
 
 ## Amenazas
 
-Una **amenaza** es cualquier circunstancia o evento que puede dañar un activo. Pueden ser:
+Una **amenaza** es todo lo que podría causar daño a un activo.
 
-* Humanas (como un ladrón)
-* Accidentales (una ventana rota por un juego)
-* Naturales (viento fuerte en una tormenta)
+Ejemplos:
 
-Los equipos de seguridad deben identificar las amenazas más probables para priorizar su vigilancia.
+- Ataques informáticos (virus, phishing)
+- Accidentes (derrames, incendios)
+- Errores humanos (borrar archivos por descuido)
+- Fenómenos naturales (tormentas, terremotos)
+
+**Ejemplo casero:** Dejar la ventana abierta durante una tormenta → amenaza: viento fuerte.
 
 ---
 
 ## Vulnerabilidades
 
-Una **vulnerabilidad** es una debilidad que una amenaza puede aprovechar.
+Una **vulnerabilidad** es la debilidad que hace posible que una amenaza tenga éxito.
 
-**Ejemplos:**
+Ejemplos:
 
-* Una cerradura débil en la puerta principal
-* Madera vieja que facilita daños por tormenta
+- Software sin actualizar
+- Contraseñas débiles
+- Servidor mal configurado
+- Falta de copias de seguridad
 
-Las vulnerabilidades son **defectos en los recursos**, y los atacantes suelen buscar estos puntos débiles. Por ello, los equipos de seguridad deben considerar una amplia gama de recursos, amenazas y vulnerabilidades para diseñar planes de protección eficaces.
- 
- ----
+**Ejemplo:** Puerta con cerradura rota (vulnerabilidad) + ladrón (amenaza) = robo (impacto).
 
-## La importancia de la gestión de activos en seguridad
+---
 
-Así como puede ser frustrante perder las llaves antes de una cita importante, las organizaciones también enfrentan desafíos similares al intentar localizar y proteger recursos valiosos. A medida que una empresa crece, también lo hacen la cantidad y complejidad de sus activos, y con ello la necesidad de una **gestión de activos eficiente**.
+## La importancia de la gestión de activos
+
+En empresas grandes, los activos cambian constantemente: nuevos empleados, dispositivos que se reemplazan, proyectos nuevos.
+
+Sin inventario y control, es imposible saber qué proteger.
+
+**Ejemplo:**
+- Si no sabes que un servidor existe, nunca aplicarás parches de seguridad → será un blanco fácil.
+
+<Aside>Gestionar activos no solo es hacer listas: es actualizarlas, clasificarlas y revisarlas periódicamente.</Aside>
 
 ---
 
 ## ¿Qué es la gestión de activos?
 
-Una **verdad fundamental en seguridad** es que **solo se puede proteger aquello que se conoce**. Por eso, la **gestión de activos** es el proceso que permite a una organización llevar un seguimiento de todos sus recursos y los riesgos que enfrentan.
+Proceso para:
 
-Los activos pueden incluir:
+- Identificar
+- Clasificar
+- Registrar
+- Monitorear
 
-* Equipos
-* Datos
-* Propiedad intelectual
-* Personas
+todos los recursos valiosos de una organización.
 
-Todos los planes de seguridad dependen de una correcta gestión de estos activos.
+Incluye datos, hardware, software, procesos y personas.
 
 ---
 
 ## Inventario de activos
 
-El primer paso en la gestión de activos es crear un **inventario**, es decir, una lista clara de todo lo que necesita protección. Sin este inventario, es fácil perder el control sobre los recursos importantes.
+El primer paso práctico:
+- Crear una lista detallada.
+- Actualizarla cuando cambien los recursos.
+- Asociar cada recurso con su responsable.
 
-**Ejemplo:**
-Tener un inventario es como ser un pastor que sabe cuántas ovejas cuida. Esto permite:
+**Ejemplo de registro:**
+| Recurso | Responsable | Riesgos principales | Valor |
+|--------|-------------|--------------------|------|
+| Servidor web | Equipo TI | Ataques DDoS | Alto |
 
-* Asignar recursos correctamente
-* Detectar cuando falta algo
+<Aside>Un inventario actualizado ayuda a actuar rápido si algo falla o se descubre una vulnerabilidad nueva.</Aside>
 
 ---
 
 ## Clasificación de activos
 
-No todos los recursos tienen la misma importancia. La **clasificación de activos** es la práctica de etiquetarlos según su **sensibilidad e importancia**. Esto permite aplicar medidas de seguridad adecuadas.
+No todos los activos necesitan el mismo nivel de protección.
 
-Un esquema común de clasificación incluye:
-
-* **Público:** puede compartirse libremente
-* **Solo interno:** puede compartirse dentro de la organización
-* **Confidencial:** solo accesible para ciertos equipos o proyectos
-* **Restringido:** muy sensibles, solo personal autorizado
-
-**Ejemplos:**
-
-* Correos sobre un producto nuevo → **Confidencial**
-* Acceso a oficinas técnicas → **Restringido**
-
----
-
-## ¿Por qué es tan importante?
-
-La clasificación de activos determina:
-
-* Si se puede **revelar**, **alterar** o **destruir** un recurso
-* Qué tan crítica es la **protección** que necesita
-
-La **gestión de activos es un proceso continuo**, necesario para detectar riesgos potenciales y prevenir fallos de seguridad. Mantener un control actualizado de todo lo importante es esencial para una buena planificación en seguridad.
-
-----
-# Recursos Dijitales y fisicos
-## La información: el activo más valioso en la era digital
-
-A medida que las organizaciones se digitalizan, su recurso más valioso ya no es algo físico, sino la **información**. Esta información, cuando es procesada, almacenada o transmitida por computadoras, se convierte en **datos**. Los equipos de seguridad deben proteger estos datos, que circulan constantemente entre dispositivos conectados en todo el mundo.
-
----
-
-## ¿Cómo se protegen los datos?
-
-La **protección de los datos** depende de dos factores:
-
-1. **Dónde están los datos**
-2. **Qué están haciendo**
-
-Por eso, se dividen en **tres estados clave** que todo profesional de la ciberseguridad debe conocer:
-
----
-
-## 1. Datos en uso
-
-Son los datos a los que alguien está accediendo activamente.
+<CardGrid>
+  <Card title="Público" description="Sin restricciones de acceso. Ej: página web corporativa." />
+  <Card title="Solo interno" description="Para empleados. Ej: manual de uso del sistema interno." />
+  <Card title="Confidencial" description="Datos sensibles. Ej: información financiera." />
+  <Card title="Restringido" description="Crítico, solo acceso autorizado. Ej: claves maestras." />
+</CardGrid>
 
 **Ejemplo:**
-Estás en un parque revisando tu correo electrónico en tu laptop. Tan pronto como abres tu bandeja de entrada, esos datos están **en uso**.
+- Catálogo público → **Público**
+- Nómina de empleados → **Confidencial**
+- Contraseñas de administración → **Restringido**
 
 ---
 
-## 2. Datos en tránsito
+## ¿Por qué es importante clasificar?
 
-Son los datos que se están moviendo de un lugar a otro.
+Ayuda a decidir:
+- Quién puede acceder.
+- Qué medidas aplicar.
+- Cuánto invertir en protección.
 
-**Ejemplo:**
-Respondes un correo y haces clic en enviar. El mensaje que viaja de tu laptop al servidor es un **dato en tránsito**.
+Un recurso “Restringido” puede requerir:
+- Cifrado
+- Monitoreo 24/7
+- Controles de acceso más estrictos
 
 ---
 
-## 3. Datos en reposo
+# Recursos digitales y físicos
 
-Son los datos que no están siendo accedidos activamente. Generalmente están almacenados en algún dispositivo físico.
+Hoy casi todo es digital, pero los elementos físicos siguen importando:
+
+- Centros de datos
+- Oficinas
+- Equipos portátiles
+
+Proteger solo el software no basta: si alguien roba un servidor físico, también roba datos.
+
+---
+
+## La información: el activo más valioso
+
+Los datos son el “nuevo petróleo”: generan valor y riesgos.
 
 **Ejemplo:**
-Cierras tu laptop y la guardas. Los datos que siguen almacenados en ella están **en reposo**.
+- Lista de clientes
+- Planes estratégicos
+- Propiedad intelectual (códigos, diseños)
 
-> Importante: Con la nube, los datos pueden no estar realmente “en reposo”, aunque el dispositivo esté inactivo.
+---
+
+## Estados de los datos
+
+Protección depende de dónde y cómo están los datos:
+
+<Steps>
+1. Datos en uso
+2. Datos en tránsito
+3. Datos en reposo
+</Steps>
+
+---
+
+### Datos en uso
+
+Cuando alguien los consulta o modifica.
+
+**Ejemplo:** Editar un contrato en Word.
+
+Riesgo: que una aplicación maliciosa robe datos de la memoria.
+
+---
+
+### Datos en tránsito
+
+Cuando se mueven por redes.
+
+**Ejemplo:** Correo enviado, llamada por videoconferencia.
+
+Riesgo: interceptación.  
+**Medida:** usar protocolos cifrados (HTTPS, VPN).
+
+---
+
+### Datos en reposo
+
+Guardados en discos, nubes o memorias USB.
+
+**Ejemplo:** Copia de seguridad en disco duro.
+
+Riesgo: robo o pérdida del dispositivo.  
+**Medida:** cifrado en disco.
+
+<Aside>Un buen plan protege los tres estados, no solo uno.</Aside>
 
 ---
 
 ## Seguridad de la información (InfoSec)
 
-La **InfoSec** es la práctica de proteger los datos en todos sus estados frente a accesos no autorizados. Si esta seguridad es débil, pueden ocurrir consecuencias graves como:
+Disciplina para proteger los datos contra:
+- Accesos no autorizados
+- Modificaciones no autorizadas
+- Pérdidas o destrucciones
 
-* Robo de identidad
-* Pérdida financiera
-* Daños a la reputación
-
-Estos daños pueden afectar tanto a las empresas como a sus socios y clientes.
+**Ejemplo:** restringir acceso a informes financieros solo a gerentes.
 
 ---
 
-## Un entorno que cambia constantemente
+## Un entorno que cambia
 
-A medida que el mundo se conecta más, las formas en que se almacenan y transportan los datos también evolucionan. Por ejemplo, los smartphones pueden almacenar información en la nube, lo que desafía la idea tradicional de que un dispositivo inactivo implica que sus datos están en reposo.
+Tecnologías nuevas → nuevos riesgos:
+- Internet de las cosas (IoT)
+- Trabajo remoto
+- Cloud computing
+
+Necesitamos actualizar políticas y medidas constantemente.
+
+---
+
+## Conclusión de esta parte
+
+Saber qué datos tienes, dónde están y cómo los usas te permite protegerlos de forma más efectiva.
+
+---
+
+# Computación en la nube
+
+## ¿Qué es la nube?
+
+Recursos (servidores, almacenamiento, apps) accesibles a través de Internet, en vez de en tu oficina.
+
+**Ejemplo:** Gmail, Dropbox, Amazon Web Services.
+
+---
+
+## Beneficios de la nube
+
+- Pagar solo lo que usas
+- Escalar rápido si creces
+- Menos inversión inicial
+
+---
+
+## Modelos de servicio
+
+<CardGrid>
+  <Card title="SaaS" description="Aplicación lista para usar. Ej: Google Docs." />
+  <Card title="PaaS" description="Plataforma para desarrollar apps. Ej: Heroku." />
+  <Card title="IaaS" description="Infraestructura para administrar tú mismo. Ej: Amazon EC2." />
+</CardGrid>
+
+---
+
+## Seguridad en la nube
+
+Tú compartes la responsabilidad:
+
+- Proveedor: hardware, red, infraestructura básica.
+- Cliente: usuarios, contraseñas, configuración.
+
+**Ejemplo:** Proveedor ofrece firewall, pero tú decides si lo activas.
+
+---
+
+## Retos comunes
+
+- Configuraciones erróneas
+- Dificultad para controlar quién accede
+- Cumplir leyes y normativas (ej: GDPR)
 
 ---
 
 ## Conclusión
 
-Conocer los **tres estados de los datos** permite a los equipos de seguridad **analizar riesgos** y **crear planes de protección eficaces**. Entender cómo se mueven y almacenan los datos es esencial para diseñar una estrategia de gestión de recursos y mantener segura la información crítica de una organización.
-
-----
-## La computación en la nube: beneficios y desafíos para la ciberseguridad
-
-Uno de los avances más importantes del siglo XXI es la **computación en la nube**, definida como un servicio bajo demanda, escalable, y accesible a través de Internet. Gracias a la nube, las empresas pueden operar en línea sin la necesidad de crear su propia infraestructura, lo que reduce costos y permite escalar rápidamente. Sin embargo, esta facilidad también trae **nuevos retos de seguridad**.
+La nube facilita muchas tareas, pero exige conocer qué parte debes proteger tú.
 
 ---
 
-## ¿Qué son los servicios basados en la nube?
+# Riesgo y seguridad
 
-Los **servicios basados en la nube** son soluciones empresariales disponibles a través de Internet. Se dividen en tres grandes categorías:
+## ¿Qué son los planes de seguridad?
 
----
+Documentos y prácticas que preparan para prevenir y responder a incidentes.
 
-### 1. **SaaS – Software como Servicio**
-
-* Los usuarios acceden a aplicaciones desde su navegador.
-* El proveedor gestiona toda la infraestructura.
-* **Ejemplos:** Gmail™, Zoom, Slack.
-
----
-
-### 2. **PaaS – Plataforma como Servicio**
-
-* Los desarrolladores acceden a herramientas en línea para crear aplicaciones.
-* El proveedor aloja y mantiene el hardware y software.
-* **Ejemplos:** Google App Engine™, Heroku®, VMware Cloud Foundry.
+Enfocados en proteger:
+- Confidencialidad
+- Integridad
+- Disponibilidad
 
 ---
 
-### 3. **IaaS – Infraestructura como Servicio**
+## Ejemplos de riesgos
 
-* Ofrece acceso remoto a servidores, almacenamiento, redes, etc.
-* Es flexible y rentable porque se paga por lo que se usa.
-* **Ejemplos:** Google Cloud Platform, Microsoft Azure.
-
----
-
-## Seguridad en la nube: un nuevo enfoque
-
-Con el traslado a la nube, las empresas ya no controlan toda su infraestructura. Esto cambia la forma en que se protege la información. Nace así un nuevo subcampo: la **seguridad en la nube**, que se encarga de proteger datos, aplicaciones e infraestructura dentro de estos entornos.
+- Cortes de luz → afectan disponibilidad
+- Robo de datos → afecta confidencialidad
+- Error de empleado → afecta integridad
 
 ---
 
-## El modelo de responsabilidad compartida
+## Elementos de un plan
 
-En la nube, la seguridad es una **responsabilidad compartida** entre el proveedor y el cliente:
-
-* El **cliente** debe proteger:
-
-  * Identidades y accesos
-  * Configuraciones de seguridad
-  * Datos propios
-
-* El **proveedor** protege:
-
-  * Infraestructura
-  * Hardware compartido
-  * Sistemas operativos base
-
-> La cantidad de responsabilidad varía dependiendo del modelo: SaaS, PaaS o IaaS.
-
----
-### Principales desafíos de seguridad en la nube
-
-1. **Desconfiguración**
-
-   * Muchos usuarios usan configuraciones predeterminadas que no son seguras.
-   * Esto facilita las violaciones en entornos de nube mal configurados.
-
-2. **Dificultad para monitorear el acceso**
-
-   * Algunos niveles de servicio no ofrecen visibilidad total sobre quién accede a qué.
-
-3. **Cumplimiento de normativas**
-
-   * Muchas industrias deben cumplir regulaciones específicas como:
-
-     * **HIPAA** (salud)
-     * **PCI DSS** (pagos)
-     * **GDPR** (protección de datos en Europa)
+<Steps>
+1. Políticas
+2. Estándares
+3. Procedimientos
+</Steps>
 
 ---
 
-### Conclusión
+## Políticas
 
-La nube ha facilitado que más empresas operen en línea, pero ha hecho más compleja la protección de la información. La **seguridad en la nube** es ahora una de las **habilidades más demandadas** en ciberseguridad, y su importancia seguirá creciendo conforme más organizaciones adopten estos servicios.
+Reglas generales que indican qué se protege y por qué.
 
-----
-# Riesgo y Seguridad de los recursos
-Aquí tienes el resumen con el mismo formato solicitado:
+**Ejemplo:** política de contraseñas seguras.
 
 ---
 
-### Seguridad: un esfuerzo de equipo y una cultura organizacional
+## Estándares
 
-La **seguridad no es solo tecnología**, también involucra a las personas y los procesos. Es una **cultura organizacional**, un conjunto de valores compartidos por todos los niveles de una empresa: empleados, proveedores, clientes y más. Proteger recursos físicos y digitales requiere la participación activa de todos, lo cual presenta retos importantes.
+Normas técnicas que dicen cómo aplicar políticas.
 
----
-
-### ¿Qué son los planes de seguridad?
-
-Los **planes de seguridad** ayudan a enfrentar los riesgos antes de que ocurran. Su enfoque más eficaz comienza por **centrarse en las personas**, considerando sus distintos contextos y experiencias. Estos planes identifican y categorizan los **riesgos** que pueden comprometer la **confidencialidad, integridad y disponibilidad** de los recursos.
+**Ejemplo:** usar cifrado AES-256.
 
 ---
 
-### Ejemplos comunes de riesgos
+## Procedimientos
 
-Los riesgos se clasifican según sus causas:
+Pasos concretos para tareas.
 
-* **Daño físico** o mal funcionamiento de un dispositivo
-* **Errores humanos**, como enviar información confidencial desde un correo personal
-* **Ataques externos**, como malware o phishing
-
-Las empresas pueden usar contratos, como acuerdos de uso aceptable para nuevos empleados, para **difundir buenas prácticas** y reducir riesgos.
+**Ejemplo:** cómo restaurar un backup.
 
 ---
 
-### Elementos clave de un plan de seguridad
+## Conclusión de esta parte
 
-Un buen plan de seguridad se compone de tres elementos fundamentales:
-
----
-
-#### 1. **Políticas**
-
-* Definen **qué se protege y por qué**.
-* Son estratégicas y establecen el **alcance, los objetivos y las limitaciones** del plan.
-* Un ejemplo común es la **política de uso aceptable (AUP)**, que especifica cómo deben usarse los sistemas corporativos.
+Tener políticas sin procedimientos es como saber qué hacer pero no saber cómo.
 
 ---
 
-#### 2. **Estándares**
+# Cumplimiento
 
-* Son **tácticos**: indican **cómo implementar las políticas**.
-* Funcionan como puntos de referencia.
-* Por ejemplo, el estándar **NIST 800-63B** establece que las contraseñas deben tener al menos ocho caracteres.
+## ¿Qué es?
 
----
-
-#### 3. **Procedimientos**
-
-* Son **instrucciones paso a paso** para ejecutar tareas específicas.
-* Garantizan que todos sigan el mismo proceso para acciones como **crear contraseñas seguras** o **restablecer una cuenta**.
-* Fomentan la **coherencia, eficacia y responsabilidad** en toda la organización.
+Asegurarse de que se cumplen leyes y normas internas.
 
 ---
 
-### Conclusión
+## Importancia
 
-Las **políticas, estándares y procedimientos** varían según la empresa, pero entender su estructura es el primer paso para fomentar una cultura de seguridad sólida. En resumen, **la seguridad es un trabajo en equipo**, y un plan bien estructurado asegura que todos participen de forma clara y coherente.
-
-----
-Aquí tienes el resumen con el mismo formato que los anteriores:
-
----
-
-### Cumplimiento: asegurar que el plan de seguridad se siga
-
-Tener un plan de seguridad es solo una parte; la otra es **verificar que todos lo cumplan**. En ciberseguridad, esto se llama **cumplimiento normativo**, que es el proceso de seguir tanto las **normas internas** (de la empresa) como las **regulaciones externas** (gubernamentales o de la industria).
+- Evitar sanciones
+- Proteger reputación
+- Dar confianza a usuarios y clientes
 
 ---
 
-### ¿Por qué es importante el cumplimiento?
+## Ejemplo de normativas
 
-El cumplimiento es clave para:
-
-* **Proteger la reputación y la confianza del cliente**
-* **Evitar sanciones legales, demandas y multas**
-* **Cumplir con regulaciones específicas** en sectores como salud, energía y finanzas
-
-**El incumplimiento** puede generar consecuencias financieras graves y dañar la imagen de una empresa a largo plazo.
+- GDPR (protección de datos personales)
+- PCI DSS (tarjetas de pago)
+- HIPAA (datos médicos)
 
 ---
 
-### ¿Qué son las regulaciones?
+## Marco NIST CSF
 
-Las **regulaciones** son normas impuestas por gobiernos u otras autoridades para garantizar que se proteja adecuadamente a las personas y su información. Estas normas pueden ser complejas y numerosas a nivel global, por eso muchas organizaciones utilizan **marcos de cumplimiento** para guiarse.
+Guía voluntaria para ayudar a las organizaciones a gestionar riesgos.
 
----
+Incluye:
 
-### El Marco de Ciberseguridad del NIST (CSF)
-
-Uno de los marcos más usados es el **Cybersecurity Framework (CSF)** del **Instituto Nacional de Estándares y Tecnología (NIST)** de EE. UU. Es un marco **voluntario** que proporciona **estándares, guías y buenas prácticas** para gestionar riesgos de ciberseguridad.
-
-El CSF tiene **tres componentes principales**:
+- Núcleo (identificar, proteger, detectar, responder, recuperar)
+- Niveles (madurez)
+- Perfiles (estado actual vs. deseado)
 
 ---
-
-#### 1. **El núcleo (core)**
-
-Son cinco funciones clave de seguridad:
-
-* **Identificar** (riesgos, recursos, activos)
-* **Proteger** (implementar controles)
-* **Detectar** (anomalías o amenazas)
-* **Responder** (reaccionar a incidentes)
-* **Recuperar** (restaurar sistemas y operaciones)
-
-Estas funciones sirven como **lista de verificación** para construir o evaluar un plan de seguridad.
-
----
-
-#### 2. **Los niveles (tiers)**
-
-Los niveles permiten medir el rendimiento en cada función del núcleo:
-
-* **Nivel 1 – Pasivo**: solo se cumplen requisitos mínimos
-* **Nivel 4 – Adaptativo**: se aplican prácticas ejemplares
-
-Los niveles muestran **progresos graduales** y ayudan a identificar fortalezas y debilidades en el plan de seguridad.
-
----
-
-#### 3. **Los perfiles**
-
-Los perfiles son como **fotografías del estado actual** del plan de seguridad. Sirven para:
-
-* Evaluar el estado presente
-* Comparar con el estado deseado
-* Medir mejoras con el tiempo
-
-Así como una foto muestra cambios físicos, los perfiles muestran **cómo ha evolucionado una estrategia de seguridad**.
-
----
-
-### Conclusión
-
-Cumplir con regulaciones no solo evita sanciones, también **demuestra compromiso con la protección de las personas y sus datos**. Entender marcos como el **CSF del NIST** ayuda a las empresas a evaluar, mejorar y formalizar sus prácticas de seguridad de forma efectiva y estructurada.
