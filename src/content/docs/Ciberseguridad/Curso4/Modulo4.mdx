@@ -1,174 +1,574 @@
 ---
-title: Módulo 4 – Bases de datos y SQL
-description: Fundamentos, amenazas y habilidades esenciales para comenzar una carrera en ciberseguridad.
+title: Curso 4 - Módulo 4 SQL
+description: Introducción a bases de datos relacionales y lenguaje SQL aplicado a la ciberseguridad.
 ---
 
-# Introducción a las bases de datos relacionales
+import { Card, CardGrid, Steps, Aside, Code } from '@astrojs/starlight/components';
 
-## ¿Qué es una base de datos?
+# Introducción a SQL y a las bases de datos
 
-Una base de datos es una **colección organizada de información o datos**. Aunque muchas personas usan hojas de cálculo como Google Sheets para almacenar información, estas están pensadas para un solo usuario o equipos pequeños y no pueden manejar grandes volúmenes de datos de forma eficiente.
-En cambio, **las bases de datos permiten que múltiples usuarios accedan a grandes cantidades de datos de manera simultánea**, e incluso realicen tareas complejas al mismo tiempo.
+## Introducción a Bases de Datos y su Estructura Relacional
 
-### Ejemplos de uso
+### ¿Qué es una base de datos?
 
-Como analista de seguridad, es común trabajar con bases de datos que contengan:
+Una **base de datos** es una colección organizada de información o datos. Está diseñada para almacenar grandes volúmenes de información de manera estructurada, eficiente y accesible.
 
-* Intentos de inicio de sesión
-* Información de software y actualizaciones
-* Datos sobre máquinas y sus propietarios
+<CardGrid>
+  <Card title="¿En qué se diferencia de una hoja de cálculo?">
+    - Permite acceso simultáneo por múltiples usuarios.  
+    - Maneja grandes volúmenes de datos.  
+    - Ejecuta operaciones complejas de forma eficiente.
+  </Card>
+</CardGrid>
 
----
-
-## Bases de datos relacionales
-
-Existen varios tipos de estructuras para bases de datos, pero en este curso se utilizan **bases de datos relacionales**, que organizan los datos en **tablas relacionadas entre sí**.
-
----
-
-## Estructura de una tabla
-
-Una **tabla** es una parte fundamental de una base de datos relacional.
-Cada tabla tiene:
-
-* **Columnas**: También llamadas *campos* (por ejemplo: `employee_id`, `device_id`, `username`)
-* **Filas**: También llamadas *registros*, que contienen los datos específicos para cada entrada (por ejemplo, un empleado con ID 1000 del departamento de marketing)
+En ciberseguridad, las bases de datos pueden contener información como:
+- Registros de intentos de inicio de sesión.
+- Información sobre software y actualizaciones.
+- Datos sobre dispositivos y usuarios asociados.
 
 ---
 
-## Relación entre tablas
+### Bases de Datos Relacionales
 
-Una base de datos relacional puede contener **múltiples tablas**.
-Para conectar dos tablas, se utiliza una columna común, que se conoce como una **clave**.
+Las **bases de datos relacionales** organizan los datos en **tablas** relacionadas entre sí.
 
-### Tipos de claves
+<Aside type="tip">
+Cada tabla contiene **columnas (campos)** y **filas (registros)**.
+</Aside>
 
-1. **Clave primaria (Primary Key)**
-
-   * Es una columna en la que **cada fila tiene un valor único**
-   * No puede tener valores duplicados ni vacíos
-   * Permite identificar de forma única cada registro
-   * Ejemplo: `employee_id` en la tabla de empleados
-
-2. **Clave foránea (Foreign Key)**
-
-   * Es una columna que aparece como clave primaria en otra tabla
-   * **Puede tener valores duplicados o vacíos**
-   * Permite **relacionar dos tablas**
-   * Ejemplo: `employee_id` en la tabla de máquinas, que se relaciona con la tabla de empleados
-
-💡 *Una tabla sólo puede tener una clave primaria, pero puede tener múltiples claves foráneas.*
+Ejemplo de campos:
+- `employee_id`
+- `device_id`
+- `username`
 
 ---
 
-## Próximo paso: Introducción a SQL
+### Relaciones entre tablas
 
-Con esta base teórica, el siguiente paso es aprender **SQL** (Structured Query Language), el lenguaje que permite interactuar con las bases de datos: consultarlas, modificarlas, organizarlas y analizarlas.
+Una base de datos puede tener múltiples tablas **relacionadas** mediante una columna común.
+
+<CardGrid>
+  <Card title="Ejemplo de relación">
+    - Tabla de empleados  
+    - Tabla de dispositivos asignados  
+    - Relación por `employee_id`
+  </Card>
+</CardGrid>
 
 ---
 
-## Introducción a SQL para analistas de seguridad
+### Tipos de Claves
+
+<Steps>
+1. **Clave primaria (Primary Key)**  
+   - Valores únicos y obligatorios.  
+   - Identifica de forma única cada fila.  
+   - Solo una por tabla.  
+   - Ejemplo: `employee_id`.
+
+2. **Clave foránea (Foreign Key)**  
+   - Apunta a una clave primaria de otra tabla.  
+   - Puede tener valores duplicados o vacíos.  
+   - Establece relaciones entre tablas.  
+   - Ejemplo: `employee_id` en tabla de dispositivos.
+</Steps>
+
+<Aside type="note">
+Una tabla puede tener **una sola clave primaria** y **varias claves foráneas**.
+</Aside>
+
+---
+
+## Introducción a SQL para Analistas de Seguridad
 
 ### ¿Qué es SQL?
 
-**SQL** (Structured Query Language o Lenguaje de Consulta Estructurado) es un **lenguaje de programación utilizado para interactuar con bases de datos**. Permite:
+**SQL** (Structured Query Language) es el lenguaje que permite:
+- Crear bases de datos.
+- Consultar y modificar datos.
+- Extraer información relevante de forma estructurada.
 
-* Crear y modificar bases de datos
-* Consultar datos
-* Recuperar información específica
-
-Se pronuncia como “S-Q-L” o “sequel”, y es una herramienta fundamental para cualquier **analista de seguridad**.
+<Aside type="tip">
+SQL es esencial en ciberseguridad para acceder, analizar y filtrar registros.
+</Aside>
 
 ---
 
 ### ¿Qué es una consulta?
 
-Una **consulta** es una **solicitud de datos** a una tabla (o conjunto de tablas) de una base de datos.
-Casi todas las bases de datos relacionales usan alguna versión de SQL para hacer consultas, y aunque hay pequeñas diferencias entre versiones, la estructura general es muy similar.
+Una **consulta** es una solicitud específica de información contenida en una o varias tablas de una base de datos.
+
+<CardGrid>
+  <Card title="¿Qué permite hacer una consulta en SQL?">
+    - Acceder rápidamente a datos específicos.  
+    - Analizar registros complejos.  
+    - Filtrar solo lo relevante.
+  </Card>
+</CardGrid>
+
+<Aside type="note">
+Existen diferentes versiones de SQL, pero el funcionamiento general es el mismo.
+</Aside>
 
 ---
 
-### Uso de SQL para trabajar con registros
+### Aplicaciones de SQL en ciberseguridad
 
-Un **registro** es un conjunto de datos que describe un evento ocurrido en los sistemas de una organización.
-Como analista de seguridad, puedes utilizar SQL para:
+<Steps>
+1. Identificar máquinas mal configuradas.
+2. Detectar patrones inusuales en el uso de sistemas.
+3. Filtrar registros para detectar actividad sospechosa.
+4. Encontrar sistemas sin parches de seguridad.
+5. Analizar los momentos óptimos para actualizaciones.
+</Steps>
 
-* Buscar máquinas mal configuradas
-* Analizar visitantes de un sitio web y sus acciones
-* Detectar **patrones inusuales** que podrían indicar actividad maliciosa
-
-💡 *Los registros de seguridad pueden contener millones de puntos de datos, y SQL permite filtrar exactamente lo que necesitas en segundos.*
-
----
-
-### SQL para análisis de datos
-
-SQL también es útil para el **análisis básico de datos**, una habilidad clave para analistas de seguridad.
-Por ejemplo, puedes usar SQL para:
-
-* Encontrar máquinas sin el parche de seguridad más reciente
-* Determinar el mejor momento para realizar actualizaciones, según los periodos de menor uso
+<Aside type="caution">
+SQL puede procesar millones de registros en segundos. Su uso eficiente es clave para ahorrar tiempo y obtener resultados precisos.
+</Aside>
 
 ---
+
+### SQL y análisis de datos
+
+Además de recuperar información, SQL se usa para realizar análisis básicos que ayudan a anticipar amenazas basadas en patrones históricos.
+
+<CardGrid>
+  <Card title="Ejemplos de preguntas que SQL ayuda a responder">
+    - ¿Qué máquinas son vulnerables actualmente?  
+    - ¿Cuándo es más seguro ejecutar tareas críticas?  
+    - ¿Qué eventos ocurrieron antes de un incidente?
+  </Card>
+</CardGrid>
+
 # Consultas SQL
-## Introducción a SQL
 
-SQL (**Structured Query Language** o Lenguaje de Consulta Estructurado) es una herramienta clave para los analistas de seguridad. Permite consultar y analizar grandes volúmenes de datos con rapidez, lo cual es esencial para tareas como el monitoreo de registros y la identificación de incidentes.
+## Consultas SQL básicas y ordenación de resultados
 
-### **¿Qué es una consulta en SQL?**
+### Fundamentos de una consulta SQL
 
-Una **consulta** es una instrucción que se envía a una base de datos para recuperar información específica. Puede realizarse sobre una o varias tablas al mismo tiempo.
+Las consultas SQL permiten recuperar datos de bases de datos de forma estructurada. Una **consulta** es una solicitud de información extraída de una o más tablas.
 
----
+<CardGrid>
+  <Card title="Palabras clave fundamentales">
+    - `SELECT`: columnas a recuperar  
+    - `FROM`: tabla origen de los datos
+  </Card>
+</CardGrid>
 
-## Primeros pasos con SQL
+<Code language="sql" code={`SELECT employee_id, device_id
+FROM employees;`} />
 
-### **Caso práctico**
-
-Se desea saber **qué computadora está asignada a un empleado específico**. Para ello se utilizará una tabla llamada `empleados`, que contiene cinco columnas:
-
-* `employee_id`
-* `device_id`
-* `username`
-* `department`
-* `office`
-
-La información necesaria está en las columnas `employee_id` y `device_id`.
+<Aside type="note">
+Esta consulta recupera las columnas `employee_id` y `device_id` de la tabla `employees`.
+</Aside>
 
 ---
 
-### **Palabras clave básicas: SELECT y FROM**
+### Base de datos Chinook
 
-* **SELECT**: especifica qué columnas se desean consultar
-* **FROM**: indica de qué tabla provienen esos datos
+La base de datos de ejemplo **Chinook** simula una empresa de medios digitales. Contiene 11 tablas como:
 
-📌 *Ejemplo de consulta:*
+- `employees`
+- `customers`
+- `invoices`
 
-```sql
-SELECT employee_id, device_id FROM empleados;
-```
-
-Esta consulta solicita únicamente las columnas `employee_id` y `device_id` de la tabla `empleados`.
+<Code language="sql" code={`SELECT customerid, city, country
+FROM customers;`} />
 
 ---
 
-### **Aspectos importantes de la sintaxis**
+### Selección de columnas
 
-* SQL **no distingue mayúsculas y minúsculas** en las palabras clave (se pueden escribir como `select` o `SELECT`)
-* Se recomienda usar **mayúsculas** para las palabras clave para facilitar la lectura
-* Las columnas deben separarse con **comas**
-* Se debe colocar un **punto y coma (;)** al final de la instrucción para indicar que ha terminado
+<Steps>
+1. Selección específica:  
+   <Code language="sql" code={`SELECT customerid, city FROM customers;`} />
+2. Selección de todas las columnas:  
+   <Code language="sql" code={`SELECT * FROM customers;`} />
+</Steps>
+
+<Aside type="caution">
+`SELECT *` puede ser ineficiente en bases de datos grandes; es preferible seleccionar solo las columnas necesarias.
+</Aside>
+
+---
+
+### Ordenamiento de resultados con `ORDER BY`
+
+La cláusula `ORDER BY` permite organizar los resultados en orden ascendente (por defecto) o descendente (`DESC`).
+
+<CardGrid>
+  <Card title="Orden ascendente por ciudad">
+    <Code language="sql" code={`SELECT customerid, city, country
+FROM customers
+ORDER BY city;`} />
+  </Card>
+
+  <Card title="Orden descendente por ciudad">
+    <Code language="sql" code={`SELECT customerid, city, country
+FROM customers
+ORDER BY city DESC;`} />
+  </Card>
+
+  <Card title="Orden por múltiples columnas">
+    <Code language="sql" code={`SELECT customerid, city, country
+FROM customers
+ORDER BY country, city;`} />
+  </Card>
+</CardGrid>
 
 ---
 
-## Cómo mostrar toda la información de una tabla
+## La cláusula WHERE y los operadores básicos en SQL
 
-Si se desea obtener **todas las columnas** de una tabla, se puede usar el símbolo de asterisco (`*`) después de `SELECT`:
+### Uso de filtros en SQL
 
-```sql
-SELECT * FROM empleados;
-```
-
-Esta forma de consulta es conocida como **select all** y devuelve todas las columnas de la tabla `empleados`.
+<Aside type="tip">
+En ciberseguridad, filtrar datos con SQL permite identificar eventos clave y patrones anómalos entre grandes volúmenes de registros.
+</Aside>
 
 ---
+
+### Cláusula `WHERE`
+
+Permite filtrar los registros de una consulta según condiciones específicas.
+
+<Code language="sql" code={`SELECT firstname, lastname, title, email
+FROM employees
+WHERE title = 'IT Staff';`} />
+
+<Aside type="note">
+Las consultas en SQL deben finalizar con `;`, incluso después de `WHERE`.
+</Aside>
+
+---
+
+### Filtrado por patrones: `LIKE` y comodines
+
+SQL permite utilizar **patrones flexibles** mediante `LIKE` y los siguientes comodines:
+
+| Comodín | Significado |
+|---------|-------------|
+| `%`     | Cualquier número de caracteres |
+| `_`     | Un solo carácter exacto        |
+
+<CardGrid>
+  <Card title="Ejemplos de patrones">
+    `a%` → apple, art, a  
+    `a_` → as, an, a7  
+    `%a%` → again, pizza, data  
+    `_a_` → car, ban, ea7  
+  </Card>
+</CardGrid>
+
+---
+
+#### Ejemplo con `LIKE`
+
+<Code language="sql" code={`SELECT lastname, firstname, title, email
+FROM employees
+WHERE title LIKE 'IT%';`} />
+
+Devuelve títulos como “IT Staff” o “IT Manager”.
+
+---
+
+#### Ejemplo avanzado
+
+Buscar estados con abreviaturas que comiencen con "N" y tengan dos caracteres:
+
+<Code language="sql" code={`SELECT firstname, lastname, state, country
+FROM customers
+WHERE state LIKE 'N_';`} />
+
+---
+
+### Aplicaciones prácticas en ciberseguridad
+
+<Steps>
+1. **Filtrar intentos de acceso**: De un usuario específico.
+2. **Identificar eventos**: Ocurridos durante un incidente.
+3. **Detectar sistemas**: Con versiones vulnerables de software.
+4. **Analizar actividades**: Inusuales por patrón de uso.
+</Steps>
+
+# Más filtros SQL
+
+## Operadores para filtrar fechas y números en SQL
+
+### Tipos de datos en ciberseguridad
+
+Como analista de seguridad, se trabaja no solo con datos de tipo texto, sino también con:
+
+- **Datos numéricos**: intentos de inicio de sesión, volumen de datos, recuentos de eventos.
+- **Datos de fecha y hora**: fechas de inicio de sesión, marcas de tiempo, duración de conexiones.
+
+<Aside type="note">
+El uso adecuado de estos datos permite detectar comportamientos sospechosos o fuera de lo normal.
+</Aside>
+
+---
+
+### Operadores de comparación en SQL
+
+Los operadores de comparación permiten filtrar datos específicos en las consultas:
+
+| Operador | Significado         |
+|----------|---------------------|
+| `<`      | Menor que           |
+| `>`      | Mayor que           |
+| `=`      | Igual a             |
+| `<=`     | Menor o igual que   |
+| `>=`     | Mayor o igual que   |
+| `<>`     | Distinto de         |
+| `!=`     | Distinto de (alt.)  |
+
+---
+
+### Ejemplo con fechas
+
+<Code language="sql" code={`SELECT firstname, lastname, birthdate
+FROM employees
+WHERE birthdate >= '1970-01-01';`} />
+
+<Aside type="tip">
+- `>`: exclusivo (no incluye el valor comparado)  
+- `>=`: inclusivo (sí incluye el valor comparado)
+</Aside>
+
+---
+
+### El operador `BETWEEN`
+
+Permite filtrar valores dentro de un rango **incluyendo** los extremos.
+
+<Code language="sql" code={`SELECT firstname, lastname, hiredate
+FROM employees
+WHERE hiredate BETWEEN '2002-01-01' AND '2003-01-01';`} />
+
+<Aside type="note">
+Devuelve empleados contratados entre el 1 de enero de 2002 y el 1 de enero de 2003.
+</Aside>
+
+---
+
+### Aplicación en ciberseguridad
+
+<Steps>
+1. **Filtrar intentos**: según fecha y hora del evento.
+2. **Identificar eventos**: dentro de un periodo específico.
+3. **Evaluar crecimiento**: de tráfico o número de eventos durante incidentes.
+4. **Encontrar patrones**: que ocurren en rangos de tiempo determinados.
+</Steps>
+
+---
+
+## Filtros avanzados con operadores lógicos: AND, OR y NOT
+
+### Introducción
+
+Los operadores lógicos permiten construir condiciones complejas para filtrar información relevante en ciberseguridad.
+
+---
+
+### `AND` (Y lógico)
+
+<Code language="sql" code={`SELECT firstname, lastname, email, country, supportrepid
+FROM customers
+WHERE supportrepid = 5 AND country = 'USA';`} />
+
+<Aside type="tip">
+Devuelve clientes con **ID de soporte 5** y **ubicados en EE. UU.**
+</Aside>
+
+---
+
+### `OR` (O lógico)
+
+<Code language="sql" code={`SELECT firstname, lastname, email, country
+FROM customers
+WHERE country = 'Canada' OR country = 'USA';`} />
+
+<Aside type="note">
+Devuelve clientes de **Canadá o EE. UU.**. Se debe repetir la condición completa.
+</Aside>
+
+---
+
+### `NOT` (Negación lógica)
+
+<Code language="sql" code={`SELECT firstname, lastname, email, country
+FROM customers
+WHERE NOT country = 'USA';`} />
+
+<Aside type="note">
+Devuelve los clientes que **no están en EE. UU.**
+</Aside>
+
+<CardGrid>
+  <Card title="Alternativas a NOT">
+    <Code language="sql" code={`WHERE country <> 'USA'`} />  
+    <Code language="sql" code={`WHERE country != 'USA'`} />
+  </Card>
+</CardGrid>
+
+---
+
+### Combinación de operadores lógicos
+
+<Code language="sql" code={`SELECT firstname, lastname, email, country
+FROM customers
+WHERE NOT country = 'Canada' AND NOT country = 'USA';`} />
+
+<Aside type="tip">
+Consulta avanzada que filtra clientes que **no están en Canadá ni en EE. UU.**
+</Aside>
+
+# Uniones SQL
+
+## Comparación de tipos de uniones en SQL
+
+### Introducción
+
+En ciberseguridad, es común trabajar con múltiples tablas relacionadas. Las **uniones (JOINs)** en SQL permiten combinar información de estas tablas cuando comparten una columna en común. Existen distintos tipos de uniones, cada uno con un comportamiento específico respecto a qué filas se incluyen en los resultados.
+
+---
+
+### INNER JOIN (Unión interna)
+
+- **Función:** Devuelve **solo las filas con coincidencias** en ambas tablas.
+- **Sintaxis:**
+
+<Code language="sql" code={`SELECT *
+FROM employees
+INNER JOIN machines ON employees.device_id = machines.device_id;`} />
+
+- Para evitar ambigüedad en columnas compartidas:
+
+<Code language="sql" code={`SELECT username, operating_system, employees.device_id
+FROM employees
+INNER JOIN machines ON employees.device_id = machines.device_id;`} />
+
+<Aside type="note">
+Devuelve solo los registros donde `device_id` coincide en ambas tablas.
+</Aside>
+
+---
+
+### LEFT JOIN (Unión externa izquierda)
+
+- **Función:** Devuelve **todas las filas de la tabla izquierda**, y solo las coincidencias de la tabla derecha.
+
+<Code language="sql" code={`SELECT *
+FROM employees
+LEFT JOIN machines ON employees.device_id = machines.device_id;`} />
+
+<Aside type="tip">
+Incluye todos los registros de `employees`, aunque no tengan coincidencias en `machines`.
+</Aside>
+
+---
+
+### RIGHT JOIN (Unión externa derecha)
+
+- **Función:** Devuelve **todas las filas de la tabla derecha**, y solo las coincidencias de la izquierda.
+
+<Code language="sql" code={`SELECT *
+FROM employees
+RIGHT JOIN machines ON employees.device_id = machines.device_id;`} />
+
+<Aside type="note">
+Incluye todos los registros de `machines`, incluso sin coincidencias en `employees`.
+</Aside>
+
+<Code language="sql" code={`SELECT *
+FROM machines
+LEFT JOIN employees ON employees.device_id = machines.device_id;`} />
+
+<Aside type="tip">
+Un `RIGHT JOIN` se puede reemplazar por un `LEFT JOIN` invirtiendo el orden de las tablas.
+</Aside>
+
+---
+
+### FULL OUTER JOIN (Unión externa completa)
+
+- **Función:** Devuelve **todos los registros** de ambas tablas, coincidan o no.
+
+<Code language="sql" code={`SELECT *
+FROM employees
+FULL OUTER JOIN machines ON employees.device_id = machines.device_id;`} />
+
+<Aside type="note">
+Incluye coincidencias y los registros sin correspondencia de ambas tablas.
+</Aside>
+
+---
+
+### Comparación general
+
+| Tipo de unión       | Incluye filas sin coincidencia | Tabla siempre incluida     |
+|---------------------|-------------------------------|-----------------------------|
+| INNER JOIN          | No                            | Ninguna                     |
+| LEFT JOIN           | Sí                            | Tabla izquierda (`FROM`)    |
+| RIGHT JOIN          | Sí                            | Tabla derecha (`JOIN`)      |
+| FULL OUTER JOIN     | Sí, en ambas tablas            | Ambas                       |
+
+---
+
+## Aprendizaje continuo en SQL
+
+### Introducción
+
+A lo largo del curso se han explorado fundamentos de SQL como filtros y uniones. Este módulo introduce las **funciones de agregación** y da recomendaciones para seguir aprendiendo por cuenta propia.
+
+---
+
+### ¿Qué son las funciones de agregación?
+
+Permiten realizar **cálculos sobre múltiples filas** y devuelven un único valor resumen. No muestran los datos individuales.
+
+| Función   | Descripción                                  |
+|----------|----------------------------------------------|
+| `COUNT()` | Cuenta filas (excluye `NULL`)                |
+| `AVG()`   | Calcula el promedio de una columna numérica |
+| `SUM()`   | Suma total de una columna numérica          |
+
+---
+
+### Sintaxis general
+
+<Code language="sql" code={`SELECT FUNCIÓN(columna)
+FROM tabla
+[WHERE condición];`} />
+
+#### Ejemplos
+
+1. **Contar registros totales:**
+
+<Code language="sql" code={`SELECT COUNT(firstname)
+FROM customers;`} />
+
+2. **Contar con condición:**
+
+<Code language="sql" code={`SELECT COUNT(firstname)
+FROM customers
+WHERE country = 'USA';`} />
+
+<Aside type="note">
+La sintaxis de `AVG()` y `SUM()` es igual, solo cambia la función y columna.
+</Aside>
+
+---
+
+### Continuar aprendiendo SQL
+
+<Steps>
+1. **Buscar recursos adicionales**: Investiga conceptos y ejemplos en línea.
+2. **Practicar constantemente**: Usa entornos de prueba para reforzar lo aprendido.
+3. **Aplicar SQL a seguridad**: Piensa qué tipo de información necesitas y cómo extraerla con SQL.
+4. **Explorar funciones nuevas**: Aprende `GROUP BY`, `HAVING`, subconsultas y funciones de ventana.
+</Steps>
+
+<Aside type="tip">
+La práctica, la curiosidad y los recursos adecuados son claves para dominar SQL.
+</Aside>

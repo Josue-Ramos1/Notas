@@ -1,0 +1,470 @@
+---
+title: Curso 6 - Módulo 4 Tráfico de red y registros mediante herramientas IDS y SIEM
+description: Registros, formatos y buenas prácticas en ciberseguridad usando herramientas como SIEM.
+---
+
+import { Card, CardGrid, Aside, Steps, Code } from '@astrojs/starlight/components';
+
+# Visión general de los registros
+
+## Registros: Tipos, Gestión y Protección en Ciberseguridad
+
+Los dispositivos y sistemas generan datos en forma de **eventos**, que se documentan en archivos llamados **registros**. Cada registro describe un evento individual y proporciona información valiosa tanto para la **solución de problemas técnicos** como para la **investigación de seguridad**.
+
+---
+
+### Definición de Registro
+
+Un **registro** (log) es una colección de entradas que documentan eventos generados por sistemas, aplicaciones o dispositivos. Originalmente usados para depurar errores, los registros son hoy una herramienta esencial en **ciberseguridad** y **monitoreo operativo**.
+
+---
+
+### Uso de los Registros en Seguridad
+
+Los **equipos de seguridad** utilizan herramientas como los **SIEM** para acceder a registros de múltiples fuentes. A través del análisis de registros, los analistas pueden responder las **"5 W" de un incidente**:
+
+<Steps>
+1. **Quién** lo provocó
+2. **Qué** ocurrió
+3. **Cuándo** ocurrió
+4. **Dónde** sucedió
+5. **Por qué** ocurrió
+</Steps>
+
+---
+
+## Tipos Comunes de Registros
+
+<CardGrid>
+  <Card title="Registros de red">
+    Producidos por dispositivos como routers, switches y firewalls.
+  </Card>
+  <Card title="Registros del sistema">
+    Generados por sistemas operativos (Windows, macOS, Linux, ChromeOS).
+  </Card>
+  <Card title="Registros de aplicación">
+    Emitidos por software, incluyendo aplicaciones móviles.
+  </Card>
+  <Card title="Registros de seguridad">
+    Provenientes de antivirus, IDS o IPS. Documentan eventos como eliminaciones o bloqueos.
+  </Card>
+  <Card title="Registros de autenticación">
+    Reflejan eventos de inicio de sesión y validación de usuarios.
+  </Card>
+</CardGrid>
+
+---
+
+## Detalles Contenidos en un Registro
+
+Campos comunes en un registro:
+
+- Fecha y hora del evento
+- Acción realizada
+- Usuario o entidad que ejecutó la acción
+- Ubicación (ej. dirección IP, dispositivo)
+
+<Code
+  code={`Login Event [05:45:15] User1 Authenticated successfully`}
+  lang="text"
+  title="Ejemplo básico"
+/>
+
+<Code
+  code={`Login Event [2022/11/16 05:45:15.892673] auth_performer.cc:470 User1 Authenticated successfully from device1 (192.168.1.2)`}
+  lang="text"
+  title="Ejemplo verbose"
+/>
+
+<Aside type="tip">
+Los registros en modo <strong>verbose</strong> ofrecen más detalle para investigaciones profundas.
+</Aside>
+
+---
+
+## Gestión de Registros
+
+<Steps>
+1. Recopilación
+2. Almacenamiento
+3. Análisis
+4. Eliminación segura
+</Steps>
+
+<Aside type="note">
+La gestión debe adaptarse a las necesidades y regulaciones de cada organización.
+</Aside>
+
+---
+
+## Qué Registrar
+
+<Aside type="caution">
+Registrar demasiada información o datos sensibles puede ocasionar problemas legales o técnicos.
+</Aside>
+
+Factores clave:
+
+- Enfocarse en **fuentes de alto valor**
+- Evitar registrar **PII innecesaria**
+- Evitar registros excesivos
+
+---
+
+## Riesgo del Overlogging
+
+<CardGrid>
+  <Card title="Problemas comunes">
+    Costos de almacenamiento, bajo rendimiento y dificultad para identificar eventos relevantes.
+  </Card>
+  <Card title="Solución">
+    Registrar solo lo <strong>relevante</strong> y <strong>útil</strong>.
+  </Card>
+</CardGrid>
+
+---
+
+## Retención de Registros
+
+<Steps>
+1. Establecer políticas de retención claras.
+2. Cumplir regulaciones como FISMA, HIPAA, PCI DSS, GLBA, SOX.
+3. Definir mecanismos de eliminación segura.
+</Steps>
+
+---
+
+## Protección de Registros
+
+<Aside type="danger">
+Los atacantes pueden modificar registros para ocultar su rastro. Protege la integridad de los logs.
+</Aside>
+
+<CardGrid>
+  <Card title="Servidor central">
+    Recoge eventos desde dispositivos remotos para evitar manipulación local.
+  </Card>
+  <Card title="Separación de funciones">
+    Separar quien genera y quien almacena los registros.
+  </Card>
+  <Card title="Acceso restringido">
+    Limitar quién puede ver o editar los registros.
+  </Card>
+</CardGrid>
+
+---
+
+# Visión general de los formatos de los archivos de registro
+
+## 1. JSON (JavaScript Object Notation)
+
+<Aside type="note">
+Formato ligero, basado en clave-valor. Muy usado en entornos web y nube.
+</Aside>
+
+<Code
+  code={`{
+  "Alert": "Malware",
+  "Alert code": 1090,
+  "severity": 10,
+  "User": {
+    "id": "1234",
+    "name": "user",
+    "role": "engineer"
+  }
+}`}
+  lang="json"
+  title="Ejemplo JSON"
+/>
+
+---
+
+## 2. Syslog
+
+<Aside type="note">
+Estándar en sistemas Unix. Usa puertos 514 (texto plano) y 6514 (encriptado).
+</Aside>
+
+<Code
+  code={`<236>1 2022-03-21T01:11:11.003Z virtual.machine.com evntslog - ID01 [user@32473 iut="1" eventSource="Application" eventID="9999"] This is a log entry!`}
+  lang="text"
+  title="Ejemplo Syslog"
+/>
+
+---
+
+## 3. XML (eXtensible Markup Language)
+
+<Code
+  code={`<Event>
+  <EventID>4688</EventID>
+  <Version>5</Version>
+</Event>
+
+<EventData>
+  <Data Name='SubjectUserSid'>S-2-3-11-160321</Data>
+  <Data Name='SubjectUserName'>JSMITH</Data>
+  <Data Name='SubjectDomainName'>ADCOMP</Data>
+  <Data Name='SubjectLogonId'>0x1cf1c12</Data>
+  <Data Name='NewProcessId'>0x1404</Data>
+</EventData>`}
+  lang="xml"
+  title="Ejemplo XML"
+/>
+
+---
+
+## 4. CSV (Comma-Separated Values)
+
+<Code
+  code={`2009-11-24T21:27:09.534255,ALERT,192.168.2.7,1041,x.x.250.50,80,TCP,ALLOWED,1:2001999:9,"ET MALWARE BTGrab.com Spyware Downloading Ads",1`}
+  lang="csv"
+  title="Ejemplo CSV"
+/>
+
+---
+
+## 5. CEF (Common Event Format)
+
+<Code
+  code={`CEF:1|Security|threatmanager|1.0|100|worm successfully stopped|10|src=10.0.0.2 dst=2.1.2.2 spt=1232`}
+  lang="text"
+  title="Ejemplo CEF"
+/>
+
+<Aside type="tip">
+CEF es común en entornos SIEM. Usa el carácter pipe <code>|</code> para separar campos.
+</Aside>
+# Visión general de los sistemas de detección de intrusos (IDS)
+
+## Herramientas y técnicas de detección
+
+La detección de amenazas es esencial en ciberseguridad. Esta sección explora los **IDS**, herramientas que monitorean sistemas y redes para identificar actividad maliciosa.
+
+---
+
+## ¿Qué es un IDS?
+
+Un **IDS (Intrusion Detection System)** monitorea sistemas o redes en busca de comportamientos anómalos y genera alertas cuando detecta amenazas.
+
+<CardGrid>
+  <Card title="IDS basado en el anfitrión (HIDS)">
+    - Se instala en dispositivos individuales.  
+    - Detecta software no autorizado, accesos indebidos y uso inusual de recursos.  
+    Ideal para proteger endpoints específicos.
+  </Card>
+  <Card title="IDS basado en la red (NIDS)">
+    - Se instala en puntos clave de la red.  
+    - Detecta comunicaciones maliciosas entre hosts.  
+    Brinda visibilidad del comportamiento general de la red.
+  </Card>
+</CardGrid>
+
+<Aside type="tip">
+Usar HIDS + NIDS ofrece defensa en capas, cubriendo dispositivos y tráfico de red.
+</Aside>
+
+---
+
+## Técnicas de detección
+
+<Steps>
+1. **Análisis basado en firmas**  
+   Compara la actividad observada con patrones conocidos.
+2. **Análisis basado en anomalías**  
+   Identifica desviaciones respecto al comportamiento normal.
+</Steps>
+
+<CardGrid>
+  <Card title="Análisis por firmas">
+    ✔️ Alta precisión en amenazas conocidas.  
+    ❌ No detecta ataques nuevos.  
+    ❌ Requiere actualizaciones constantes.
+  </Card>
+  <Card title="Análisis por anomalías">
+    ✔️ Detecta amenazas nuevas.  
+    ❌ Mayor tasa de falsos positivos.  
+    ❌ Si hay malware durante el entrenamiento, puede pasar desapercibido.
+  </Card>
+</CardGrid>
+
+---
+
+# Suricata: herramienta IDS / IPS / NSM
+
+## ¿Qué es Suricata?
+
+Suricata es una plataforma de código abierto capaz de operar como:
+- IDS (detección)
+- IPS (prevención)
+- NSM (monitoreo)
+
+<Aside type="note">
+Suricata permite analizar tráfico en tiempo real o mediante archivos de captura (PCAP).
+</Aside>
+
+---
+
+## Modos de uso
+
+<CardGrid>
+  <Card title="IDS">
+    Detecta tráfico malicioso sin intervenir directamente.
+  </Card>
+  <Card title="IPS">
+    Bloquea tráfico malicioso en tiempo real (requiere configuración).
+  </Card>
+  <Card title="NSM">
+    Registra tráfico para análisis forense posterior.
+  </Card>
+</CardGrid>
+
+---
+
+## Reglas y firmas
+
+Suricata usa **reglas o firmas** para identificar amenazas. Cada firma contiene:
+
+<Steps>
+1. **Acción** (ej. `alert`, `drop`)  
+2. **Encabezado** (protocolo, IP, puertos)  
+3. **Opciones** (condiciones adicionales)
+</Steps>
+
+<Aside type="tip">
+El orden de las reglas puede afectar las decisiones de detección de Suricata.
+</Aside>
+
+---
+
+## Reglas personalizadas
+
+Modificar o crear reglas según el entorno mejora la detección y reduce falsos positivos.
+
+<CardGrid>
+  <Card title="Ventajas">
+    - Adaptación a necesidades específicas  
+    - Mayor eficacia  
+    - Menos alertas innecesarias
+  </Card>
+</CardGrid>
+
+---
+
+## Archivo de configuración
+
+<Code
+  code={`# Archivo principal de configuración
+suricata.yaml`}
+  lang="yaml"
+  title="suricata.yaml"
+/>
+
+<Aside type="note">
+Este archivo permite ajustar comportamiento, reglas, salidas y más.
+</Aside>
+
+---
+
+## Archivos de registro
+
+Suricata genera principalmente dos tipos:
+
+<CardGrid>
+  <Card title="eve.json">
+    - Formato JSON  
+    - Contiene eventos detallados  
+    - Ideal para SIEM y análisis profundo
+  </Card>
+  <Card title="fast.log">
+    - Texto plano  
+    - Información básica  
+    - Útil para revisiones rápidas
+  </Card>
+</CardGrid>
+
+<Aside type="danger">
+`eve.json` ofrece más detalle que `fast.log`, pero también consume más recursos.
+</Aside>
+
+# Visión general de las herramientas de gestión de eventos de información de seguridad (SIEM)
+
+## Fuentes de registro e ingestión de registros
+
+La **ingesta de registros** es fundamental en el funcionamiento de las herramientas **SIEM** (Gestión de Información y Eventos de Seguridad). Permite recopilar y almacenar eventos desde diversas fuentes, que luego se analizan para detectar incidentes de seguridad.
+
+---
+
+## Proceso general de un SIEM
+
+<Steps>
+1. **Recopilación y agregación de datos**  
+   Se obtienen eventos desde servidores, redes, aplicaciones, etc.
+
+2. **Normalización de datos**  
+   Se convierten a formatos estandarizados para facilitar el análisis.  
+   La calidad de esta normalización varía según la herramienta.
+
+3. **Análisis de datos**  
+   Se correlacionan eventos para identificar patrones o amenazas.
+</Steps>
+
+<Aside type="note">
+Este documento se enfoca en el primer paso: **recopilación e ingestión de registros**.
+</Aside>
+
+---
+
+## Ingesta de registros
+
+- Es el proceso de **recolección e importación de datos de registro** hacia un SIEM.
+- Las fuentes pueden ser:
+  - **Servidores**
+  - **Dispositivos de red**
+  - **Aplicaciones**
+- El SIEM **no altera los registros originales**, solo los copia para su análisis.
+
+<CardGrid>
+  <Card title="Beneficios de la ingesta">
+    - Permite identificar eventos clave como autenticaciones o tráfico inusual.  
+    - Facilita la centralización de registros para investigación.
+  </Card>
+</CardGrid>
+
+---
+
+## Reenviadores de registros
+
+<CardGrid>
+  <Card title="Carga manual de registros">
+    Poco eficiente. Solo útil en casos puntuales con pocos dispositivos.
+  </Card>
+  <Card title="Software de reenvío">
+    - Automatiza la recolección y envío al SIEM.  
+    - Puede ser nativo del sistema operativo o de terceros.
+  </Card>
+  <Card title="Reenviadores propios o de código abierto">
+    - Muchos SIEM incluyen reenviadores integrados.  
+    - También es común usar soluciones open source.
+  </Card>
+</CardGrid>
+
+<Aside type="tip">
+Al configurar un reenviador, define los **tipos de registro** a enviar y el **destino SIEM**.
+</Aside>
+
+---
+
+## Consideraciones clave
+
+<CardGrid>
+  <Card title="Requisitos del entorno">
+    Evalúa volumen de datos, tipos de fuente y necesidades de análisis.
+  </Card>
+  <Card title="Compatibilidad">
+    Verifica que el reenviador funcione bien con tu infraestructura actual.
+  </Card>
+  <Card title="Integración con el SIEM">
+    Asegura que el reenviador esté soportado por la herramienta SIEM elegida.
+  </Card>
+</CardGrid>

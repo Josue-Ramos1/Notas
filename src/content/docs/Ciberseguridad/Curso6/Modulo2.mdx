@@ -1,0 +1,462 @@
+---
+title: Curso 6 - Módulo 2 Monitoreo y Análisis de Redes
+description: Conceptos y herramientas clave para supervisar y proteger el tráfico en redes.
+---
+
+import { CardGrid, Card, Aside, Steps, Tabs, Code  } from '@astrojs/starlight/components'
+
+# Comprender el tráfico en la red
+
+## Supervisión del tráfico de red y detección de anomalías
+
+En un entorno digital cada vez más interconectado, los datos suelen viajar a través de múltiples redes, países y dispositivos. Esta complejidad aumenta el riesgo de que la información sea enviada o almacenada en ubicaciones no seguras, como cuentas personales o servicios en la nube sin protección.  
+Los profesionales de ciberseguridad son responsables de **garantizar la protección de las comunicaciones tanto en tránsito como en reposo**.
+
+---
+
+### Tráfico de red: concepto general
+
+El **tráfico de red** se refiere a la cantidad de datos que circulan a través de una red en un momento determinado.
+
+<CardGrid>
+  <Card>  
+    **Datos de red:** paquetes o flujos de información transmitidos entre dispositivos conectados.
+  </Card>
+  <Card>  
+    En grandes organizaciones, puede haber miles de usuarios intercambiando datos simultáneamente.
+  </Card>
+</CardGrid>
+
+---
+
+### Análisis del tráfico de red
+
+Debido al gran volumen, es vital **distinguir entre comportamientos normales y anómalos**.
+
+<Aside type="tip">
+Analogía: Así como reconocemos un embotellamiento inusual en el tráfico vehicular, en la red también se pueden identificar <strong>anomalías</strong> comparando con el flujo habitual.
+</Aside>
+
+---
+
+### Detección de anomalías e indicadores de compromiso (IoC)
+
+Conocer el flujo esperado permite identificar desviaciones sospechosas, que pueden contener **indicadores de compromiso (IoC)**, señales de posibles incidentes.
+
+<Card>
+  <strong>Ejemplo: Exfiltración de datos</strong><br/>
+  Salida no autorizada de información confidencial.  
+  Un IoC típico es un volumen inusualmente alto de tráfico saliente desde un solo dispositivo.
+</Card>
+
+---
+
+### Importancia para la ciberseguridad
+
+La vigilancia constante del tráfico de red:
+
+- Detecta incidentes tempranamente.  
+- Previene pérdidas de datos.  
+- Facilita investigaciones en tiempo real.
+
+---
+
+## Supervisión y protección de redes
+
+Conocer y monitorear la red es esencial para identificar actividades anómalas y proteger las comunicaciones.
+
+---
+
+### Conozca su red
+
+Las redes se comunican mediante **protocolos** que generan datos útiles, por ejemplo:
+
+<CardGrid>
+  <Card>Direcciones IP de origen y destino</Card>
+  <Card>Fecha y hora de transmisión</Card>
+  <Card>Cantidad de datos transferidos</Card>
+</CardGrid>
+
+Esta información ayuda a establecer una **línea de base** del comportamiento normal.
+
+<Aside type="note">
+<strong>¿Qué es una línea de base?</strong>  
+Un punto de referencia para comparar el comportamiento actual frente a lo esperado.  
+Ejemplo: tráfico de red normal entre 9 a.m. y 5 p.m. en una empresa.
+</Aside>
+
+---
+
+### Monitoree su red
+
+Con la línea de base definida, se monitorean componentes clave para detectar desviaciones:
+
+<Steps>
+1. **Análisis de flujo (Network Flow):** movimiento de datos, protocolos, puertos.  
+2. **Carga útil de paquetes:** contenido real de los datos, analizable si se desencripta.  
+3. **Patrones temporales:** actividad fuera del horario habitual puede ser sospechosa.
+</Steps>
+
+---
+
+### Proteja su red
+
+<CardGrid>
+  <Card>
+    <strong>SOC (Security Operations Center):</strong> enfocado en seguridad y respuesta a amenazas.
+  </Card>
+  <Card>
+    <strong>NOC (Network Operations Center):</strong> enfocado en rendimiento y disponibilidad de red.
+  </Card>
+</CardGrid>
+
+El analista debe supervisar tráfico, detectar IoC, investigar y responder a incidentes.
+
+---
+
+### Herramientas de monitoreo de red
+
+Monitoreo puede ser:
+
+* **Automatizado:** con sistemas de alerta.  
+* **Manual:** análisis detallado del tráfico.
+
+Herramientas comunes:
+
+<CardGrid>
+  <Card>
+    <strong>IDS (Intrusion Detection System):</strong> monitorea actividad y alerta ante patrones conocidos.
+  </Card>
+  <Card>
+    <strong>Analizadores de protocolos (packet sniffers):</strong> capturan y analizan tráfico, ej. Wireshark, tcpdump.
+  </Card>
+</CardGrid>
+
+---
+
+## Detección y respuesta ante ataques de exfiltración de datos
+
+Supervisar el tráfico permite anticipar y actuar rápido ante intentos de robo de información, incluso si los datos están cifrados.
+
+---
+
+### Perspectiva del atacante
+
+<Steps>
+1. **Acceso inicial:** suele lograrse mediante ingeniería social, como phishing.  
+2. **Movimiento lateral:** explora otros sistemas sin ser detectado.  
+3. **Reconocimiento de activos:** busca datos valiosos como código, datos personales, registros financieros.  
+4. **Preparación para exfiltración:** comprime o fragmenta datos para evadir controles.  
+5. **Exfiltración:** envía datos fuera de la red, usando canales cifrados o cuentas comprometidas.
+</Steps>
+
+---
+
+### Defensa de la organización
+
+Medidas proactivas y reactivas:
+
+<CardGrid>
+  <Card>
+    **Prevención de acceso:**  
+    Autenticación multifactor (MFA) y capacitación contra phishing.
+  </Card>
+  <Card>
+    **Monitoreo:**  
+    Vigilancia continua de patrones anómalos, picos inusuales y accesos extraños.
+  </Card>
+  <Card>
+    **Inventario y controles:**  
+    Mantener activos actualizados y aplicar controles de acceso.
+  </Card>
+  <Card>
+    **Detección y respuesta:**  
+    Identificar IoC, usar SIEM para alertas, bloquear IPs y aplicar reglas de firewall.
+  </Card>
+</CardGrid>
+
+# Captura y visualización del tráfico en la red
+
+## Introducción a la Captura y Análisis de Tráfico de Red
+
+### Importancia del análisis de tráfico
+
+Toda acción en una red deja rastros que pueden identificarse analizando el flujo de tráfico. Esto permite:
+
+- Obtener información estadística valiosa.  
+- Mejorar la visibilidad del entorno.  
+- Detectar y defenderse de amenazas.
+
+---
+
+### Estructura de un paquete de red
+
+Los datos se envían en **paquetes**, como sobres postales que contienen:
+
+<CardGrid>
+  <Card>
+    <strong>Encabezado:</strong> info técnica (IP origen/destino, protocolo, puerto).
+  </Card>
+  <Card>
+    <strong>Carga útil (Payload):</strong> datos reales transmitidos.
+  </Card>
+  <Card>
+    <strong>Pie de página (Footer):</strong> indica el final del paquete.
+  </Card>
+</CardGrid>
+
+---
+
+### Conceptos clave
+
+- **Protocolos de red:** reglas para transmisión entre dispositivos.  
+- **Puertos:** puntos lógicos que organizan comunicaciones.
+
+---
+
+### Herramientas de análisis: Rastreadores de paquetes
+
+Un **packet sniffer** captura y analiza tráfico para identificar anomalías o indicadores de compromiso.
+
+---
+
+### Capturas de paquetes (P-cap)
+
+Archivos que almacenan paquetes interceptados para análisis detallado e investigación.
+
+---
+
+## Captura y Análisis de Tráfico de Red: Fundamentos y Herramientas
+
+### Función del analista de seguridad
+
+Supervisa flujos y analiza paquetes para detectar anomalías y comprender actividades en la red.
+
+---
+
+### Paquetes de red
+
+Unidad fundamental de datos que viaja en la red.
+
+<Tabs>
+  <div title="Componentes de un paquete">
+    <Steps>
+    1. **Cabecera (Header):** info para enrutamiento (IP, protocolo, longitud, etc.)  
+    2. **Carga útil (Payload):** datos transmitidos (ej. imagen)  
+    3. **Pie de página (Footer):** verificación de errores (en protocolos como Ethernet)  
+    </Steps>
+  </div>
+  <div title="Ejemplos de encabezados">
+    - Ethernet  
+    - IP (IPv4, IPv6)  
+    - TCP, UDP  
+  </div>
+</Tabs>
+
+---
+
+### Analizadores de protocolos de red
+
+Herramientas para capturar y examinar tráfico.
+
+<CardGrid>
+  <Card>
+    <strong>Usos legítimos:</strong> seguridad, estadísticas, resolución de problemas.
+  </Card>
+  <Card>
+    <strong>Ejemplos:</strong> tcpdump, Wireshark, TShark.
+  </Card>
+  <Card>
+    <strong>Riesgos:</strong> pueden usarse maliciosamente, su uso requiere ética y autorización.
+  </Card>
+</CardGrid>
+
+---
+
+### Funcionamiento de los analizadores
+
+- Capturan tráfico mediante la tarjeta de red (NIC).  
+- NIC en modo promiscuo o monitor permite captar todo el tráfico visible.  
+- Paquetes binarios se traducen a formato legible para análisis.
+
+<Aside type="caution">
+⚠️ El modo promiscuo puede exponer a riesgos si no se usa con cuidado.
+</Aside>
+
+---
+
+### Capturas de paquetes (P-cap)
+
+Archivos que almacenan paquetes interceptados.
+
+<CardGrid>
+  <Card>
+    Pueden filtrarse para mostrar sólo datos relevantes.
+  </Card>
+  <Card>
+    Ayudan a reconstruir eventos de seguridad.
+  </Card>
+  <Card>
+    Su interceptación sin autorización suele ser ilegal.
+  </Card>
+</CardGrid>
+
+| Biblioteca/Formato | Sistema Operativo | Descripción                             |
+|--------------------|-------------------|---------------------------------------|
+| Libpcap            | Unix/Linux/macOS  | Formato común usado por tcpdump        |
+| WinPcap            | Windows           | Obsoleta, estándar en sistemas antiguos|
+| Npcap              | Windows           | Reemplazo moderno usado por Nmap       |
+| PCAPng              | Multiplataforma    | Next Generation, captura simultánea    |
+
+<Aside type="tip">
+💡 Practicar con tu red doméstica es excelente para aprender.
+</Aside>
+
+---
+
+## Análisis Manual de Paquetes: Encabezados IP
+
+### Introducción
+
+Aprender a leer paquetes manualmente mejora la comprensión y detección de anomalías.
+
+---
+
+### Modelo TCP/IP y Capa de Internet
+
+- La Capa de Internet gestiona la entrega de paquetes.  
+- El Protocolo IP determina la ruta eficiente para llegar a destino.
+
+---
+
+### Versiones IP
+
+- IPv4: versión predominante.  
+- IPv6: versión moderna con más capacidad y seguridad.
+
+Este módulo se enfoca en encabezados **IPv4**.
+
+---
+
+### Campos del Encabezado IPv4
+
+| Campo                            | Descripción                                                      |
+|---------------------------------|-----------------------------------------------------------------|
+| **Versión**                     | Versión del protocolo (IPv4). Como clase postal.                |
+| **IHL (Internet Header Length)**| Longitud del encabezado IP.                                     |
+| **ToS (Type of Service)**       | Prioridad o tratamiento especial (ej. etiqueta “frágil”).       |
+| **Longitud Total**              | Tamaño total del paquete (sobre).                               |
+| **Identificación, Indicadores, Desfase de Fragmentos** | Manejo de fragmentación y reensamblado.         |
+| **TTL (Time to Live)**          | Vida útil del paquete para evitar ciclos infinitos.             |
+| **Protocolo**                   | Protocolo superior (ej. TCP=6).                                 |
+| **Suma de Comprobación del Encabezado** | Verificación de integridad del encabezado.                |
+| **Dirección de Origen y Destino**| IP remitente y receptor (como dirección postal).              |
+| **Opciones**                   | Opcional, para diagnóstico o depuración.                        |
+| **Datos (Payload)**             | Datos útiles transmitidos (ej. contenido de correo).            |
+
+---
+
+# Uso de Wireshark para el Análisis de Tráfico de Red
+
+<Aside type="note">
+Wireshark es una herramienta esencial para el monitoreo y diagnóstico de redes.
+</Aside>
+
+## ¿Qué es Wireshark?
+
+<Card title="¿Qué hace Wireshark?">
+Wireshark es un analizador de protocolos de red de código abierto con una interfaz gráfica de usuario (GUI) que facilita la visualización y el análisis de tráfico de red.  
+Aunque cuenta con muchas funciones avanzadas, en esta sección se aborda su uso básico enfocado en el <strong>filtrado de paquetes</strong>.
+</Card>
+
+## Filtros de Visualización
+
+Wireshark permite aplicar **filtros de visualización** para aislar paquetes específicos dentro de grandes volúmenes de datos capturados.
+
+<CardGrid>
+  <Card title="¿Qué se puede filtrar?">
+  - Protocolos  
+  - Direcciones IP  
+  - Puertos  
+  - Cadenas de texto  
+  - Expresiones regulares  
+  - Cualquier propiedad de un paquete
+  </Card>
+</CardGrid>
+
+## Operadores de Comparación
+
+<Tabs>
+  <div title="Operadores Disponibles">
+
+| Tipo de operador       | Símbolo | Abreviatura |
+|------------------------|---------|-------------|
+| Igual                  | `==`    | `eq`        |
+| No igual               | `!=`    | `ne`        |
+| Mayor que              | `>`     | `gt`        |
+| Menor que              | `<`     | `lt`        |
+| Mayor o igual que      | `>=`    | `ge`        |
+| Menor o igual que      | `<=`    | `le`        |
+
+  </div>
+  <div title="Consejo">
+    <Aside type="tip">
+    💡 Puedes combinar operadores con <code>and</code>, <code>or</code> y agrupar expresiones con paréntesis para crear filtros más complejos.
+    </Aside>
+  </div>
+</Tabs>
+
+## Operadores Especiales
+
+<CardGrid>
+  <Card title="contains">
+  Muestra paquetes que contienen una coincidencia exacta de texto.  
+  <Code code={`http contains "moved"`} lang="wireshark" title="Filtro con contains" />
+  </Card>
+
+  <Card title="matches (regex)">
+  Filtra usando expresiones regulares para buscar patrones más complejos.  
+  <Code code={`http.request.uri matches ".*login.*"`} lang="wireshark" title="Filtro con regex" />
+  </Card>
+</CardGrid>
+
+## Barra de Herramientas de Filtrado
+
+<Code code="dns" lang="wireshark" title="Filtro DNS" />
+
+<Aside type="note">
+🎨 Wireshark asigna <strong>colores</strong> distintos a protocolos, lo cual facilita su identificación visual. Puedes personalizarlos.
+</Aside>
+
+## Filtrado Común
+
+<Tabs>
+  <div title="Por protocolo">
+  <Code code={`dns\nhttp\nftp\nssh\narp\ntelnet\nicmp`} lang="wireshark" title="Protocolos" />
+  </div>
+
+  <div title="Por dirección IP">
+  <Code code={`ip.addr == 172.21.224.2\nip.src == 10.10.10.10\nip.dst == 4.4.4.4`} lang="wireshark" title="Direcciones IP" />
+  </div>
+
+  <div title="Por dirección MAC">
+  <Code code={`eth.addr == 00:70:f4:23:18:c4`} lang="wireshark" title="MAC Address" />
+  </div>
+
+  <div title="Por puerto">
+  <Code code={`udp.port == 53\ntcp.port == 25`} lang="wireshark" title="Puertos TCP y UDP" />
+  </div>
+</Tabs>
+
+## Seguir flujos (Follow Stream)
+
+<Steps>
+1. **¿Qué hace?**  
+   Permite reensamblar flujos de comunicación entre dos dispositivos.
+
+2. **¿Para qué sirve?**  
+   Es útil para inspeccionar solicitudes y respuestas completas entre cliente y servidor, por ejemplo en HTTP.
+
+3. **Ventaja:**  
+   Reorganiza los datos capturados en un orden legible y lógico.
+</Steps>

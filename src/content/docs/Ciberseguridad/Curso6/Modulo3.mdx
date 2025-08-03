@@ -1,0 +1,638 @@
+---
+title: Curso 6 Modulo 3 Investigación y respuesta ante incidentes
+description: Aprende cómo identificar, analizar y responder ante incidentes de seguridad informática.
+---
+
+import { Aside, Steps, Tabs, Card, CardGrid, TabItem  } from '@astrojs/starlight/components';
+
+# Fase de Detección y Análisis en la Respuesta ante Incidentes
+
+<Aside type="note">
+Esta fase es crítica dentro del ciclo de vida de la respuesta ante incidentes.
+</Aside>
+
+## Introducción
+
+Los incidentes de seguridad son inevitables. Como analista, tendrás que **investigar y responder** ante ellos. Esta sección se enfoca en la **fase de Detección y Análisis**.
+
+---
+
+## Detección de Incidentes
+
+La detección busca **identificar rápidamente posibles amenazas**.
+
+<CardGrid>
+  <Card title="Eventos vs Incidentes">
+  - **Eventos**: Actividades normales como visitas web o solicitudes de contraseña.  
+  - **Incidentes**: Eventos que comprometen la confidencialidad, integridad o disponibilidad.
+  </Card>
+</CardGrid>
+
+<Aside type="caution">
+⚠️ Todos los incidentes son eventos, pero <strong>no todos los eventos son incidentes</strong>.
+</Aside>
+
+### Herramientas de Detección
+
+<Steps>
+1. **IDS (Intrusion Detection Systems)**  
+   Detectan tráfico sospechoso en la red.
+
+2. **SIEM (Security Information and Event Management)**  
+   Correlacionan eventos de múltiples fuentes para generar alertas.
+</Steps>
+
+Estas herramientas identifican patrones inusuales, accesos no autorizados y generan alertas automatizadas.
+
+---
+
+## Análisis de Incidentes
+
+Una vez emitida una alerta, inicia el análisis para:
+
+<CardGrid>
+  <Card title="¿Qué se hace?">
+  - Investigar a fondo el incidente.  
+  - Validar alertas (¿falso positivo o amenaza real?).  
+  - Evaluar indicadores de compromiso (IoCs).
+  </Card>
+
+  <Card title="Habilidades clave">
+  - Pensamiento crítico  
+  - Conocimiento técnico del entorno  
+  - Capacidad de contextualizar información
+  </Card>
+</CardGrid>
+
+---
+
+## Desafíos Comunes
+
+<Tabs>
+  <div title="Limitaciones de herramientas">
+    - Ninguna herramienta detecta todo.  
+    - Algunas organizaciones tienen sistemas incompletos o mal configurados por falta de recursos.  
+  </div>
+
+  <div title="Volumen de alertas">
+    - Los analistas reciben **miles de alertas por turno**.  
+    - Muchos falsos positivos se deben a:  
+      - Reglas mal configuradas  
+      - Falta de personalización según el entorno  
+    <Aside type="tip">
+    Algunas alertas sí son válidas y pueden indicar ataques reales, especialmente si hay <strong>vulnerabilidades nuevas</strong> en juego.
+    </Aside>
+  </div>
+</Tabs>
+# Métodos de Detección de Incidentes de Ciberseguridad
+
+## Introducción
+
+Aunque herramientas como **IDS** y **SIEM** son esenciales, **no bastan por sí solas**. Las organizaciones necesitan **métodos complementarios** para mejorar la detección y reacción ante amenazas.
+
+---
+
+## Herramientas tradicionales de detección
+
+Durante la fase de detección y análisis, los equipos:
+
+<Steps>
+1. Reciben alertas o notificaciones.  
+2. Analizan y verifican mediante análisis de datos.
+</Steps>
+
+### Principales herramientas
+
+<CardGrid>
+  <Card title="IDS">
+    Detecta accesos no autorizados o tráfico sospechoso.
+  </Card>
+  <Card title="SIEM">
+    Centraliza, correlaciona y analiza eventos de seguridad.
+  </Card>
+</CardGrid>
+
+<Aside type="caution">
+Las herramientas solo detectan lo que están <strong>configuradas</strong> para monitorear.  
+Una mala configuración puede provocar <strong>falsos negativos</strong>.
+</Aside>
+
+---
+
+## 1. Caza de amenazas (Threat Hunting)
+
+La **caza de amenazas** es un enfoque **proactivo y humano** que busca amenazas **invisibles para las herramientas automáticas**.
+
+### Características clave
+
+- Se realiza **antes** del daño.
+- Detecta amenazas avanzadas como el **malware sin archivos** (fileless malware).
+- Combina análisis humano con herramientas automatizadas.
+
+<CardGrid>
+  <Card title="¿Qué hacen los cazadores?">
+    - Investigan nuevas amenazas.  
+    - Buscan patrones anómalos.  
+    - Apoyan con inteligencia y machine learning.
+  </Card>
+
+  <Card title="Recursos utilizados">
+    - **IoC** (Indicadores de compromiso)  
+    - **IoA** (Indicadores de ataque)  
+    - **ML** (Aprendizaje automático)  
+    - **Inteligencia sobre amenazas**
+  </Card>
+</CardGrid>
+
+---
+
+## 2. Inteligencia sobre amenazas
+
+La inteligencia sobre amenazas proporciona **contexto basado en evidencia** sobre actores maliciosos, métodos y objetivos.
+
+### Fuentes comunes
+
+<Tabs>
+  <div title="Informes de la industria">
+    Describen tácticas, técnicas y procedimientos (TTPs) observados en el mundo real.
+  </div>
+  <div title="Avisos gubernamentales">
+    Alertas oficiales con detalles técnicos de amenazas actuales.
+  </div>
+  <div title="Feeds de datos de amenazas">
+    Listas de IPs, hashes o dominios asociados a campañas maliciosas.
+  </div>
+</Tabs>
+
+### APTs (Amenazas Persistentes Avanzadas)
+
+<Aside type="note">
+Los APTs son atacantes sofisticados que mantienen acceso prolongado y oculto a un sistema.
+</Aside>
+
+- Su detección requiere contexto, correlación y visibilidad extendida.
+- La inteligencia ayuda a **identificarlos y mitigarlos** a tiempo.
+
+### TIP (Threat Intelligence Platform)
+
+Una TIP:
+
+- Centraliza fuentes de inteligencia.  
+- Evalúa, categoriza y prioriza amenazas.  
+- Facilita la integración con SIEM y otras herramientas.
+
+<Aside type="caution">
+⚠️ La inteligencia debe **complementar**, no reemplazar, la detección.  
+Evaluar y validar antes de actuar.
+</Aside>
+
+---
+
+## 3. Ciberengaño (Cyber Deception)
+
+El ciberengaño mejora la detección **engañando y desviando a los atacantes** hacia entornos controlados.
+
+### Honeypots
+
+Sistemas falsos diseñados para:
+
+- Simular vulnerabilidades reales.
+- Atraer y observar a atacantes en acción.
+- Generar alertas al ser accedidos.
+
+```plaintext
+Ejemplo de archivo trampa:
+"Información de tarjeta de crédito del cliente - 2022"
+```
+
+# Supervisión Continua en CI/CD: Detección Automatizada de Amenazas
+
+## Introducción
+
+Las canalizaciones de Integración y Entrega Continua (**CI/CD**) agilizan el desarrollo de software, pero también amplían la superficie de ataque. La **supervisión continua** permite proteger la cadena de suministro y responder a incidentes con rapidez.
+
+<Aside type="note">
+Supervisar las canalizaciones CI/CD es esencial para mantener la integridad y seguridad del desarrollo.
+</Aside>
+
+---
+
+## Automatización para la detección de amenazas
+
+Una canalización comprometida puede permitir a los atacantes:
+
+- Insertar código malicioso.
+- Robar información confidencial.
+- Afectar la disponibilidad del software.
+
+<Aside type="caution">
+No automatizar la supervisión puede dejar abiertas puertas a ataques persistentes y silenciosos.
+</Aside>
+
+---
+
+## Indicadores comunes de compromiso (IoC) en CI/CD
+
+<Tabs>
+  <TabItem label="Cambios de código no autorizados">
+    - Hechos por usuarios no autorizados.  
+    - En horarios o ubicaciones inusuales.  
+    - Con patrones sospechosos.
+  </TabItem>
+  <TabItem label="Despliegues sospechosos">
+    - Desde ramas no aprobadas o entornos no autorizados.  
+    - Fuera de horario.  
+    - Iniciados por cuentas automatizadas.
+  </TabItem>
+  <TabItem label="Dependencias comprometidas">
+    - Con CVEs conocidos.  
+    - Agregadas súbitamente.  
+    - Descargadas de fuentes no confiables.
+  </TabItem>
+  <TabItem label="Comportamiento anómalo">
+    - Fallos en pasos estables.  
+    - Tiempos de ejecución elevados.  
+    - Cambios no aprobados en el pipeline.
+  </TabItem>
+  <TabItem label="Exposición de secretos">
+    - Accesos no autorizados.  
+    - Inclusión accidental de secretos en el código.
+  </TabItem>
+</Tabs>
+
+---
+
+## Seguridad proactiva con supervisión de IoC
+
+<Steps>
+  1. **Respuesta temprana**: detecta ataques antes de que escalen.
+  2. **Limitación del daño**: reduce el impacto del atacante.
+  3. **Conocimiento de amenazas**: mejora la defensa futura.
+</Steps>
+
+<Aside type="tip">
+Supervisar IoCs permite pasar de una postura reactiva a una postura preventiva.
+</Aside>
+
+---
+
+## Métodos para detectar IoCs automáticamente
+
+### 1. Registro y auditoría exhaustiva
+
+<Steps>
+  1. **Ejecución del pipeline**: monitorear fallos o tiempos inusuales.
+  2. **Confirmaciones de código**: analizar autores y patrones.
+  3. **Accesos**: detectar inicios de sesión anómalos.
+  4. **Despliegues**: revisar frecuencia y contexto de implementaciones.
+</Steps>
+
+---
+
+### 2. Integración con SIEM
+
+Un SIEM puede detectar:
+
+- Hashes maliciosos.  
+- Comunicaciones con servidores C2.  
+- Accesos indebidos a secretos.
+
+<Aside type="note">
+Los SIEM modernos incorporan aprendizaje automático para correlacionar eventos complejos.
+</Aside>
+
+---
+
+### 3. Alertas y notificaciones en tiempo real
+
+Permiten actuar de inmediato ante:
+
+- Fallos inusuales.  
+- Cambios sospechosos en código.  
+- Acceso no autorizado a secretos.
+
+---
+
+### 4. Monitorización del rendimiento
+
+<Aside type="tip">
+Problemas de rendimiento como ralentización o uso excesivo de CPU pueden ser signos de amenazas activas.
+</Aside>
+
+---
+
+### 5. Exploración continua de vulnerabilidades
+
+Evaluar continuamente:
+
+- Plugins, herramientas y contenedores.  
+- CVEs nuevas.  
+- Puntos débiles no corregidos.
+
+---
+
+## Indicadores de compromiso (IoC) vs. Indicadores de ataque (IoA)
+
+### ¿Qué es un IoC?
+
+Un **IoC** es evidencia de que ocurrió un incidente (ej. archivo malicioso, IP sospechosa).
+
+### ¿Qué es un IoA?
+
+Un **IoA** indica un comportamiento que revela un ataque en curso (ej. proceso que abre conexiones extrañas).
+
+<CardGrid>
+  <Card>
+    ### IoC  
+    Evidencia observada después del ataque.
+  </Card>
+  <Card>
+    ### IoA  
+    Señal en tiempo real del comportamiento del atacante.
+  </Card>
+</CardGrid>
+
+<Aside type="note">
+La diferencia clave está en el momento: los IoA permiten anticiparse, los IoC ayudan a investigar.
+</Aside>
+
+---
+
+## Pirámide del Dolor
+
+Modelo creado por David J. Bianco que ordena indicadores por el impacto que generan en el atacante:
+
+<Steps>
+  1. **Valores hash**: fáciles de reemplazar.
+  2. **Direcciones IP**: cambiables rápidamente.
+  3. **Dominios**: modificables sin mucho esfuerzo.
+  4. **Artefactos de red**: identificables pero más difíciles de ocultar.
+  5. **Artefactos de host**: propios del sistema víctima.
+  6. **Herramientas**: software usado por el atacante.
+  7. **Tácticas, Técnicas y Procedimientos (TTPs)**: forma de operar del atacante.
+</Steps>
+
+<Aside type="tip">
+Cuanto más alto en la pirámide, más difícil es para el atacante adaptarse a la defensa.
+</Aside>
+
+---
+
+## Análisis de IoCs con herramientas de investigación
+
+Las herramientas de investigación permiten:
+
+- Explorar un IoC y entender su contexto.  
+- Obtener relaciones con otros indicadores.  
+- Mejorar la detección y respuesta.
+
+<Aside type="note">
+La inteligencia de amenazas agrega contexto y permite ver el panorama completo.
+</Aside>
+
+---
+
+## Crowdsourcing en inteligencia sobre amenazas
+
+### ¿Qué es?
+
+Es el uso colectivo de conocimiento de profesionales y organizaciones para compartir información útil (IP, hash, URL, etc.).
+
+<CardGrid>
+  <Card>
+    ### ISAC  
+    Centros que comparten inteligencia por sector (salud, energía, etc.).
+  </Card>
+  <Card>
+    ### OSINT  
+    Fuentes públicas usadas para generar inteligencia accionable.
+  </Card>
+</CardGrid>
+
+---
+
+## Herramientas de investigación de IoC
+
+### VirusTotal
+
+Plataforma gratuita para analizar archivos, dominios e IPs.
+
+<Steps>
+  1. **Detección**: resultados de motores antivirus.
+  2. **Detalles**: hash, tamaño, fecha.
+  3. **Relaciones**: otros IoC relacionados.
+  4. **Comportamiento**: acciones en entorno controlado.
+  5. **Comunidad**: comentarios y reputación.
+</Steps>
+
+<Aside type="danger">
+VirusTotal publica todos los archivos subidos. Nunca subas datos personales o confidenciales.
+</Aside>
+
+---
+
+## Otras herramientas útiles
+
+<CardGrid>
+  <Card>
+    ### Jotti’s Malware Scan  
+    Escaneo gratuito de archivos con múltiples antivirus.
+  </Card>
+  <Card>
+    ### urlscan.io  
+    Analiza URLs y genera informes sobre su comportamiento.
+  </Card>
+  <Card>
+    ### MalwareBazaar  
+    Repositorio comunitario de muestras de malware para análisis.
+  </Card>
+</CardGrid>
+
+---
+
+# Crear y utilizar la documentación
+
+## Importancia de la Documentación en la Seguridad de la Información
+
+La documentación desempeña un papel fundamental en los equipos de seguridad, no solo como registro de acciones pasadas, sino también como herramienta de estandarización, transparencia y mejora continua.
+
+<Steps>
+
+1. **Registro y Escalabilidad**  
+   La documentación precisa de las reglas de detección, su significado, gravedad, posibles falsos positivos y métodos de validación, permite que los equipos de seguridad escalen más allá de unos pocos analistas.
+
+2. **Transparencia**  
+   Cuando un evento está documentado, queda un registro accesible. Esta transparencia es esencial como fuente de evidencia en reclamaciones de seguros de seguridad, investigaciones regulatorias y procedimientos legales.
+
+3. **Estandarización**  
+   Permite establecer directrices y estándares organizacionales. Esto contribuye a mantener la calidad y consistencia del trabajo en toda la organización.
+
+4. **Claridad Operativa**  
+   Proporciona claridad sobre roles y responsabilidades, e instrucciones concretas sobre cómo ejecutar tareas específicas.
+
+5. **Adaptación al Cambio**  
+   Es esencial mantener, revisar y actualizar la documentación para reflejar los cambios en ataques o regulaciones.
+
+6. **Memoria y Mejora Individual**  
+   Ayuda a recordar acciones pasadas y a identificar posibles omisiones o mejoras.
+
+</Steps>
+
+---
+
+## Cadena de Custodia en la Respuesta ante Incidentes
+
+Durante la respuesta a incidentes de seguridad, es fundamental mantener la integridad de las pruebas recopiladas. Para ello, los equipos de seguridad utilizan un proceso y formulario conocido como **cadena de custodia**.
+
+<Card title="¿Qué es la Cadena de Custodia?">
+Es el proceso de documentar la posesión y el control de las pruebas desde el momento en que se recolectan hasta su presentación o eliminación. Asegura que toda manipulación, transferencia o análisis quede registrada, evitando su alteración no autorizada.
+</Card>
+
+### Ejemplo Práctico
+
+<Aside type="tip">
+Durante un incidente, se identifica un disco duro comprometido, se protege contra escritura y se genera una función hash criptográfica. A medida que se transfiere entre miembros del equipo (por ejemplo: Aisha → Colin → Nav → Arman), cada paso se documenta. El hash garantiza que el contenido no ha sido alterado.
+</Aside>
+
+### Componentes de un Formulario de Cadena de Custodia
+
+1. **Descripción de la evidencia**  
+   Incluye ubicación, nombre del host, dirección MAC, dirección IP, etc.
+
+2. **Registro de custodia**  
+   Nombres de quienes transfieren o reciben la prueba, fechas, horas y propósito.
+
+### Ruptura de la Cadena de Custodia
+
+<Aside type="danger">
+Ocurre cuando hay errores, omisiones o incoherencias en el registro. Puede comprometer la validez legal de la evidencia y hacerla inadmisible.
+</Aside>
+
+### Importancia Legal
+
+<Card title="Cumplimiento Legal">
+Los formularios de cadena de custodia son esenciales para cumplir con los estándares legales y asegurar que las pruebas no han sido alteradas. Son clave para responsabilizar legalmente a actores maliciosos.
+</Card>
+
+# Respuesta y recuperación
+
+## El Proceso de Triaje en Seguridad Informática
+
+El triaje es un componente fundamental del trabajo de un analista de seguridad. Consiste en evaluar, priorizar y analizar alertas de seguridad para determinar una respuesta adecuada. Un triaje eficaz ayuda a **prevenir o mitigar daños** significativos a la organización.
+
+<Card title="¿Qué es el triaje?">
+El triaje es el proceso de priorizar incidentes según su importancia o urgencia, lo que permite que los equipos de seguridad asignen recursos de manera eficiente y se concentren en los problemas más críticos primero.
+</Card>
+
+---
+
+## Etapas del Proceso de Triaje
+
+<Steps>
+
+1. **Recibir y Evaluar**  
+   El analista recibe una alerta de un sistema como un IDS (Sistema de Detección de Intrusos), evalúa su validez y recolecta información relevante.
+
+   **Preguntas clave:**
+   - ¿Es un falso positivo?
+   - ¿Ha ocurrido esta alerta antes? ¿Cómo se resolvió?
+   - ¿Está relacionada con una vulnerabilidad conocida?
+   - ¿Cuál es la **gravedad** de la alerta?
+
+2. **Asignar Prioridad**  
+   Una vez validada la alerta, se le asigna una prioridad según varios factores:
+   - Impacto funcional: ¿Interrumpe el funcionamiento normal?
+   - Impacto en la información: ¿Compromete datos sensibles?
+   - Fiabilidad de recuperación: ¿Es posible resolverlo con rapidez?
+
+   <Aside type="note">
+   Algunas alertas ya vienen con una clasificación de gravedad predefinida.
+   </Aside>
+
+3. **Recopilar y Analizar**  
+   El analista reúne pruebas, documenta el análisis y determina el curso de acción. Puede escalarse a un analista de nivel 2 o a un gestor, si el caso lo requiere.
+
+</Steps>
+
+---
+
+## Beneficios del Triaje
+
+<Card title="Ventajas de un buen proceso de triaje">
+
+- **Gestión eficiente de recursos**: Permite enfocar esfuerzos en incidentes críticos.
+- **Reducción del impacto**: Una respuesta oportuna puede minimizar daños.
+- **Estandarización**: Facilita un enfoque sistemático mediante documentación clara.
+- **Evita investigaciones innecesarias**: Solo las alertas válidas siguen el flujo de trabajo.
+
+</Card>
+
+
+# Acciones posteriores al incidente
+
+## Revisión Posterior al Incidente
+
+La revisión posterior al incidente es la fase final del ciclo de respuesta ante incidentes según el NIST. Su objetivo es evaluar lo ocurrido y aplicar mejoras.
+
+<Aside type="tip">
+Esta fase permite fortalecer la seguridad y evitar futuros errores.
+</Aside>
+
+---
+
+## Objetivo de la Revisión
+
+Una vez resuelto el incidente, la organización debe revisar el proceso y extraer aprendizajes. Esto ayuda a detectar fallos, mejorar procesos y prevenir incidentes similares.
+
+---
+
+## Reunión de Lecciones Aprendidas
+
+Es una reunión con todos los involucrados en el incidente. Se analizan los hechos sin buscar culpables, promoviendo la mejora continua.
+
+<Card title="Características clave">
+- Debe realizarse máximo dos semanas después del incidente.  
+- Es obligatoria en incidentes graves como ransomware.  
+- Puede dividirse en varias sesiones.  
+- Requiere: un orden del día, moderador y escriba.  
+</Card>
+
+<Steps>
+1. ¿Qué ocurrió y cuándo?  
+2. ¿Quién lo descubrió?  
+3. ¿Cómo se contuvo?  
+4. ¿Qué medidas de recuperación se tomaron?  
+5. ¿Qué se pudo hacer diferente?
+</Steps>
+
+<Aside type="note">
+También promueve la colaboración entre áreas y la difusión de aprendizajes.
+</Aside>
+
+---
+
+## Recomendaciones Derivadas
+
+De la reunión deben surgir acciones concretas como:
+
+- Corregir errores detectados.
+- Ajustar procesos ineficientes.
+- Actualizar documentación.
+- Incorporar nuevas herramientas o controles.
+
+---
+
+## Informe Final del Incidente
+
+El informe final resume todo lo relevante del incidente. Su lenguaje varía según el público, por ejemplo, si es técnico o directivo.
+
+<Card title="Contenido típico del informe">
+- Resumen ejecutivo  
+- Cronología de eventos  
+- Acciones de investigación  
+- Recomendaciones finales  
+</Card>
+
+<Aside type="tip">
+Adapta el lenguaje del informe según el destinatario para asegurar claridad.
+</Aside>

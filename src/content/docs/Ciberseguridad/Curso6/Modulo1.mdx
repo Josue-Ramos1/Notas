@@ -1,0 +1,573 @@
+---
+title: Curso 6 - Módulo 1 Introducción a la Detección y Respuesta ante Incidentes
+description: Introducción a los marcos del NIST y fundamentos clave para gestionar incidentes de seguridad.
+---
+
+import { Card, CardGrid, Aside, Steps } from '@astrojs/starlight/components';
+
+# El ciclo de vida de la Respuesta ante Incidentes
+
+## Introducción a los marcos del ciclo de vida de los incidentes
+
+Los marcos del ciclo de vida de los incidentes proporcionan una estructura organizada para que las organizaciones gestionen eficazmente su respuesta ante incidentes.
+
+Su objetivo es asegurar que todos los incidentes se atiendan de forma **coherente, sistemática y eficaz**.
+
+<Aside type="note">
+Existen distintos marcos (frameworks) que pueden adaptarse según las necesidades de cada organización.
+</Aside>
+
+---
+
+## El NIST Cybersecurity Framework (CSF)
+
+El **NIST CSF** define cinco funciones principales:
+
+<Steps>
+  1. **Identificar**
+  2. **Proteger**
+  3. **Detectar**
+  4. **Responder**
+  5. **Recuperar**
+</Steps>
+
+<Aside type="tip">
+Este curso se centra especialmente en las tres últimas: **Detectar**, **Responder** y **Recuperar**.
+</Aside>
+
+---
+
+## Ciclo de vida de respuesta ante incidentes del NIST
+
+El modelo del NIST amplía el proceso de respuesta mediante cuatro fases clave:
+
+<Steps>
+  1. **Preparación**
+  2. **Detección y análisis**
+  3. **Contención, erradicación y recuperación**
+  4. **Actividades posteriores al incidente**
+</Steps>
+
+<Aside type="note">
+Estas etapas no siempre ocurren de forma lineal; pueden solaparse según los hallazgos durante la investigación.
+</Aside>
+
+---
+
+## ¿Qué es un incidente según el NIST?
+
+> “Un suceso que pone en peligro, real o inminentemente y sin autorización legal, la confidencialidad, integridad o disponibilidad de la información o de un sistema de información…”
+
+En otras palabras: cualquier situación que afecte o amenace la seguridad de los sistemas o la información.
+
+---
+
+## Diferencia entre evento e incidente
+
+<CardGrid>
+  <Card>
+    ### Evento
+    Suceso observable en un sistema, red o dispositivo.<br />
+    <strong>Ejemplo:</strong> Un usuario olvida su contraseña.
+  </Card>
+  <Card>
+    ### Incidente
+    Evento que compromete o viola la seguridad.<br />
+    <strong>Ejemplo:</strong> Un atacante cambia la contraseña de una cuenta ajena.
+  </Card>
+</CardGrid>
+
+<Aside type="tip">
+Todos los incidentes son eventos, pero no todos los eventos son incidentes de seguridad.
+</Aside>
+
+---
+
+## Documentación durante la investigación
+
+El analista debe registrar las llamadas **cinco W**, esenciales para el informe final:
+
+<Steps>
+  1. **Quién** provocó el incidente
+  2. **Qué** ocurrió
+  3. **Cuándo** sucedió
+  4. **Dónde** ocurrió
+  5. **Por qué** ocurrió
+</Steps>
+
+<Aside type="note">
+Esta información permite reconstruir el incidente, evaluar el impacto y planificar mejoras.
+</Aside>
+
+---
+
+## Uso del diario del gestor de incidentes
+
+El **diario del gestor de incidentes** es una herramienta para organizar y documentar todos los pasos tomados durante la respuesta.
+
+# Operaciones de Respuesta ante Incidentes
+
+## 📌 Guía de estudio: Equipos de respuesta ante incidentes (CSIRT)
+
+### Colaboración en los equipos de respuesta
+
+En ciberseguridad, los equipos de **respuesta ante incidentes** funcionan como cualquier equipo exitoso: la colaboración es esencial.
+
+<Aside type="tip">
+Cada miembro aporta sus habilidades individuales para cumplir un objetivo común: contener, investigar y resolver incidentes de seguridad.
+</Aside>
+
+---
+
+## ¿Qué es un CSIRT?
+
+Un **CSIRT** (*Computer Security Incident Response Team*) es un equipo especializado que:
+
+<Steps>
+  1. Gestiona incidentes de forma eficaz y eficiente.
+  2. Proporciona servicios y recursos para responder y recuperarse.
+  3. Previene incidentes futuros.
+</Steps>
+
+<Aside type="note">
+Estos equipos no solo incluyen expertos técnicos; también colaboran con áreas no técnicas dentro de la organización.
+</Aside>
+
+---
+
+## Trabajo interfuncional del CSIRT
+
+El CSIRT trabaja con otros departamentos para tomar decisiones coordinadas:
+
+<CardGrid>
+  <Card>
+    ### Legal  
+    Se consulta en caso de violaciones de datos personales o financieros.
+  </Card>
+  <Card>
+    ### Relaciones públicas  
+    Ayuda a cumplir con las exigencias de divulgación pública.
+  </Card>
+</CardGrid>
+
+<Aside type="tip">
+La seguridad es una responsabilidad compartida.
+</Aside>
+
+---
+
+## Roles dentro de un CSIRT
+
+<CardGrid>
+  <Card>
+    ### 👩‍💻 Analista de Seguridad  
+    Evalúa alertas, determina la criticidad y escala los casos graves.
+  </Card>
+  <Card>
+    ### 🔧 Líder Técnico  
+    Dirige técnicamente la respuesta durante todo el incidente.
+  </Card>
+  <Card>
+    ### 📋 Coordinador de Incidentes  
+    Supervisa procesos, mantiene comunicación y reporta avances.
+  </Card>
+</CardGrid>
+
+---
+
+## Variaciones organizacionales
+
+<CardGrid>
+  <Card>
+    ### Otros nombres  
+    CSIRT también puede llamarse **IHT** o **SIRT**.
+  </Card>
+  <Card>
+    ### Estructura  
+    Puede formar parte del **SOC** o ser un equipo independiente.
+  </Card>
+  <Card>
+    ### Funciones similares  
+    Aunque los nombres cambien, las responsabilidades se mantienen.
+  </Card>
+</CardGrid>
+
+---
+
+## Objetivo común
+
+<Aside type="tip">
+Todos los equipos, sin importar su estructura, buscan lo mismo: **gestionar y responder eficazmente a los incidentes**.
+</Aside>
+
+---
+
+## Guía de estudio: CSIRT y SOC en la respuesta ante incidentes
+
+### Fases del ciclo del NIST
+
+<Steps>
+  1. Preparación
+  2. Detección y análisis
+  3. Contención, erradicación y recuperación
+  4. Actividades posteriores al incidente
+</Steps>
+
+<Aside type="note">
+Estas fases son llevadas a cabo por estructuras como el CSIRT o el SOC.
+</Aside>
+
+---
+
+## Estructura del CSIRT
+
+El CSIRT requiere de tres elementos clave para funcionar:
+
+<CardGrid>
+  <Card>
+    ### Comando  
+    Liderazgo claro para tomar decisiones rápidas.
+  </Card>
+  <Card>
+    ### Control  
+    Gestión técnica de tareas y recursos.
+  </Card>
+  <Card>
+    ### Comunicación  
+    Flujo constante de información entre áreas internas y externas.
+  </Card>
+</CardGrid>
+
+---
+
+## Roles principales en el CSIRT
+
+<CardGrid>
+  <Card>
+    ### Analista de Seguridad  
+    Monitorea, clasifica alertas y escala incidentes.
+  </Card>
+  <Card>
+    ### Líder Técnico  
+    Coordina contención, erradicación y recuperación.
+  </Card>
+  <Card>
+    ### Coordinador de Incidentes  
+    Comunica con equipos y departamentos clave.
+  </Card>
+</CardGrid>
+
+<Aside type="note">
+Pueden existir otros roles como responsable legal, de comunicaciones o de planificación.
+</Aside>
+
+---
+
+## ¿Qué es un SOC?
+
+El **SOC (Security Operations Center)** es una unidad dedicada a **supervisar redes, sistemas y dispositivos** en busca de amenazas.
+
+<Aside type="tip">
+El SOC forma parte del “equipo azul”, encargado de la defensa activa.
+</Aside>
+
+---
+
+## Organización del SOC
+
+<CardGrid>
+  <Card>
+    ### L1 - Analista de Nivel 1  
+    Clasifica alertas y las escala si es necesario.
+  </Card>
+  <Card>
+    ### L2 - Analista de Nivel 2  
+    Investiga alertas complejas y ajusta herramientas.
+  </Card>
+  <Card>
+    ### L3 - Líder Técnico del SOC  
+    Ejecuta análisis forense y gestiona incidentes avanzados.
+  </Card>
+  <Card>
+    ### Gestor del SOC  
+    Lidera al equipo completo, define métricas y comunica resultados.
+  </Card>
+</CardGrid>
+
+---
+
+## Funciones especializadas del SOC
+
+<CardGrid>
+  <Card>
+    ### Investigadores Forenses  
+    Analizan evidencia digital y ayudan en la resolución de incidentes.
+  </Card>
+  <Card>
+    ### Cazadores de Amenazas  
+    Detectan amenazas avanzadas con análisis proactivo e inteligencia.
+  </Card>
+</CardGrid>
+
+<Aside type="note">
+La estructura del SOC puede variar según el tamaño y necesidades de la organización.
+</Aside>
+
+---
+
+## Resumen: Planes de Respuesta ante Incidentes
+
+### ¿Por qué es importante?
+
+<Aside type="caution">
+Incidentes como filtraciones de datos, ransomware o ataques DDoS pueden generar grandes daños si no se responden adecuadamente.
+</Aside>
+
+Una respuesta eficaz requiere:
+
+* Actuar con rapidez.
+* Cumplir con regulaciones.
+* Reducir impacto operativo y legal.
+
+---
+
+## Elementos del plan de respuesta
+
+<Steps>
+  1. **Políticas**: guías generales de actuación.
+  2. **Estándares**: criterios mínimos a cumplir.
+  3. **Procedimientos**: pasos detallados ante incidentes.
+</Steps>
+
+<Aside type="note">
+El Plan de Respuesta suele formar parte del plan de seguridad general.
+</Aside>
+
+---
+
+## Adaptabilidad del plan
+
+Cada organización adapta su plan según:
+
+<CardGrid>
+  <Card>🧭 Misión y objetivos</Card>
+  <Card>🏢 Tamaño y estructura</Card>
+  <Card>🏛️ Industria o sector</Card>
+  <Card>💡 Cultura organizacional</Card>
+</CardGrid>
+
+---
+
+## Contenido típico de un plan de respuesta
+
+<CardGrid>
+  <Card>
+    ### Procedimientos detallados  
+    Instrucciones específicas para responder a distintos incidentes.
+  </Card>
+  <Card>
+    ### Información técnica  
+    Diagramas de red, inventario de activos, flujo de datos.
+  </Card>
+  <Card>
+    ### Documentación complementaria  
+    Plantillas, formularios y contactos clave.
+  </Card>
+</CardGrid>
+
+---
+
+## Evaluación y mejora continua
+
+<Steps>
+  1. Realiza ejercicios de mesa (tabletop).
+  2. Ejecuta simulacros prácticos.
+  3. Evalúa qué funcionó y qué debe mejorar.
+</Steps>
+
+<Aside type="tip">
+Estas prácticas ayudan a cumplir regulaciones y a preparar a todo el equipo.
+</Aside>
+
+# Herramientas de respuestas ante incidentes
+
+## Herramientas del Analista de Seguridad
+
+El **analista de seguridad** tiene un papel esencial en la **detección de incidentes**. Al estar en la primera línea frente a amenazas, debe apoyarse tanto en sus conocimientos previos como en el uso de **herramientas y tecnologías especializadas** para realizar investigaciones eficaces.
+
+Al igual que un carpintero que no se limita a usar un solo instrumento, el analista debe recurrir a una **variedad de herramientas**, cada una con funciones específicas:
+
+<CardGrid>
+  <Card>
+    ### Herramientas de supervisión y administración  
+    Permiten monitorear la actividad del sistema para identificar eventos sospechosos que puedan requerir investigación.
+  </Card>
+  <Card>
+    ### Herramientas de documentación  
+    Sirven para registrar información relevante y recopilar pruebas durante el análisis de incidentes.
+  </Card>
+  <Card>
+    ### Herramientas de investigación  
+    Incluyen recursos como los **rastreadores de paquetes**, que ayudan a examinar en profundidad el tráfico de red y otros aspectos técnicos del evento.
+  </Card>
+</CardGrid>
+
+<Aside type="tip">
+El entorno de la ciberseguridad es <strong>dinámico y en constante evolución</strong>. Surgen nuevas amenazas y tecnologías continuamente, por lo que el analista debe actualizar y ampliar su repertorio de herramientas permanentemente.
+</Aside>
+
+Una de las herramientas iniciales es el **diario del responsable de la gestión de incidentes**, que se utilizará como instrumento de documentación personal a lo largo del curso.
+
+---
+
+## Documentación en la Respuesta ante Incidentes
+
+### Definición y Propósito
+
+La <strong>documentación</strong> es cualquier forma de contenido registrado con un propósito específico. Puede presentarse en distintos formatos: digital, manuscrito, audio o video. Su finalidad principal es <strong>proporcionar instrucciones claras y orientación funcional</strong> sobre un tema o procedimiento determinado.
+
+Cada organización establece sus propias prácticas de documentación, adaptadas a sus necesidades internas y normativas.
+
+---
+
+### Tipos de Documentación Común
+
+<CardGrid>
+  <Card>  
+    **Manuales de estrategias (playbooks):** detallan acciones operativas específicas.
+  </Card>
+  <Card>  
+    **Diarios de gestores de incidentes:** registran cronología, decisiones y observaciones clave.
+  </Card>
+  <Card>  
+    **Políticas:** establecen normas organizacionales.
+  </Card>
+  <Card>  
+    **Planes:** incluyen respuestas a incidentes o continuidad del negocio.
+  </Card>
+  <Card>  
+    **Informes finales:** resumen los hallazgos y lecciones aprendidas tras un incidente.
+  </Card>
+</CardGrid>
+
+---
+
+### Documentación Eficaz vs Ineficaz
+
+* Una documentación útil es clara, coherente y precisa.  
+* Una documentación ineficaz puede ser confusa y desorganizada, dificultando su uso en momentos críticos.
+
+---
+
+### Herramientas para Documentar
+
+Las herramientas comunes incluyen:
+
+<CardGrid>
+  <Card>Procesadores de texto: Google Docs, OneNote, Evernote, Notepad++.</Card>
+  <Card>Sistemas de tickets: Jira y similares.</Card>
+  <Card>Otros medios: hojas de cálculo, grabadoras de audio, notas manuscritas.</Card>
+</CardGrid>
+
+---
+
+## Sistemas de detección y prevención de intrusos (IDS/IPS)
+
+Los sistemas IDS e IPS son fundamentales para identificar y responder a amenazas en redes o sistemas.
+
+<Aside type="note">
+Ejemplo físico: un sistema de seguridad en el hogar con sensores que activan alarmas y bloqueos para prevenir intrusos.
+</Aside>
+
+<CardGrid>
+  <Card>
+    ### IDS – Sistema de detección de intrusos  
+    Monitorea actividad y detecta comportamientos anómalos.  
+    Genera alertas, pero no detiene amenazas.
+  </Card>
+  <Card>
+    ### IPS – Sistema de prevención de intrusos  
+    Detecta y además puede bloquear o aislar amenazas automáticamente.
+  </Card>
+</CardGrid>
+
+---
+
+## Herramientas IDS/IPS populares
+
+<ul>
+  <li>Snort</li>
+  <li>Zeek</li>
+  <li>Kismet</li>
+  <li>Sagan</li>
+  <li>Suricata (se estudiará en detalle más adelante)</li>
+</ul>
+
+---
+
+## Herramientas de detección en ciberseguridad: IDS, IPS y EDR
+
+### Función general
+
+Monitorean actividad y alertan al equipo de seguridad sobre posibles amenazas.
+
+### Tipos
+
+<CardGrid>
+  <Card>
+    ### IDS  
+    Detecta actividades anómalas y genera alertas.  
+    No bloquea la actividad maliciosa.
+  </Card>
+  <Card>
+    ### IPS  
+    Además de detectar, bloquea automáticamente amenazas.
+  </Card>
+  <Card>
+    ### EDR  
+    Instalado en dispositivos finales, monitorea y analiza comportamientos con IA, puede actuar para detener ataques.
+  </Card>
+</CardGrid>
+
+---
+
+### Tipos de alertas en IDS
+
+<Steps>
+  1. Positivo verdadero: alerta correcta ante ataque real.  
+  2. Negativo verdadero: no hay amenaza ni alerta.  
+  3. Falso positivo: alerta errónea sobre amenaza inexistente.  
+  4. Falso negativo: amenaza real no detectada.
+</Steps>
+
+---
+
+## Herramientas de gestión de seguridad: SIEM y SOAR
+
+### SIEM – Gestión de eventos e información de seguridad
+
+Centraliza y analiza logs de diversas fuentes para ofrecer una visión integral de la seguridad.
+
+<Aside type="tip">
+Analogía: como el tablero de un coche que alerta sobre fallas y estados críticos.
+</Aside>
+
+### Funcionamiento general de SIEM
+
+<Steps>
+  1. Recopila logs de múltiples fuentes (IDS, cortafuegos, apps).  
+  2. Normaliza datos para su análisis.  
+  3. Aplica reglas para detectar incidentes y generar alertas.
+</Steps>
+
+---
+
+### SOAR – Orquestación, Automatización y Respuesta de Seguridad
+
+Automatiza la respuesta a incidentes y la gestión de casos.
+
+<Aside type="note">
+Mientras SIEM detecta y reporta, SOAR puede actuar automáticamente para mitigar amenazas.
+</Aside>
+
+---
