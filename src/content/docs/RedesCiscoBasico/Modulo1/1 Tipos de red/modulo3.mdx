@@ -1,4 +1,90 @@
 ---
-title: 1.3 – Transmisión de Datos
-description: Conceptos fundamentales sobre cómo se representan y transmiten los datos en las redes.
+title: 1.3 – Ancho de Banda y Rendimiento
+description: Diferencias entre ancho de banda y rendimiento, y cómo influyen en la velocidad de transmisión de datos.
 ---
+
+import { Card, CardGrid, Aside, Steps, Code } from '@astrojs/starlight/components'
+
+# 🚀 1.3 – Ancho de Banda y Rendimiento
+
+<Aside>
+**📶 Redes más rápidas, mejores experiencias**  
+La calidad de una conexión no depende solo del medio físico, sino también de la capacidad de transportar datos y del rendimiento real percibido por el usuario.
+</Aside>
+
+---
+
+## 1.3.1 – Ancho de Banda
+El **ancho de banda** es la capacidad de un medio para transportar datos en un período de tiempo determinado.  
+
+- Se mide en la **cantidad de bits por segundo** que pueden transmitirse teóricamente.  
+- Es un valor máximo posible, influenciado por las propiedades del medio físico y las limitaciones tecnológicas.  
+- Cuanto mayor sea el ancho de banda, mayor será la capacidad de transmitir información simultáneamente.  
+
+<CardGrid>
+  <Card title="bps (bits por segundo)">
+    Unidad fundamental de medida del ancho de banda.
+  </Card>
+  <Card title="Kbps (kilobits por segundo)">
+    1 Kbps = 1,000 bps.
+  </Card>
+  <Card title="Mbps (megabits por segundo)">
+    1 Mbps = 1,000,000 bps.
+  </Card>
+  <Card title="Gbps (gigabits por segundo)">
+    1 Gbps = 1,000,000,000 bps.
+  </Card>
+  <Card title="Tbps (terabits por segundo)">
+    1 Tbps = 1,000,000,000,000 bps.
+  </Card>
+</CardGrid>
+
+<Aside type="tip">
+**Tip – Velocidades comunes:**  
+Las conexiones residenciales suelen medirse en **Mbps**, mientras que las redes empresariales y de backbone alcanzan **Gbps** e incluso **Tbps**.
+</Aside>
+
+---
+
+## 1.3.2 – Rendimiento
+El **rendimiento** mide la cantidad real de bits transmitidos por un medio durante un tiempo determinado.  
+Aunque se parece al ancho de banda, **nunca es idéntico**, ya que influyen varios factores:
+
+- La cantidad de datos enviados y recibidos.  
+- El tipo de datos transmitidos.  
+- La **latencia**, o tiempo que tardan los datos en viajar entre origen y destino.  
+- La cantidad de dispositivos de red intermedios.  
+
+<Aside type="caution">
+**⚠️ Importante:**  
+En una red, el rendimiento siempre está limitado por el **enlace más lento** de la ruta entre el emisor y el receptor.
+</Aside>
+
+<Steps>
+1. El ancho de banda define la **capacidad máxima teórica**.  
+2. El rendimiento refleja la **velocidad real experimentada**.  
+3. Factores como latencia, congestión o interferencia reducen el rendimiento.  
+4. El resultado real puede medirse con herramientas como **pruebas de velocidad en línea**.
+</Steps>
+
+---
+
+## 1.3.3 – Demostración en Video: Rendimiento
+En la demostración con **speedtest.net** se observa:
+
+- **Velocidad de descarga (Download):** Bits recibidos por segundo.  
+- **Velocidad de subida (Upload):** Bits enviados por segundo.  
+- Generalmente, en redes domésticas la descarga es más rápida que la subida.  
+
+<CardGrid>
+  <Card title="Velocidad de descarga">
+    En el ejemplo, ~35.70 Mbps.
+  </Card>
+  <Card title="Velocidad de subida">
+    En el ejemplo, ~35.04 Mbps.
+  </Card>
+</CardGrid>
+
+<Aside>
+Los sitios de prueba de velocidad permiten conocer el **rendimiento real de una conexión a Internet**, considerando no solo la red local, sino también la capacidad del **proveedor de servicios de Internet (ISP)**.
+</Aside>
