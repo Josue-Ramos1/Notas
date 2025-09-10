@@ -1,0 +1,83 @@
+---
+title: 1.2 – Transmisión de Datos
+description: Conceptos fundamentales sobre cómo se representan y transmiten los datos en las redes.
+---
+
+import { Card, CardGrid, Aside, Code, Steps } from '@astrojs/starlight/components'
+
+# ⚡ 1.2 – Transmisión de Datos
+
+<Aside>
+**📡 Conectando información**  
+La transmisión de datos permite que la información viaje desde un dispositivo hasta otro a través de distintos medios físicos y señales.
+</Aside>
+
+## 1.2.1 – Tipos de Datos Personales
+En el video introductorio se presentan los diferentes tipos de datos que se transmiten y almacenan en la red:
+
+<CardGrid>
+  <Card title="Datos voluntarios">
+    Información que el usuario decide compartir, como formularios, fotos o publicaciones.
+  </Card>
+  <Card title="Datos deducidos">
+    Información inferida a partir de actividades, como compras con tarjeta de crédito o historial de navegación.
+  </Card>
+  <Card title="Datos observados">
+    Información recopilada automáticamente por dispositivos, como ubicación GPS o actividad del teléfono.
+  </Card>
+</CardGrid>
+
+<Aside type="caution">
+**Precaución – Datos en la nube:**  
+Gran parte de esta información termina almacenada en bases de datos y sistemas en la nube. Aunque no siempre se comparta de forma consciente, puede ser utilizada para crear perfiles detallados de los usuarios.
+</Aside>
+
+---
+
+## 1.2.2 – El bit
+Las computadoras y redes procesan la información únicamente como **ceros y unos**.  
+
+- Un **bit** (binary digit) es la unidad más pequeña de información.  
+- Los bits se almacenan y transmiten como **dos estados posibles** (ejemplo: encendido/apagado, alto/bajo voltaje).  
+- Los dispositivos de entrada traducen la interacción humana a bits, y los de salida convierten esos bits de nuevo a formas comprensibles.  
+
+### Representación en binario
+Los códigos binarios permiten representar letras, números y símbolos. Un sistema ampliamente utilizado es **ASCII**, en el que cada caracter se representa con 8 bits.
+
+<Code code={`A = 01000001\n9 = 00111001\n# = 00100011`} lang="txt" title="Ejemplos en ASCII" />
+
+Cada grupo de **8 bits = 1 byte**, y con ellos es posible codificar texto, imágenes, audio o video.
+
+<Aside type="tip">
+**Tip – Universalidad del binario:**  
+Sin importar el tipo de dato (texto, música, fotos o video), todo se reduce a una secuencia de bits.
+</Aside>
+
+---
+
+## 1.2.3 – Métodos Comunes de Transmisión de Datos
+Una vez convertidos los datos en bits, se transforman en **señales** que viajan a través de un medio físico o inalámbrico.
+
+<CardGrid>
+  <Card title="Señales eléctricas">
+    Pulsos de electricidad que viajan por cables de cobre.
+  </Card>
+  <Card title="Señales ópticas">
+    Pulsos de luz transmitidos a través de fibra óptica.
+  </Card>
+  <Card title="Señales inalámbricas">
+    Ondas de radio, microondas o infrarrojas transmitidas por el aire.
+  </Card>
+</CardGrid>
+
+<Steps>
+1. Los datos se convierten en bits digitales.  
+2. Los bits se transforman en señales eléctricas, ópticas o inalámbricas.  
+3. Las señales viajan a través del medio correspondiente hasta el destino.  
+4. El dispositivo receptor convierte nuevamente las señales en bits.  
+</Steps>
+
+<Aside>
+En redes domésticas y de pequeñas empresas predominan los **cables de cobre** y las **conexiones Wi-Fi**.  
+En redes de gran escala se prefiere la **fibra óptica**, que ofrece mayor velocidad y alcance.
+</Aside>
