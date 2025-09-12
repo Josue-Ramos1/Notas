@@ -1,0 +1,96 @@
+---
+title: "2.1 – Clientes y Servidores"
+description: "Roles de cliente y servidor, redes entre pares (P2P), aplicaciones P2P y múltiples roles en la red."
+---
+
+import { Card, CardGrid, Aside, Steps } from '@astrojs/starlight/components'
+
+## 2.1.1 – Vídeo: Clientes y Servidores
+
+Pulsa el botón de reproducción para ver el vídeo.
+
+---
+
+## 2.1.2 – Roles de cliente y servidor
+
+Todas las PC conectadas a una red que participan directamente en las comunicaciones se clasifican como **hosts**.  
+Un host puede actuar como:
+
+- **Cliente**: solicita información o servicios.  
+- **Servidor**: ofrece información o servicios.  
+- **Ambos**: según el software que tenga instalado.  
+
+<CardGrid>
+  <Card title="Servidor" icon="server">
+    Un servidor es un host con software instalado que le permite **proporcionar servicios** a otros hosts.  
+    Ejemplos: correo electrónico, páginas web, almacenamiento de archivos.
+  </Card>
+  <Card title="Cliente" icon="laptop">
+    Un cliente es un host con software que le permite **solicitar información** y mostrarla.  
+    Ejemplo: navegadores web (Chrome, Firefox, Safari, Edge).
+  </Card>
+</CardGrid>
+
+**Ejemplos de servicios:**
+
+| Tipo           | Descripción                                                                                   |
+|----------------|-----------------------------------------------------------------------------------------------|
+| Correo electrónico | El servidor ejecuta software de correo; los clientes usan Outlook u otro cliente para acceder al buzón. |
+| Web               | El servidor ejecuta software web; los clientes usan un navegador para acceder a páginas.       |
+| Archivo           | El servidor almacena archivos en una ubicación central; los clientes acceden con software como Explorador de Archivos. |
+
+---
+
+## 2.1.3 – Redes entre pares (P2P)
+
+En una **red P2P**, los hosts pueden funcionar **como clientes y servidores al mismo tiempo**.  
+Son comunes en **hogares y pequeñas empresas**, donde se comparten archivos, impresoras o recursos sin necesidad de un servidor dedicado.
+
+<CardGrid>
+  <Card title="Ventajas" icon="plus">
+    - Fácil de configurar  
+    - Menos compleja  
+    - Bajo costo (no requiere servidores dedicados)  
+    - Útil para tareas simples como compartir archivos o impresoras
+  </Card>
+  <Card title="Desventajas" icon="minus">
+    - No hay administración centralizada  
+    - Menos seguras  
+    - No son escalables  
+    - El rendimiento puede verse afectado al actuar como cliente y servidor
+  </Card>
+</CardGrid>
+
+<Aside type="note" title="Dato importante">
+En redes grandes, donde hay mucho tráfico, se recomienda usar **servidores dedicados** para garantizar rendimiento y seguridad.
+</Aside>
+
+---
+
+## 2.1.4 – Aplicaciones entre pares
+
+Las aplicaciones **P2P** permiten que un mismo dispositivo funcione como **cliente y servidor dentro de la misma comunicación**.  
+Ejemplos: mensajería instantánea, intercambio de archivos.
+
+Existen aplicaciones **híbridas P2P**, donde:  
+- El intercambio de recursos es descentralizado.  
+- Los índices de ubicación se almacenan en un directorio centralizado.  
+
+<Aside type="tip" title="Ejemplo de uso">
+En una conversación de chat, **ambos clientes** pueden **enviar y recibir mensajes simultáneamente**, actuando como cliente y servidor al mismo tiempo.
+</Aside>
+
+---
+
+## 2.1.5 – Múltiples Roles en la Red
+
+Una misma PC puede:  
+
+- Ejecutar **varios tipos de software de servidor** (ej. servidor web + correo + archivos).  
+- Ejecutar **varios tipos de software de cliente** (ej. navegador, cliente de correo, acceso a archivos).  
+
+<Steps>
+1. Un host puede ofrecer servicios a varios clientes de manera simultánea.  
+2. Un usuario puede consultar correo, navegar en la web y usar mensajería instantánea **al mismo tiempo**.  
+3. Los servidores y clientes pueden coexistir en un mismo equipo, especialmente en redes pequeñas.  
+</Steps>
